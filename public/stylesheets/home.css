@@ -3,7 +3,7 @@ body {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1619796404374-aff912b43cd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   overflow: auto;
 }
 
@@ -19,6 +19,11 @@ body {
   background-color: black;
 }
 
+.dropdown-item {
+  color: white;
+  background-color: black;
+}
+
 
 #credit {
   filter: invert(100%);
@@ -28,24 +33,48 @@ body {
   filter: invert(89%) sepia(75%) saturate(2640%) hue-rotate(63deg) brightness(85%) contrast(92%);
 }
 
+.shaper:hover {
+  background-color: #35AC5E;
+}
+
 #criminal {
   filter: invert(49%) sepia(12%) saturate(4050%) hue-rotate(165deg) brightness(106%) contrast(90%);
+}
+
+.criminal:hover {
+  background-color: #0080d5;
 }
 
 #anarch {
   filter: invert(38%) sepia(48%) saturate(5722%) hue-rotate(328deg) brightness(103%) contrast(101%);
 }
 
+.anarch:hover {
+  background-color: #c11134;
+}
+
 #adam {
   filter: invert(85%) sepia(31%) saturate(634%) hue-rotate(348deg) brightness(104%) contrast(102%);
+}
+
+.adam:hover {
+  background-color: #c4bc48;
 }
 
 #apex {
   filter: invert(13%) sepia(71%) saturate(5282%) hue-rotate(339deg) brightness(102%) contrast(95%);
 }
 
+.apex:hover {
+  background-color: #6c0419;
+}
+
 #sunny {
   filter: invert(84%) sepia(25%) saturate(5%) hue-rotate(353deg) brightness(94%) contrast(108%);
+}
+
+.sunny:hover {
+  background-color: #bababa;
 }
 
 #sunnyText {
@@ -63,6 +92,10 @@ body {
   filter: invert(32%) sepia(14%) saturate(2153%) hue-rotate(210deg) brightness(88%) contrast(85%);
 }
 
+.hb:hover {
+  background-color: #7665c7;
+}
+
 #hbText {
   color: #564b8a;
   background-color: black;
@@ -75,6 +108,10 @@ body {
 
 #jinteki {
   filter: invert(8%) sepia(79%) saturate(5871%) hue-rotate(350deg) brightness(89%) contrast(100%);
+}
+
+.jinteki:hover {
+  background-color: #b33e48;
 }
 
 #jintekiText {
@@ -91,6 +128,10 @@ body {
   filter: invert(37%) sepia(22%) saturate(867%) hue-rotate(107deg) brightness(96%) contrast(83%);
 }
 
+.weyland:hover {
+  background-color: #4c987c;
+}
+
 #weylandText {
   color: #39735e;
   background-color: black;
@@ -103,6 +144,10 @@ body {
 
 #nbn {
   filter: invert(95%) sepia(38%) saturate(5800%) hue-rotate(318deg) brightness(104%) contrast(90%);
+}
+
+.nbn:hover {
+  background-color: #ffe595;
 }
 
 #nbnText {

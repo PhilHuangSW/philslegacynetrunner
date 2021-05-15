@@ -1,5 +1,6 @@
 <% layout('layouts/boilerplate') %>
-<section class="section">
+
+<section class="section titleInfo">
   <div class="container">
     <h1 class="text-center text-white">
       Welcome to Phil's <span class="has-text-info">Netrunner</span> Legacy Decks Page!
@@ -9,92 +10,117 @@
       Heavily inspired by the
       <a href="https://boardgamegeek.com/thread/2224342/collection-30-decks-casual-play" title="Frankfurt30 BGG"
         alt="Link to Frankfurt30 Collection on BGG">
-        Frankfurt30
-      </a>
-      Collection,
-      Phil's Legacy
-      page will help
+        Frankfurt30 Collection
+      </a>,
+      Phil's Legacy Decks
+      Page will help
       you get to
-      running and/or advancing in no time!
+      running and/or advancing in no time! If you have already selected a deck you would like to play, simply find the
+      runner/corp using the navigation bar on top!
     </p>
-
-    <h3 class="text-center text-white">
-      Are you a <span class="text-danger">Runner</span> or <span class="text-primary">Corporation</span>?
-    </h3>
+    <p class="text-center text-white">
+      If you haven't selected a deck yet, no worries! Answer this questionnaire and we'll find you a deck that's suited
+      for you!
+    </p>
 
   </div>
 
 </section>
 
+<section class="runnerOrCorp">
+  <h3 class="text-center text-white mb-4">
+    Are you playing as the
+  </h3>
+
+  <div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-danger btn-lg runnerQuestion">Runner</button> <span
+      class="text-white text-center h3">or</span>
+    <button class="btn btn-info btn-lg corpQuestion">Corporation</button>
+  </div>
+  <!-- RUNNERORCORP SECTION -->
+</section>
+
+<section class="runnerFaction d-none">
+  <div class="d-grid mb-2">
+    <button class="btn btn-dark btn-lg d-block mainBack">Back to Runner or Corp</button>
+  </div>
+  <h3 class="text-center text-white mb-4">
+    Which runner faction would you like to play?
+  </h3>
+
+  <h3 class="text-center text-white mb-4">
+    To sum things up nicely:
+  </h3>
+
+  <h3 class="text-center text-white mb-4">
+    If the corp is trying to build up a fortress of ice:
+  </h3>
+  <h3 class="text-center text-info">
+    Criminals stop the corp from making it
+  </h3>
+  <h3 class="text-center text-danger">
+    Anarchs burn it down
+  </h3>
+  <h3 class="text-center text-success mb-4">
+    Shapers walk right through
+  </h3>
+
+  <div class="card text-center bg-dark">
+    <div class="card-header bg-dark">
+      <ul class="nav nav-pills card-header-pills nav-fill bg-dark">
+        <li class="nav-item">
+          <a class="nav-link btn btn-success bg-success text-success text-white pickShaper">Shaper</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-info text-info pickCriminal">Criminal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-danger text-danger pickAnarch">Anarch</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body shaperInfo">
+      <p class="card-text text-success"><strong><em>Shapers</em> are planners. They'll put their head down and come up
+          with a way to
+          solve
+          whatever
+          problem
+          the corp is
+          presenting them with. This takes time. If the corp does their thing before the Shaper comes up with a
+          solution,
+          corp wins. Otherwise the Shaper gets to run all over them.</strong>
+      </p>
+    </div>
+    <div class="card-body criminalInfo d-none">
+      <p class="card-text text-info"><strong><em>Criminals</em> are sneaky bastards. They don't want to deal with ICE
+          and prefer to bypass it or
+          find
+          another
+          way
+          around it. They're great at making money and denying the corp's funds but horribly inefficient at breaking
+          ICE.
+          The longer they can make the corp take to setup, the happier a Criminal is.</strong>
+      </p>
+    </div>
+    <div class="card-body anarchInfo d-none">
+      <p class="card-text text-danger"><strong><em>Anarchs</em> will smash a window with their face to see what'll
+          happen. They can do most things
+          and do
+          them
+          well but
+          at great personal cost. Smart Anarchs mitigate the costs. Other Anarchs try to win before the costs get
+          too
+          great.</strong>
+      </p>
+    </div>
+  </div>
+  <!-- RUNNERFACTION SECTION -->
+</section>
+
+
+
+
 <footer class="footer">
   <p>Art by: Chi Hung Wong @chwong97</p>
 
 </footer>
-
-
-
-
-<script>
-    // $(document).ready(function() {
-    //   // Check for click events on the navbar burger icon
-    //   $(".navbar-burger").click(function() {
-    //     // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-    //     $(".navbar-burger").toggleClass("is-active");
-    //     $(".navbar-menu").toggleClass("is-active");
-    //     $(".runners").addClass("is-hidden-mobile");
-    //     $(".corps").addClass("is-hidden-mobile");
-    //     // $(".corp").toggleClass("is-active");
-    //     // $(".runner").toggleClass("is-active");
-    //   });
-    // });
-  </script>
-
-<script>
-    // $(document).ready(function() {
-    //   $(".runner").click(function() {
-    //     $(".runners").toggleClass("is-hidden-mobile");
-    //     $(".runners").toggleClass("is-active");
-    //   });
-    // });
-    // $(document).ready(function() {
-    //   $(".corp").click(function() {
-    //     $(".corps").toggleClass("is-hidden-mobile");
-    //     $(".corps").toggleClass("is-flex");
-    //   });
-    // });
-    // $(document).ready(function() {
-    //   $(".runner").click(function() {
-    //     $(".runner").next().toggleClass("is-hidden-mobile");
-    //   });
-    // });
-  </script>
-
-<!-- <script>
-  $(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $("#no").click(function() {
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $("#yes").removeClass("is-success").removeClass("is-selected");
-        $("#maybe").removeClass("is-info").removeClass("is-selected");
-        $("#no").toggleClass("is-danger").toggleClass("is-selected");
-    });
-  });
-  </script>
-
-  <script>
-    var yes = document.getElementById("yes");
-    var maybe = document.getElementById("maybe");
-    var no = document.getElementById("no");
-
-    function yesButton() {
-      yes.classList.toggle("is-success", "is-selected");
-      maybe.classList.remove("is-info", "is-selected");
-      no.classList.remove("is-danger", "is-selected");
-    }
-
-    function maybeButton() {
-      yes.classList.remove("is-success", "is-selected");
-      maybe.classList.toggle("is-info", "is-selected");
-      no.classList.remove("is-danger", "is-selected");
-    }
-  </script> -->
