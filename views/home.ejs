@@ -48,22 +48,13 @@
     Which runner faction would you like to play?
   </h3>
 
-  <h3 class="text-center text-white mb-4">
-    To sum things up nicely:
-  </h3>
-
-  <h3 class="text-center text-white mb-4">
-    If the corp is trying to build up a fortress of ice:
-  </h3>
-  <h3 class="text-center text-info">
-    Criminals stop the corp from making it
-  </h3>
-  <h3 class="text-center text-danger">
-    Anarchs burn it down
-  </h3>
-  <h3 class="text-center text-success mb-4">
-    Shapers walk right through
-  </h3>
+  <blockquote class="blockquote text-center text-white">
+    To sum things up nicely,
+    <br> If the <span class="text-secondary">Corp</span> is trying to build a fortress of ice:
+    <br> <span class="text-success">Shapers</span> walk right through it
+    <br> <span class="text-info">Criminals</span> stop the corp from making it
+    <br> <span class="text-danger">Anarchs</span> burn it down
+  </blockquote>
 
   <div class="card text-center bg-dark">
     <div class="card-header bg-dark">
@@ -77,6 +68,9 @@
         <li class="nav-item">
           <a class="nav-link btn btn-danger text-danger pickAnarch">Anarch</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-warning text-warning pickMini">Mini-Factions</a>
+        </li>
       </ul>
     </div>
     <div class="card-body shaperInfo">
@@ -88,7 +82,7 @@
           the corp is
           presenting them with. This takes time. If the corp does their thing before the Shaper comes up with a
           solution,
-          corp wins. Otherwise the Shaper gets to run all over them.</strong>
+          corp wins. <br>Otherwise the Shaper gets to run all over them.</strong>
       </p>
     </div>
     <div class="card-body criminalInfo d-none">
@@ -113,14 +107,207 @@
           great.</strong>
       </p>
     </div>
+    <div class="card-body miniInfo d-none">
+      <p class="card-text text-warning">
+        <strong>The <em>Mini-Factions</em> are certainly an eclectic bunch. They each borrow familiar traits from each
+          faction, but put their own unique twist on things. Are you a Bioroid following your directives but searching
+          for your own meaning, a Corrupted
+          sentient source code looking to devour everything, or a badass Working Woman looking to take down corps from
+          the inside out. </strong>
+      </p>
+    </div>
   </div>
   <!-- RUNNERFACTION SECTION -->
 </section>
 
+<section class="shaperFaction d-none pb-5">
+  <div class="card-group">
+    <!-- CHAOS THEORY CARD -->
+    <div class="card border-dark">
+      <img
+        src="https://cdn.inprnt.com/thumbs/61/af/61af9d55c15244933c41b11b99a8a093.jpg?response-cache-control=max-age=2628000"
+        alt="Chaos Theory Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Have You Met Dinosaurus?</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-success">
+          <em>Chaos Theory</em> epitomizes the Shaper Faction. Slow to build up her rig, but once
+          you do, you can
+          pretty much knock down any door that's in your way.
+        </p>
+      </div>
+    </div>
 
+    <!-- SMOKE CARD -->
+    <div class="card border-dark">
+      <img
+        src="https://cdn.inprnt.com/thumbs/d9/f9/d9f97b889edba115f77acb1d4a692a6e.jpg?response-cache-control=max-age=2628000"
+        alt="Ele &quot;Smoke&quot; Scovak Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Smoke and Mirrors</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-success">
+          <em>Smoke</em> is all about showy efficiency. Smoke can treat large ICE as if they were all paper walls and
+          her glittery encores allow her to score without stealing.
+        </p>
 
+      </div>
+    </div>
 
-<footer class="footer">
-  <p>Art by: Chi Hung Wong @chwong97</p>
+    <!-- NASIR CARD -->
+    <div class="card border-dark">
+      <img src="https://64.media.tumblr.com/20ac69cf488c57676b8941d538dd0320/tumblr_n6ng205cPu1sqwblpo1_1280.jpg"
+        alt="Nasir Meidan Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center border-danger">
+          <em>Personal Workshop</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-success">
+          <em>Nasir</em> embraces the weird but powerful tools Shapers have created. He spends most of his time
+          tinkering in his personal workshop.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-</footer>
+<section class="criminalFaction d-none pb-5">
+  <div class="card-group">
+    <div class="card border-dark">
+      <img
+        src="https://images.8tracks.com/cover/i/012/661/680/port-ill-armand-3196.jpg?rect=0,43,710,710&q=98&fm=jpg&fit=max"
+        alt="Armand &quot;Geist&quot; Walker Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>You're Trash Kid</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-info">
+          <em>"Geist"</em> loves to trash things. It doesn't matter that he can only use things once, he makes
+          that one time count.
+        </p>
+      </div>
+    </div>
+    <div class="card border-dark">
+      <img
+        src="https://cdn.inprnt.com/thumbs/75/fc/75fc67bc884a8b38a69e120cacccaf4c.jpg?response-cache-control=max-age=2628000"
+        alt="Gabriel Santiago Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>I Know A Guy</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-info">
+          <em>Gabe</em> is charisma incarnate. He knows just about everyone and will utilize each person to get exactly
+          what he wants or needs.
+        </p>
+      </div>
+    </div>
+    <div class="card border-dark">
+      <img src="https://cutewallpaper.org/21/netrunner-wallpapers/Khan-Android-Netrunner-by-Matt-Zeilinger-Free-HD-.jpg"
+        alt="Khan Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Birds are the Word</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-info">
+          <em>Khan</em> loves her money, which is good because her birds are expensive to maintain their beak
+          performances.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="anarchFaction d-none pb-5">
+  <div class="card-group">
+    <div class="card border-dark">
+      <img src="https://64.media.tumblr.com/9bf2bc87badbed37f1fc2e1b1209746b/tumblr_inline_oxkelddge41uigzcn_1280.jpg"
+        alt="Null Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Some Men Just Want to Watch the World Burn</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-danger">
+          <em>Null</em> wants to do exactly as his name implies, to void everything the corp has ever created.
+        </p>
+      </div>
+    </div>
+    <div class="card border-dark">
+      <img
+        src="https://cdn.inprnt.com/thumbs/b6/0a/b60a73364c3b371edbefe1647e26c293.jpg?response-cache-control=max-age=2628000"
+        alt="Omar Keung Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>I'm Not Old, I'm Experienced</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-danger">
+          <em>Omar</em> has grown a bit senile, but once he starts his job, muscle memory kicks in and none of the
+          corps' secrets will remain secret for long.
+        </p>
+      </div>
+    </div>
+    <div class="card border-dark">
+      <img
+        src="https://cdn.inprnt.com/thumbs/23/b9/23b9b68c912f7394de894c70e9b025c0.jpg?response-cache-control=max-age=2628000"
+        alt="Reina Roja Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Queen's Gambit</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-danger">
+          <em>Reina</em> is always thinking 20 or 30 moves ahead of her opponents. Given the choice, she will never
+          hesitate to sacrifice
+          herself in order to win the overall war.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="miniFaction d-none pb-5">
+  <div class="card-group">
+    <div class="card border-dark">
+      <img
+        src="data:image/jpeg;base64,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"
+        alt="Adam Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Searching for Meaning</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-warning">
+          <em>Adam</em> is forced to follow his programmed directives, but working with his Deva and other AI has slowly
+          made him more cognizant. What's more dangerous than a self-aware Bioroid?
+        </p>
+      </div>
+    </div>
+    <div class="card border-dark">
+      <img
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/368c5634-1556-48e4-8b69-fb3c677998cc/d8wjkbx-99988832-6d1c-49a3-b1dc-532ed5f4cc1d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM2OGM1NjM0LTE1NTYtNDhlNC04YjY5LWZiM2M2Nzc5OThjY1wvZDh3amtieC05OTk4ODgzMi02ZDFjLTQ5YTMtYjFkYy01MzJlZDVmNGNjMWQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.aSaX37S2ikbb_tvfoxoHzpMRKq0EDE7ZOENOQGVU79I"
+        alt="Apex Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Age of Apex</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-danger">
+          <em>Apex</em> is a complete mystery. Anyone that tells you anything about Apex is either lying or mistaken.
+          All we know is that Apex is always hungry and is constantly on the hunt for its next prey.
+        </p>
+      </div>
+    </div>
+    <div class="card border-dark">
+      <img
+        src="https://images.8tracks.com/cover/i/012/310/805/port-ill-sunny-9159.jpg?rect=0,0,756,756&q=98&fm=jpg&fit=max"
+        alt="Sunny Lebeau Full Art" class="card-img-top">
+      <div class="card-body bg-dark">
+        <h4 class="card-title text-white text-center">
+          <em>Mommy Needs to Kick Some Ass</em>
+        </h4>
+        <p class="card-text text-center bg-dark text-light">
+          <em>Sunny</em> makes a living as a Runner using the resources of the world's best known security corporations.
+          With her vast capital, she gets to utilize the best equipment and programs commercially available.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

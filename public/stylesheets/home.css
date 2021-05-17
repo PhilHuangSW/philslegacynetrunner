@@ -163,3 +163,7 @@ body {
 .navbar-divider {
   border-bottom: 1px solid white;
 }
+
+.card-img-top {
+  height: 100%;
+}
