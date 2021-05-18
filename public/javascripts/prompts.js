@@ -1,20 +1,49 @@
 
 // PROMPTS FOR PICKING DECKS
 $(document).ready(() => {
+  // ALL RUNNER FACTION
+  const runnerFaction = $('.runnerFaction');
   const shaperFaction = $('.shaperFaction');
   const criminalFaction = $('.criminalFaction');
   const anarchFaction = $('.anarchFaction');
   const miniFaction = $('.miniFaction');
 
+  // ALL FACTION INFO
+  const titleInfo = $('.titleInfo');
   const shaperInfo = $('.shaperInfo');
   const criminalInfo = $('.criminalInfo');
   const anarchInfo = $('.anarchInfo');
   const miniInfo = $('.miniInfo');
 
+  // ALL RUNNER PICKING
   const pickShaper = $('.pickShaper');
   const pickCriminal = $('.pickCriminal');
   const pickAnarch = $('.pickAnarch');
   const pickMini = $('.pickMini');
+
+  // QUESTIONS
+  const runnerOrCorp = $('.runnerOrCorp');
+  const runnerQuestion = $('.runnerQuestion');
+  const corpQuestion = $('.corpQuestion');
+
+  // ALL CORP FACTION
+  const corpFaction = $('.corpFaction');
+  const hbFaction = $('.hbFaction');
+  const jintekiFaction = $('.jintekiFaction');
+  const weylandFaction = $('.weylandFaction');
+  const nbnFaction = $('.nbnFaction');
+
+  // ALL CORP BUTTONS FOR COLORS
+  const hbButton = $('.hbButton');
+  const jintekiButton = $('.jintekiButton');
+  const weylandButton = $('.weylandButton');
+  const nbnButton = $('.nbnButton');
+
+  // ALL CORP PICKING
+  const pickHB = $('.pickHB');
+  const pickJinteki = $('.pickJinteki');
+  const pickWeyland = $('.pickWeyland');
+  const pickNBN = $('.pickNBN');
 
   function pressShaperFaction() {
     // Show Shaper
@@ -88,33 +117,89 @@ $(document).ready(() => {
     miniFaction.removeClass('d-none');
   };
 
+  function pressHBFaction() {
+    // Highlights HB Button
+    hbButton.addClass('pickHB');
+    jintekiButton.removeClass('pickJinteki');
+    weylandButton.removeClass('pickWeyland');
+    nbnButton.removeClass('pickNBN');
+    hbButton.addClass('text-white');
+    jintekiButton.removeClass('text-white');
+    weylandButton.removeClass('text-white');
+    nbnButton.removeClass('text-white');
+  };
+
+  function pressJintekiFaction() {
+    hbButton.removeClass('pickHB');
+    jintekiButton.addClass('pickJinteki');
+    weylandButton.removeClass('pickWeyland');
+    nbnButton.removeClass('pickNBN');
+    hbButton.removeClass('text-white');
+    jintekiButton.addClass('text-white');
+    weylandButton.removeClass('text-white');
+    nbnButton.removeClass('text-white');
+  };
+
+  function pressWeylandFaction() {
+    hbButton.removeClass('pickHB');
+    jintekiButton.removeClass('pickJinteki');
+    weylandButton.addClass('pickWeyland');
+    nbnButton.removeClass('pickNBN');
+    hbButton.removeClass('text-white');
+    jintekiButton.removeClass('text-white');
+    weylandButton.addClass('text-white');
+    nbnButton.removeClass('text-white');
+  };
+
+  function pressNBNFaction() {
+    hbButton.removeClass('pickHB');
+    jintekiButton.removeClass('pickJinteki');
+    weylandButton.removeClass('pickWeyland');
+    nbnButton.addClass('pickNBN');
+    hbButton.removeClass('text-white');
+    jintekiButton.removeClass('text-white');
+    weylandButton.removeClass('text-white');
+    nbnButton.addClass('text-white');
+  };
+
   // Are you runner or Corp?
-  $('.runnerQuestion').click(() => {
-    $('.runnerOrCorp').toggleClass('d-none');
-    $('.runnerFaction').toggleClass('d-none');
+  runnerQuestion.click(() => {
+    runnerOrCorp.addClass('d-none');
+    runnerFaction.removeClass('d-none');
     shaperFaction.removeClass('d-none');
-    $('.titleInfo').toggleClass('d-none');
+    titleInfo.addClass('d-none');
     pressShaperFaction();
   });
-  $('.corpQuestion').click(() => {
-    console.log('Corp clicked!');
+
+  corpQuestion.click(() => {
+    runnerOrCorp.addClass('d-none');
+    corpFaction.removeClass('d-none');
+    hbFaction.removeClass('d-none');
+    titleInfo.addClass('d-none');
+    pressHBFaction();
   });
 
   $('.mainBack').click(() => {
-    $('.titleInfo').toggleClass('d-none');
-    $('.runnerOrCorp').toggleClass('d-none');
-    $('.runnerFaction').addClass('d-none');
-    $('.corpFaction').addClass('d-none');
+    titleInfo.toggleClass('d-none');
+    runnerOrCorp.toggleClass('d-none');
+    runnerFaction.addClass('d-none');
+    corpFaction.addClass('d-none');
     shaperFaction.addClass('d-none');
     criminalFaction.addClass('d-none');
     anarchFaction.addClass('d-none');
     miniFaction.addClass('d-none');
+    hbFaction.addClass('d-none');
   });
 
   pickShaper.click((pressShaperFaction));
   pickCriminal.click((pressCriminalFaction));
   pickAnarch.click((pressAnarchFaction));
   pickMini.click((pressMiniFaction));
+
+  hbButton.click((pressHBFaction));
+  jintekiButton.click((pressJintekiFaction));
+  weylandButton.click((pressWeylandFaction));
+  nbnButton.click((pressNBNFaction));
 });
 
 
