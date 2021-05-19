@@ -43,11 +43,11 @@ body {
 }
 
 #shaperText:hover {
-  color: #86ff94;
+  color: #5af96d;
 }
 
 .pickShaper:hover {
-  color: #000000;
+  background-color: #28a745!important;
 }
 
 #criminal {
@@ -66,6 +66,10 @@ body {
   color: #a4dbff;
 }
 
+.pickCriminal:hover {
+  background-color: #21d8fc!important;
+}
+
 #anarch {
   filter: invert(38%) sepia(48%) saturate(5722%) hue-rotate(328deg) brightness(103%) contrast(101%);
 }
@@ -80,6 +84,10 @@ body {
 
 #anarchText:hover {
   color: #ff3939;
+}
+
+.pickAnarch:hover {
+  background-color: #f95061!important;
 }
 
 #adam {
@@ -116,6 +124,10 @@ body {
   background-color: black;
 }
 
+.pickMini:hover {
+  background-color: #f2e753!important;
+}
+
 #hb {
   filter: invert(32%) sepia(14%) saturate(2153%) hue-rotate(210deg) brightness(88%) contrast(85%);
 }
@@ -125,6 +137,10 @@ body {
 }
 
 #hbText {
+  color: #695ca9;
+}
+
+.hbText {
   color: #695ca9;
 }
 
@@ -153,6 +169,10 @@ body {
   color: #f23f4e;
 }
 
+.jintekiText {
+  color: #f23f4e;
+}
+
 #jintekiText:hover {
   color: #9a0814;
 }
@@ -178,6 +198,10 @@ body {
   color: #568e79;
 }
 
+.weylandText {
+  color: #568e79;
+}
+
 #weylandText:hover {
   color: #1f523f;
 }
@@ -200,6 +224,10 @@ body {
 }
 
 #nbnText {
+  color: #f2ca50;
+}
+
+.nbnText {
   color: #f2ca50;
 }
 

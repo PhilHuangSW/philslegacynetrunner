@@ -39,6 +39,12 @@ $(document).ready(() => {
   const weylandButton = $('.weylandButton');
   const nbnButton = $('.nbnButton');
 
+  // ALL CORP INFO
+  const hbInfo = $('.hbInfo');
+  const jintekiInfo = $('.jintekiInfo');
+  const weylandInfo = $('.weylandInfo');
+  const nbnInfo = $('.nbnInfo');
+
   // ALL CORP PICKING
   const pickHB = $('.pickHB');
   const pickJinteki = $('.pickJinteki');
@@ -118,48 +124,75 @@ $(document).ready(() => {
   };
 
   function pressHBFaction() {
+    // Show HB
+    hbInfo.removeClass('d-none');
+    jintekiInfo.addClass('d-none');
+    weylandInfo.addClass('d-none');
+    nbnInfo.addClass('d-none');
     // Highlights HB Button
-    hbButton.addClass('pickHB');
-    jintekiButton.removeClass('pickJinteki');
-    weylandButton.removeClass('pickWeyland');
-    nbnButton.removeClass('pickNBN');
-    hbButton.addClass('text-white');
-    jintekiButton.removeClass('text-white');
-    weylandButton.removeClass('text-white');
-    nbnButton.removeClass('text-white');
+    hbButton.addClass('pickHB').addClass('text-white');
+    jintekiButton.removeClass('pickJinteki').removeClass('text-white');
+    weylandButton.removeClass('pickWeyland').removeClass('text-white');
+    nbnButton.removeClass('pickNBN').removeClass('text-white');
+    // Displays the HB Corporations
+    hbFaction.removeClass('d-none');
+    jintekiFaction.addClass('d-none');
+    weylandFaction.addClass('d-none');
+    nbnFaction.addClass('d-none');
   };
 
   function pressJintekiFaction() {
-    hbButton.removeClass('pickHB');
-    jintekiButton.addClass('pickJinteki');
-    weylandButton.removeClass('pickWeyland');
-    nbnButton.removeClass('pickNBN');
-    hbButton.removeClass('text-white');
-    jintekiButton.addClass('text-white');
-    weylandButton.removeClass('text-white');
-    nbnButton.removeClass('text-white');
+    // Show Jinteki
+    hbInfo.addClass('d-none');
+    jintekiInfo.removeClass('d-none');
+    weylandInfo.addClass('d-none');
+    nbnInfo.addClass('d-none');
+    // Highlights Jinteki Button
+    hbButton.removeClass('pickHB').removeClass('text-white');
+    jintekiButton.addClass('pickJinteki').addClass('text-white');
+    weylandButton.removeClass('pickWeyland').removeClass('text-white');
+    nbnButton.removeClass('pickNBN').removeClass('text-white');
+    // Displays the Jinteki Corporations
+    hbFaction.addClass('d-none');
+    jintekiFaction.removeClass('d-none');
+    weylandFaction.addClass('d-none');
+    nbnFaction.addClass('d-none');
   };
 
   function pressWeylandFaction() {
-    hbButton.removeClass('pickHB');
-    jintekiButton.removeClass('pickJinteki');
-    weylandButton.addClass('pickWeyland');
-    nbnButton.removeClass('pickNBN');
-    hbButton.removeClass('text-white');
-    jintekiButton.removeClass('text-white');
-    weylandButton.addClass('text-white');
-    nbnButton.removeClass('text-white');
+    // Show Weyland
+    hbInfo.addClass('d-none');
+    jintekiInfo.addClass('d-none');
+    weylandInfo.removeClass('d-none');
+    nbnInfo.addClass('d-none');
+    // Highlights Weyland Button
+    hbButton.removeClass('pickHB').removeClass('text-white');
+    jintekiButton.removeClass('pickJinteki').removeClass('text-white');
+    weylandButton.addClass('pickWeyland').addClass('text-white');
+    nbnButton.removeClass('pickNBN').removeClass('text-white');
+    // Displays the Weyland Corporations
+    hbFaction.addClass('d-none');
+    jintekiFaction.addClass('d-none');
+    weylandFaction.removeClass('d-none');
+    nbnFaction.addClass('d-none');
   };
 
   function pressNBNFaction() {
-    hbButton.removeClass('pickHB');
-    jintekiButton.removeClass('pickJinteki');
-    weylandButton.removeClass('pickWeyland');
-    nbnButton.addClass('pickNBN');
-    hbButton.removeClass('text-white');
-    jintekiButton.removeClass('text-white');
-    weylandButton.removeClass('text-white');
-    nbnButton.addClass('text-white');
+    // Show NBN
+    hbInfo.addClass('d-none');
+    jintekiInfo.addClass('d-none');
+    weylandInfo.addClass('d-none');
+    nbnInfo.removeClass('d-none');
+    // Highlights NBN Button
+    hbButton.removeClass('pickHB').removeClass('text-white');
+    jintekiButton.removeClass('pickJinteki').removeClass('text-white');
+    weylandButton.removeClass('pickWeyland').removeClass('text-white');
+    nbnButton.addClass('pickNBN').addClass('text-white');
+    // Displays the NBN Corporations
+    hbFaction.addClass('d-none');
+    jintekiFaction.addClass('d-none');
+    weylandFaction.addClass('d-none');
+    nbnFaction.removeClass('d-none');
   };
 
   // Are you runner or Corp?
@@ -189,6 +222,9 @@ $(document).ready(() => {
     anarchFaction.addClass('d-none');
     miniFaction.addClass('d-none');
     hbFaction.addClass('d-none');
+    jintekiFaction.addClass('d-none');
+    weylandFaction.addClass('d-none');
+    nbnFaction.addClass('d-none');
   });
 
   pickShaper.click((pressShaperFaction));

@@ -19,8 +19,8 @@
       runner/corp using the navigation bar on top!
     </h6>
     <h6 class="text-center text-white">
-      If you haven't selected a deck yet, no worries! Answer this questionnaire and we'll find you a deck that's suited
-      for you!
+      If you haven't selected a deck yet, no worries! Use the following navigation and find a deck that fits your
+      playstyle!
     </h6>
 
   </div>
@@ -60,10 +60,10 @@
     <div class="card-header bg-dark">
       <ul class="nav nav-pills card-header-pills nav-fill bg-dark">
         <li class="nav-item">
-          <a class="nav-link btn btn-success bg-success text-success text-white pickShaper">Shaper</a>
+          <a class="nav-link btn btn-success bg-success text-success text-white pickShaper" id="shaperText">Shaper</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-info text-info pickCriminal">Criminal</a>
+          <a class="nav-link btn btn-info text-info pickCriminal" id="criminalText">Criminal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn btn-danger text-danger pickAnarch">Anarch</a>
@@ -82,7 +82,7 @@
           the corp is
           presenting them with. This takes time. If the corp does their thing before the Shaper comes up with a
           solution,
-          corp wins. <br>Otherwise the Shaper gets to run all over them.</strong>
+          corp wins. Otherwise the Shaper gets to run all over them.</strong>
       </p>
     </div>
     <div class="card-body criminalInfo d-none">
@@ -192,12 +192,13 @@
           <em>You're Trash Kid</em>
         </h4>
         <p class="card-text text-center bg-dark text-info">
-          <em>"Geist"</em> loves to trash things. It doesn't matter that he can only use things once, he makes
+          <em>"Geist"</em> has a lot of toys that are unfortunately very fragile and one time use. But it doesn't matter
+          that he can only use things once, he makes
           that one time count.
         </p>
       </div>
-      <div class="card-footer bg-dark">
-        <a href="/" class="btn btn-info btn-md text-center">
+      <div class="card-footer bg-dark mx-auto">
+        <a href="/" class="btn btn-info btn-md text-center text-white">
           Pick Armand "Geist" Walker
         </a>
       </div>
@@ -215,7 +216,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-info btn-md text-center">
+        <a href="/" class="btn btn-info btn-md text-center text-white">
           Pick Gabriel Santiago
         </a>
       </div>
@@ -228,12 +229,12 @@
           <em>Birds are the Word</em>
         </h4>
         <p class="card-text text-center bg-dark text-info">
-          <em>Khan</em> loves her money, which is good because her birds are expensive to maintain their beak
-          performances.
+          <em>Khan</em> has a reputation for taking on the most challenging, albeit rewarding, contracts. It takes
+          a lot of money to maintain her birds at beak performances.
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-info btn-md text-center">
+        <a href="/" class="btn btn-info btn-md text-center text-white">
           Pick Khan
         </a>
       </div>
@@ -305,7 +306,7 @@
 <section class="miniFaction d-none pb-5">
   <div class="card-group">
     <!-- ADAM -->
-    <div class="card border-dark">
+    <div class="card border-dark bg-dark">
       <img src="/images/adam.jpeg" alt="Adam Full Art" class="card-img-top">
       <div class="card-body bg-dark">
         <h4 class="card-title text-white text-center">
@@ -316,9 +317,14 @@
           made him more cognizant. What's more dangerous than a self-aware Bioroid?
         </p>
       </div>
+      <div class="card-footer bg-dark mx-auto">
+        <a href="/" class="btn btn-warning btn-md text-center">
+          Pick Adam
+        </a>
+      </div>
     </div>
     <!-- APEX -->
-    <div class="card border-dark">
+    <div class="card border-dark bg-dark">
       <img src="/images/apex.jpg" alt="Apex Full Art" class="card-img-top">
       <div class="card-body bg-dark">
         <h4 class="card-title text-white text-center">
@@ -329,25 +335,35 @@
           All we know is that Apex is always hungry and is constantly on the hunt for its next prey.
         </p>
       </div>
+      <div class="card-footer bg-dark mx-auto">
+        <a href="/" class="btn btn-danger btn-md text-center">
+          Pick Apex
+        </a>
+      </div>
     </div>
     <!-- SUNNY LEBEAU -->
-    <div class="card border-dark">
+    <div class="card border-dark bg-dark">
       <img src="/images/sunny.jpg" alt="Sunny Lebeau Full Art" class="card-img-top">
       <div class="card-body bg-dark">
         <h4 class="card-title text-white text-center">
           <em>Mommy Needs to Kick Some Ass</em>
         </h4>
         <p class="card-text text-center bg-dark text-light">
-          <em>Sunny</em> makes a living as a Runner using the resources of the world's best known security corporations.
+          <em>Sunny</em> makes a living as a runner using the resources of the world's best known security corporations.
           With her vast capital, she gets to utilize the best equipment and programs commercially available.
         </p>
+      </div>
+      <div class="card-footer bg-dark mx-auto">
+        <a href="/" class="btn btn-light btn-md text-center">
+          Pick Sunny Lebeau
+        </a>
       </div>
     </div>
   </div>
   <!-- MINI FACTION SECTION -->
 </section>
 
-<section class="corpFaction d-none pb-5">
+<section class="corpFaction d-none">
   <div class="d-grid mb-2">
     <button class="btn btn-dark btn-lg d-block mainBack">Back to Runner or Corp</button>
   </div>
@@ -359,7 +375,7 @@
     To sum things up nicely,
     <br> If the <span class="text-secondary">Runner</span> is trying to get into the corp's servers:
     <br> <span id="hbText">HB</span> makes it cost too much time and money
-    <br> <span id="jintekiText">Jinteki</span> lays traps that makes the runner second guess themselves
+    <br> <span id="jintekiText">Jinteki</span> lay traps that make the runner second guess themselves
     <br> <span id="weylandText">Weyland</span> punishes the runner for getting through
     <br> <span id="nbnText">NBN</span> sets up an endless series of catch-22s that make the runner not even want to run.
   </blockquote>
@@ -381,50 +397,314 @@
         </li>
       </ul>
     </div>
+    <div class="card-body hbInfo">
+      <p class="card-text hbText"><strong><em>Haas-Bioroid</em> is the value town corp. They can do a bit of everything
+          and they do it for a decent price. What they care about most is efficiency, clicks are king for HB. They have
+          a plethora of ways to gain clicks and bioroid ICE, while good value, can be broken if the runner spends
+          clicks. If the runner is more efficient than HB, HB loses.</strong>
+      </p>
+    </div>
+    <div class="card-body jintekiInfo d-none">
+      <p class="card-text jintekiText"><strong><em>Jinteki</em> is all about manipulation. They're not very good at
+          keeping the runner out of their stuff so their main defense is asking the runner if they really want to.
+          Plenty of taxing ICE that's a real pain to deal with and traps to go at the end of them to make you regret
+          every choice that lead you to that point. If the runner guesses
+          right on the shell games or has a way to pay through whatever nonsense Jinteki is trying to pull off, they'll
+          get there.</strong>
+      </p>
+    </div>
+    <div class="card-body weylandInfo d-none">
+      <p class="card-text weylandText"><strong><em>Weyland</em> is a rich bastard. Getting extravagant piles of cash is
+          what Weyland is best at. Then they erect great hulking walls to keep the runner out. If things don't go their
+          way they have a tantrum and try to blow the runner up with a pile of meat damage. Things tend to go wrong for
+          Weyland when they don't have as much money as they'd like.</strong>
+      </p>
+    </div>
+    <div class="card-body nbnInfo d-none">
+      <p class="card-text nbnText">
+        <strong><em>NBN</em> loves information. They're great at landing tags and punishing you in a host of different
+          ways. They're also great at drawing and filtering cards. To top it off, NBN is amazing at scoring agendas
+          out of hand. NBN loses when the runner has a way to slow them down or just straight up overrun them.</strong>
+      </p>
+    </div>
   </div>
+  <!-- CORP FACTION SECTION -->
 </section>
 
 <section class="hbFaction d-none pb-5">
   <div class="card-group">
-    <!-- THE FOUNDRY CARD -->
-    <div class="card border-dark bg-dark">
-      <img src="/images/chaostheory.jpg" alt="The Foundry: Refining the Process Full Art" class="card-img-top">
-      <div class=" card-body bg-dark">
-        <h4 class="card-title text-white text-center">
-          <em>The NEXT Holy Grail</em>
-        </h4>
-        <p class="card-text text-center bg-dark text-success">
-          <em>The Foundry</em> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sed at quaerat
-          impedit temporibus, consectetur, veritatis doloribus aliquid aspernatur, non asperiores aliquam obcaecati
-          minima excepturi sint vitae id molestiae?
-        </p>
+    <div class="row bg-dark m-auto">
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
       </div>
-      <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn hbButton btn-md text-center">
-          Pick The Foundry
-        </a>
-      </div>
-    </div>
 
-    <!-- HAAS-BIOROID CARD -->
-    <div class="card border-dark bg-dark">
-      <img src="/images/smoke.jpg" alt="Haas-Bioroid: Architects of Tomorrow Full Art" class="card-img-top">
-      <div class=" card-body bg-dark">
-        <h4 class="card-title text-white text-center">
-          <em>Campaigning with Bioroids</em>
-        </h4>
-        <p class="card-text text-center bg-dark text-success">
-          <em>Haas-Bioroid</em> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium architecto odit aut
-          aliquid, dolorum facilis eaque commodi expedita quo, tempora error debitis blanditiis, dolorem iusto
-          reiciendis dolore doloribus ducimus doloremque.
-        </p>
+      <!-- THE FOUNDRY CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src="/images/foundry.jpg" alt="The Foundry: Refining the Process Full Art" class="card-img-top">
+          <div class="card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>The NEXT Holy Grail</em>
+            </h4>
+            <p class="card-text text-center bg-dark hbText">
+              <em>The Foundry</em> specializes in mass producing NEXT and Grail ICE. They're ICE are quite slow and weak
+              to start, but with every future iteration it can quickly become a costly endeavor to breach their
+              servers.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto my-auto">
+            <a href="/" class="btn hbButton btn-md text-center mt-1">
+              Pick The Foundry
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn hbButton btn-md text-center">
-          Pick Haas-Bioroid
-        </a>
+
+      <!-- FILLER TEST -->
+      <div class="col-2 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+
+      <!-- HAAS-BIOROID CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src=" /images/haasbioroid.jpg" alt="Haas-Bioroid: Architects of Tomorrow Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Campaigning with Bioroids</em>
+            </h4>
+            <p class="card-text text-center bg-dark hbText">
+              <em>Haas-Bioroid</em> are the world leaders in cybernetics and AI. Specializing themselves in creating
+              bioroids, they have pervaded the world with their endless bioroid campaigns and their hyper-efficient
+              bioroid ICE.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto">
+            <a href="/" class="btn hbButton btn-md text-center my-auto">
+              Pick Haas-Bioroid
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
       </div>
     </div>
   </div>
   <!-- HB FACTION SECTION -->
+</section>
+
+<section class="jintekiFaction d-none pb-5">
+  <div class="card-group">
+    <div class="row bg-dark m-auto">
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+      <!-- NISEI DIVISION CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src="/images/nisei.jpg" alt="Nisei Division: The Next Generation Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Do You Want to Play a PSI Game?</em>
+            </h4>
+            <p class="card-text text-center bg-dark jintekiText">
+              <em>Nisei Division</em> of Jinteki are the reason for the PSI clones. Their clones have precognitive
+              capabilities
+              which they use to foresee the future. If they can correctly predict the future, runners tend
+              to be met with deadly countermeasures.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto mt-auto">
+            <a href="/" class="btn jintekiButton btn-md text-center">
+              Pick Nisei Division
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-2 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+
+      <!-- JINTEKI CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src="/images/jinteki.jpg" alt="Jinteki: Personal Evolution Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Death by Thousand Cuts</em>
+            </h4>
+            <p class="card-text text-center bg-dark jintekiText">
+              <em>Jinteki</em> are very mysterious in their ways of development. With their personable clones, they tend
+              to be
+              very welcoming to their servers, almost in a rather seductive way. What you'll find there, however, is
+              anything
+              but inviting.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto mt-auto">
+            <a href="/" class="btn jintekiButton btn-md text-center">
+              Pick Jinteki
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JINTEKI FACTION SECTION -->
+</section>
+
+<section class="weylandFaction d-none pb-5">
+  <div class="card-group">
+    <div class="row bg-dark m-auto">
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+
+      <!-- WEYLAND BUILDER OF NATIONS CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src="/images/weylandbon.jpg" alt="Weyland Consortium: Builder of Nations Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Everything is Advanceable</em>
+            </h4>
+            <p class="card-text text-center bg-dark weylandText">
+              <em>Weyland</em> is notorious for buying many large construction companies to build
+              massive constellations of ICE. To them, everything is advanceable; and to the runner, that is a very bad
+              thing.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto">
+            <a href="/" class="btn weylandButton btn-md text-center mt-auto">
+              Pick Builder of Nations
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-2 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+
+      <!-- WEYLAND BUILDING A BETTER WORLD CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src="/images/babw.jpg" alt="Weyland Consortium: Building a Better World Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Too Big to Fail</em>
+            </h4>
+            <p class="card-text text-center bg-dark weylandText">
+              <em>Weyland</em> has a near limitless bankroll and aren't shy of employing the strongest ICE from other
+              corporations. If the mountains of ICE don't stop runners, Weyland will just go off the grid to prevent any
+              further infiltration.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto">
+            <a href="/" class="btn weylandButton btn-md text-center mt-auto">
+              Pick Building a Better World
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- WEYLAND FACTION SECTION -->
+</section>
+
+<section class="nbnFaction d-none pb-5">
+  <div class="card-group">
+    <div class="row bg-dark m-auto">
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+
+      <!-- SPARK AGENCY CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class=" card border-dark bg-dark h-100">
+          <img src="/images/spark.jpg" alt="Spark Agency: Worldswide Reach Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Ads, Ads Everywhere</em>
+            </h4>
+            <p class="card-text text-center bg-dark nbnText">
+              <em>Spark Agency</em> is all about hitting the consumer with ads, ads, and more ads. Once they have the
+              runner's info, their rebranding team will hit them with even more ads, forcing the runner to shell out all
+              of their credits to the Agency.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto">
+            <a href="/" class="btn nbnButton btn-md text-center">
+              Pick Spark Agency
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-2 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+
+      <!-- SYNC: EVERYTHING EVERYWHERE CARD -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-dark bg-dark h-100">
+          <img src="/images/sync.jpg" alt="SYNC: Everything, Everywhere Full Art" class="card-img-top">
+          <div class=" card-body bg-dark">
+            <h4 class="card-title text-white text-center">
+              <em>Tags, Tags Everywhere</em>
+            </h4>
+            <p class="card-text text-center bg-dark nbnText">
+              <em>SYNC</em> has the greatest satellite system available. They use this vast network and psychographics
+              to target the runners and expose them of their antics. They make it almost impossible for you to go
+              anywhere without being tracked.
+            </p>
+          </div>
+          <div class="card-footer bg-dark mx-auto">
+            <a href="/" class="btn nbnButton btn-md text-center">
+              Pick SYNC
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILLER TEST -->
+      <div class="col-1 d-md-none d-lg-block">
+        <div class="card border-dark bg-dark">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- NBN FACTION SECTION -->
 </section>
