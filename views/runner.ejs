@@ -1,5 +1,39 @@
-<% layout('layouts/boilerplate') %>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1 class="text-white"><%= cardDetails.data[0].title %> </h1>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runner</title>
 
-<img src="https://netrunnerdb.com/card_image/large/<%= cardDetails.data[0].code %>.jpg" alt="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.css">
+  <link rel="stylesheet" href="https://netrunnerdb.com/netrunnerfont.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/taffydb/2.7.2/taffy-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/forerunnerdb/1.3.867/fdb-all.js"></script>
+  <script>
+    var NRDB = {};
+  </script>
+  <script src="https://netrunnerdb.com/js/nrdb.tip.js"></script>
+  <script src="https://netrunnerdb.com/js/nrdb.data.js"></script>
+  <script src="https://netrunnerdb.com/js/nrdb.format.js"></script>
+  <!-- <script type="text/javascript">$.noConflict();</script> -->
+  <link href="https://netrunnerdb.com/en/card/01001">
+
+
+</head>
+
+<body>
+  <% layout('layouts/boilerplate') %>
+
+  <h3>
+    <a href="https://netrunnerdb.com/en/card/01001" data-hasqtip="2" aria-describedby="qtip-2">Noise</a>
+  </h3>
+
+</body>
+
+</html>
