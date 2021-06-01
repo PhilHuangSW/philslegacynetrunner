@@ -1,0 +1,13 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/shaper.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  overflow: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+#credit {
+  filter: invert(100%);
+}

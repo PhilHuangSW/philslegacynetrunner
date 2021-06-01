@@ -27,13 +27,23 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.get('/testing', async (req, res) => {
+app.get('/shaper', async (req, res) => {
   try {
-    const data = await fetch('https://netrunnerdb.com/api/2.0/public/card/02043');
-    const card = await data.json();
-    console.log(card);
-    const newCard = await pool.query("INSERT INTO cards (faction_code, title) VALUES($1, $2) RETURNING *", [card.data[0].faction_code, card.data[0].title]);
-    res.render('test');
+    const data = await pool.query("SELECT * FROM decks");
+    // console.log(data.rows[0]);
+    const { deck_code, deck_name, deck_description } = data.rows[0];
+    const decklist = [];
+    // console.log(data.rows[0].cards)
+    for (let cardCode in data.rows[0].cards) {
+      // console.log(cardCode);
+      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [data.rows[0].cards[cardCode][0]]);
+      // console.log(card)
+      decklist.push([card.rows[0], data.rows[0].cards[cardCode][1]])
+      // console.log(data.rows[0].cards[cardCode][1]);
+      // console.log(decklist)
+    }
+    // console.log(decklist[2][0].title);
+    res.render('shaper', { deck_code, deck_name, deck_description, decklist });
   } catch (err) {
     console.log(err.message);
   }

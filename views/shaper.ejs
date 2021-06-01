@@ -1,0 +1,20 @@
+<%- layout('layouts/boilerplate') %>
+
+<main class="container">
+  <h1 class="text-white text-center">
+    Deck Name: <%= deck_name %>
+  </h1>
+  <h1 class="text-white text-center">
+    Deck Code: <%= deck_code %>
+  </h1>
+  <h5 class="text-white text-center">
+    Deck Description: <%- deck_description %>
+  </h5>
+
+  <ul>
+    <% for( let index = 0; index < decklist.length; index++ ) { %>
+    <li class="text-white"><%= decklist[index][0].title %> x <%= decklist[index][1] %></li>
+    <% } %>
+  </ul>
+
+</main>
