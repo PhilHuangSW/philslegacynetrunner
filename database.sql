@@ -21,3 +21,11 @@ CREATE TABLE cards(
   type_code text,
   uniqueness boolean
 );
+
+CREATE TABLE decks(
+  deck_id SERIAL PRIMARY KEY,
+  deck_code integer,
+  deck_name text,
+  deck_description text,
+  cards text[]
+)
