@@ -133,7 +133,7 @@
   color: #065e1b;
 }
 .shaperSelect {
-  box-shadow: 0 0 10px #19875483, 0 0 40px #19875483, 0 0 80px #19875483;
+  box-shadow: 0 0 5px #19875483, 0 0 10px #19875483, 0 0 20px #19875483;
 }
 .pickShaper:hover {
   box-shadow: 0 0 10px #19875483, 0 0 40px #19875483, 0 0 80px #19875483;
@@ -151,7 +151,7 @@
   color: #0796b3;
 }
 .criminalSelect {
-  box-shadow: 0 0 10px #0dcaf07c, 0 0 40px #0dcaf07c, 0 0 80px #0dcaf07c;
+  box-shadow: 0 0 5px #0dcaf07c, 0 0 10px #0dcaf07c, 0 0 20px #0dcaf07c;
 }
 .pickCriminal:hover {
   box-shadow: 0 0 10px #0dcaf07c, 0 0 40px #0dcaf07c, 0 0 80px #0dcaf07c;
@@ -169,7 +169,7 @@
   color: #b00f1f;
 }
 .anarchSelect {
-  box-shadow: 0 0 10px #dc354681, 0 0 40px #dc354681, 0 0 80px #dc354681;
+  box-shadow: 0 0 5px #dc354681, 0 0 10px #dc354681, 0 0 20px #dc354681;
 }
 .pickAnarch:hover {
   box-shadow: 0 0 10px #dc354681, 0 0 40px #dc354681, 0 0 80px #dc354681;
@@ -183,7 +183,10 @@
 .adam:hover {
   background-color: #c4bc48;
 }
-.pickAdam {
+.adamSelect {
+  box-shadow: 0 0 5px #c4bc487a, 0 0 10px #c4bc487a, 0 0 20px #c4bc487a;
+}
+.pickAdam:hover {
   box-shadow: 0 0 10px #c4bc487a, 0 0 40px #c4bc487a, 0 0 80px #c4bc487a;
 }
 
@@ -193,7 +196,10 @@
 .apex:hover {
   background-color: #6c0419;
 }
-.pickApex {
+.apexSelect {
+  box-shadow: 0 0 5px #6c041977, 0 0 10px #6c041977, 0 0 20px #6c041977;
+}
+.pickApex:hover {
   box-shadow: 0 0 10px #6c041977, 0 0 40px #6c041977, 0 0 80px #6c041977;
 }
 
@@ -203,7 +209,10 @@
 .sunny:hover {
   background-color: #bababa;
 }
-.pickSunny {
+.sunnySelect {
+  box-shadow: 0 0 5px #bababa81, 0 0 10px #bababa81, 0 0 20px #bababa81;
+}
+.pickSunny:hover {
   box-shadow: 0 0 10px #bababa81, 0 0 40px #bababa81, 0 0 80px #bababa81;
 }
 #sunnyText {
