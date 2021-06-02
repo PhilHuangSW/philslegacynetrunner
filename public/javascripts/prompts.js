@@ -59,10 +59,10 @@ $(document).ready(() => {
     anarchInfo.addClass('d-none');
     miniInfo.addClass('d-none');
     // Highlights Shaper Button
-    pickShaper.addClass('bg-success').addClass('text-white');
-    pickCriminal.removeClass('bg-info').removeClass('text-white');
-    pickAnarch.removeClass('bg-danger').removeClass('text-white');
-    pickMini.removeClass('bg-warning').removeClass('text-white');
+    pickShaper.addClass('shaperSelect');
+    pickCriminal.removeClass('criminalSelect');
+    pickAnarch.removeClass('anarchSelect');
+    pickMini.removeClass('miniSelect');
     // Displays the Shaper Runners
     shaperFaction.removeClass('d-none');
     criminalFaction.addClass('d-none');
@@ -77,10 +77,10 @@ $(document).ready(() => {
     anarchInfo.addClass('d-none');
     miniInfo.addClass('d-none');
     // Highlights Criminal Button
-    pickShaper.removeClass('bg-success').removeClass('text-white');
-    pickCriminal.addClass('bg-info').addClass('text-white');
-    pickAnarch.removeClass('bg-danger').removeClass('text-white');
-    pickMini.removeClass('bg-warning').removeClass('text-white');
+    pickShaper.removeClass('shaperSelect');
+    pickCriminal.addClass('criminalSelect');
+    pickAnarch.removeClass('anarchSelect');
+    pickMini.removeClass('miniSelect');
     // Displays the Criminal Runners
     shaperFaction.addClass('d-none');
     criminalFaction.removeClass('d-none');
@@ -95,10 +95,10 @@ $(document).ready(() => {
     anarchInfo.removeClass('d-none');
     miniInfo.addClass('d-none');
     // Highlights Anarch Button
-    pickShaper.removeClass('bg-success').removeClass('text-white');
-    pickCriminal.removeClass('bg-info').removeClass('text-white');
-    pickAnarch.addClass('bg-danger').addClass('text-white');
-    pickMini.removeClass('bg-warning').removeClass('text-white');
+    pickShaper.removeClass('shaperSelect');
+    pickCriminal.removeClass('criminalSelect');
+    pickAnarch.addClass('anarchSelect');
+    pickMini.removeClass('miniSelect');
     // Displays the Anarch Runners
     shaperFaction.addClass('d-none');
     criminalFaction.addClass('d-none');
@@ -113,10 +113,10 @@ $(document).ready(() => {
     anarchInfo.addClass('d-none');
     miniInfo.removeClass('d-none');
     // Highlights Mini-Factions Button
-    pickShaper.removeClass('bg-success').removeClass('text-white');
-    pickCriminal.removeClass('bg-info').removeClass('text-white');
-    pickAnarch.removeClass('bg-danger').removeClass('text-white');
-    pickMini.addClass('bg-warning').addClass('text-white');
+    pickShaper.removeClass('shaperSelect');
+    pickCriminal.removeClass('criminalSelect');
+    pickAnarch.removeClass('anarchSelect');
+    pickMini.addClass('miniSelect');
     // Displays the Mini-Faction Runners
     shaperFaction.addClass('d-none');
     criminalFaction.addClass('d-none');

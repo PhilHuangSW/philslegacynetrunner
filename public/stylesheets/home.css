@@ -10,7 +10,7 @@
 .bodyHome {
   height: 100vh;
   background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../images/frontpage.jpg");
-  background-color: #1b211e;
+  background-color: #101a24;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
 .bodyFade {
   height: 100vh;
   background-image: none;
-  background-color: #1b211e;
+  background-color: #101a24;
   font-family: 'Orbitron', sans-serif;
   -webkit-transition: all 3s ease;
   -moz-transition: all 3s ease;
@@ -88,7 +88,7 @@
   color: #116466!important;
 }
 
-.nav-link {
+.navColor {
   color: #116466!important;
 }
 
@@ -109,6 +109,9 @@
   color: #d1f7ff!important;
 } */
 
+.mainBack:hover {
+  box-shadow: 0 0 10px #2125298c, 0 0 40px #2125298c, 0 0 80px #2125298c;
+}
 
 #credit {
   /* filter: invert(100%); */
@@ -116,104 +119,97 @@
   filter: invert(75%) sepia(14%) saturate(797%) hue-rotate(346deg) brightness(99%) contrast(82%);
 }
 
+/* SHAPER COLORS */
 #shaper {
   filter: invert(89%) sepia(75%) saturate(2640%) hue-rotate(63deg) brightness(85%) contrast(92%);
 }
-
 .shaper:hover {
   background-color: #35AC5E;
 }
-
-/* #runnerButton:hover {
-  color: #dc3545;
-  background: #dc35467a;
-  box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
-} */
-
 #shaperText {
   color: #065e1b;
 }
-
 #shaperText:hover {
   color: #065e1b;
 }
-
+.shaperSelect {
+  box-shadow: 0 0 10px #19875483, 0 0 40px #19875483, 0 0 80px #19875483;
+}
 .pickShaper:hover {
-  /* background-color: #198754!important; */
   box-shadow: 0 0 10px #19875483, 0 0 40px #19875483, 0 0 80px #19875483;
 }
 
+
+/* CRIMINAL COLORS */
 #criminal {
   filter: invert(49%) sepia(12%) saturate(4050%) hue-rotate(165deg) brightness(106%) contrast(90%);
 }
-
 .criminal:hover {
   background-color: #0080d5;
 }
-
 #criminalText {
   color: #0796b3;
 }
-
-/* #criminalText:hover {
-  color: #0796b3;
-}  */
-
+.criminalSelect {
+  box-shadow: 0 0 10px #0dcaf07c, 0 0 40px #0dcaf07c, 0 0 80px #0dcaf07c;
+}
 .pickCriminal:hover {
-  /* background-color: #0dcaf0!important; */
   box-shadow: 0 0 10px #0dcaf07c, 0 0 40px #0dcaf07c, 0 0 80px #0dcaf07c;
 }
 
+
+/* ANARCH COLORS */
 #anarch {
   filter: invert(38%) sepia(48%) saturate(5722%) hue-rotate(328deg) brightness(103%) contrast(101%);
 }
-
 .anarch:hover {
   background-color: #c11134;
 }
-
 #anarchText {
   color: #b00f1f;
 }
-
-/* #anarchText:hover {
-  color: #b00f1f;
-} */
-
+.anarchSelect {
+  box-shadow: 0 0 10px #dc354681, 0 0 40px #dc354681, 0 0 80px #dc354681;
+}
 .pickAnarch:hover {
-  /* background-color: #dc3545!important; */
   box-shadow: 0 0 10px #dc354681, 0 0 40px #dc354681, 0 0 80px #dc354681;
 }
 
+
+/* MINI-FACTION COLORS */
 #adam {
   filter: invert(85%) sepia(31%) saturate(634%) hue-rotate(348deg) brightness(104%) contrast(102%);
 }
-
 .adam:hover {
   background-color: #c4bc48;
+}
+.pickAdam {
+  box-shadow: 0 0 10px #c4bc487a, 0 0 40px #c4bc487a, 0 0 80px #c4bc487a;
 }
 
 #apex {
   filter: invert(13%) sepia(71%) saturate(5282%) hue-rotate(339deg) brightness(102%) contrast(95%);
 }
-
 .apex:hover {
   background-color: #6c0419;
+}
+.pickApex {
+  box-shadow: 0 0 10px #6c041977, 0 0 40px #6c041977, 0 0 80px #6c041977;
 }
 
 #sunny {
   filter: invert(84%) sepia(25%) saturate(5%) hue-rotate(353deg) brightness(94%) contrast(108%);
 }
-
 .sunny:hover {
   background-color: #bababa;
 }
-
+.pickSunny {
+  box-shadow: 0 0 10px #bababa81, 0 0 40px #bababa81, 0 0 80px #bababa81;
+}
 #sunnyText {
   color: #DBDBDB;
   background-color: black;
 }
-
 #sunnyText:hover {
   color: #a7a6a6;
   background-color: black;
@@ -222,16 +218,19 @@
 #miniText {
   color: #c79808;
 }
-
 #miniText:hover {
   color: #c79808; 
 }
-
+.miniSelect {
+  box-shadow: 0 0 10px #ffc10786, 0 0 40px #ffc10786, 0 0 80px #ffc10786;
+}
 .pickMini:hover {
-  /* background-color: #ffc107!important; */
   box-shadow: 0 0 10px #ffc10786, 0 0 40px #ffc10786, 0 0 80px #ffc10786;
 }
 
+
+
+/* HAAS-BIOROID COLORS */
 #hb {
   filter: invert(32%) sepia(14%) saturate(2153%) hue-rotate(210deg) brightness(88%) contrast(85%);
 }

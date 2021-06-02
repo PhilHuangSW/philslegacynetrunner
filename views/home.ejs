@@ -31,88 +31,85 @@
 
     <div class="d-grid col-6 mx-auto">
       <button type="button" class="btn btn-outline-danger btn-lg runnerQuestion" id="runnerButton">Runner</button>
-      <span class="text-white text-center h3">or</span>
+      <span class="text-white text-center h4">or</span>
       <button type="button" class="btn btn-outline-info btn-lg corpQuestion" id="corpButton">Corporation</button>
     </div>
   </div>
   <!-- RUNNERORCORP SECTION -->
 </section>
 
-<section class="runnerFaction d-none">
-  <div class="container vh-100 d-flex flex-column justify-content-center pb-5">
-    <div class="d-grid mb-2">
-      <button class="btn btn-dark btn-lg d-block mainBack">Back to Runner or Corp</button>
-    </div>
-
-    <div class="card text-center bg-dark">
-      <div class="card-header bg-dark">
-        <ul class="nav nav-pills card-header-pills nav-fill bg-dark">
-          <li class="nav-item">
-            <a class="nav-link btn btn-outline-success text-white pickShaper" id="shaperText">Shaper</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-outline-info pickCriminal" id="criminalText">Criminal</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-outline-danger pickAnarch" id="anarchText">Anarch</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-outline-warning pickMini" id="miniText">Mini-Factions</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body shaperInfo">
-        <p class="card-text text-success"><strong><em>Shapers</em> are planners. They'll put their head down and come up
-            with a way to
-            solve
-            whatever
-            problem
-            the corp is
-            presenting them with. This takes time. If the corp does their thing before the Shaper comes up with a
-            solution,
-            corp wins. Otherwise the Shaper gets to run all over them.</strong>
-        </p>
-      </div>
-      <div class="card-body criminalInfo d-none">
-        <p class="card-text text-info"><strong><em>Criminals</em> are sneaky bastards. They don't want to deal with ICE
-            and prefer to bypass it or
-            find
-            another
-            way
-            around it. They're great at making money and denying the corp's funds but horribly inefficient at breaking
-            ICE.
-            The longer they can make the corp take to setup, the happier a Criminal is.</strong>
-        </p>
-      </div>
-      <div class="card-body anarchInfo d-none">
-        <p class="card-text text-danger"><strong><em>Anarchs</em> will smash a window with their face to see what'll
-            happen. They can do most things
-            and do
-            them
-            well but
-            at great personal cost. Smart Anarchs mitigate the costs. Other Anarchs try to win before the costs get
-            too
-            great.</strong>
-        </p>
-      </div>
-      <div class="card-body miniInfo d-none">
-        <p class="card-text text-warning">
-          <strong>The <em>Mini-Factions</em> are certainly an eclectic bunch. They each borrow familiar traits from each
-            faction, but put their own unique twist on things. Are you a Bioroid following your programmed directives?
-            Are you corrupted source code turned sentient looking to devour everything in your path? Or are you the
-            badass
-            Mother working with the best security corporations to gauge corporate weaknesses?</strong>
-        </p>
-      </div>
-    </div>
-
+<section class="runnerFaction d-none pt-5">
+  <div class="d-grid mb-2 pt-4">
+    <button class="btn btn-dark btn-lg d-block mainBack">Back to Runner or Corp</button>
   </div>
-  <!-- RUNNERFACTION SECTION -->
 
+  <div class="card text-center bg-dark">
+    <div class="card-header bg-dark">
+      <ul class="nav nav-pills card-header-pills nav-fill bg-dark">
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success pickShaper" id="shaperText">Shaper</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-info pickCriminal" id="criminalText">Criminal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-danger pickAnarch" id="anarchText">Anarch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-warning pickMini" id="miniText">Mini-Factions</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body shaperInfo">
+      <p class="card-text text-success"><em>Shapers</em> are planners. They'll put their head down and come up
+        with a way to
+        solve
+        whatever
+        problem
+        the corp is
+        presenting them with. This takes time. If the corp does their thing before the Shaper comes up with a
+        solution,
+        corp wins. Otherwise the Shaper gets to run all over them.
+      </p>
+    </div>
+    <div class="card-body criminalInfo d-none">
+      <p class="card-text text-info"><em>Criminals</em> are sneaky bastards. They don't want to deal with ICE
+        and prefer to bypass it or
+        find
+        another
+        way
+        around it. They're great at making money and denying the corp's funds but horribly inefficient at breaking
+        ICE.
+        The longer they can make the corp take to setup, the happier a Criminal is.
+      </p>
+    </div>
+    <div class="card-body anarchInfo d-none">
+      <p class="card-text text-danger"><em>Anarchs</em> will smash a window with their face to see what'll
+        happen. They can do most things
+        and do
+        them
+        well but
+        at great personal cost. Smart Anarchs mitigate the costs. Other Anarchs try to win before the costs get
+        too
+        great.
+      </p>
+    </div>
+    <div class="card-body miniInfo d-none">
+      <p class="card-text text-warning">
+        The <em>Mini-Factions</em> are certainly an eclectic bunch. They each borrow familiar traits from each
+        faction, but put their own unique twist on things. Are you a Bioroid following your programmed directives?
+        Are you corrupted source code turned sentient looking to devour everything in your path? Or are you the
+        badass
+        Mother working with the best security corporations to gauge corporate weaknesses?
+      </p>
+    </div>
+  </div>
+
+  <!-- RUNNERFACTION SECTION -->
 
 </section>
 
-<section class="shaperFaction d-none">
+<section class="shaperFaction d-none mb-2">
   <div class="card-group">
     <!-- CHAOS THEORY CARD -->
     <div class="card border-dark bg-dark">
@@ -128,7 +125,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-success btn-md text-center">
+        <a href="/" class="btn btn-outline-success btn-md text-center pickShaper">
           Pick Chaos Theory
         </a>
       </div>
@@ -148,7 +145,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-success btn-md text-center">
+        <a href="/" class="btn btn-outline-success btn-md text-center pickShaper">
           Pick Ele "Smoke" Scovak
         </a>
       </div>
@@ -167,7 +164,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-success btn-md text-center">
+        <a href="/" class="btn btn-outline-success btn-md text-center pickShaper">
           Pick Nasir Meidan
         </a>
       </div>
@@ -176,7 +173,7 @@
   <!-- SHAPER FACTION SECTION -->
 </section>
 
-<section class="criminalFaction d-none pb-5">
+<section class="criminalFaction d-none mb-2">
   <div class="card-group">
     <!-- ARMAND "GEIST" WALKER -->
     <div class="card border-dark bg-dark">
@@ -192,7 +189,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-info btn-md text-center text-white">
+        <a href="/" class="btn btn-outline-info btn-md text-center pickCriminal">
           Pick Armand "Geist" Walker
         </a>
       </div>
@@ -210,7 +207,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-info btn-md text-center text-white">
+        <a href="/" class="btn btn-outline-info btn-md text-center pickCriminal">
           Pick Gabriel Santiago
         </a>
       </div>
@@ -228,7 +225,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-info btn-md text-center text-white">
+        <a href="/" class="btn btn-outline-info btn-md text-center pickCriminal">
           Pick Khan
         </a>
       </div>
@@ -237,7 +234,7 @@
   <!-- CRIMINAL FACTION SECTION -->
 </section>
 
-<section class="anarchFaction d-none pb-5">
+<section class="anarchFaction d-none mb-2">
   <div class="card-group">
     <!-- NULL -->
     <div class="card border-dark bg-dark">
@@ -251,7 +248,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-danger btn-md text-center">
+        <a href="/" class="btn btn-outline-danger btn-md text-center pickAnarch">
           Pick Null
         </a>
       </div>
@@ -269,7 +266,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-danger btn-md text-center">
+        <a href="/" class="btn btn-outline-danger btn-md text-center pickAnarch">
           Pick Omar Keung
         </a>
       </div>
@@ -288,7 +285,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-danger btn-md text-center">
+        <a href="/" class="btn btn-outline-danger btn-md text-center pickAnarch">
           Pick Reina Roja
         </a>
       </div>
@@ -297,7 +294,7 @@
   <!-- ANARCH FACTION SECTION -->
 </section>
 
-<section class="miniFaction d-none pb-5">
+<section class="miniFaction d-none mb-2">
   <div class="card-group">
     <!-- ADAM -->
     <div class="card border-dark bg-dark">
@@ -312,7 +309,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-warning btn-md text-center">
+        <a href="/" class="btn btn-outline-warning btn-md text-center pickAdam">
           Pick Adam
         </a>
       </div>
@@ -330,7 +327,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-danger btn-md text-center">
+        <a href="/" class="btn btn-outline-danger btn-md text-center pickApex">
           Pick Apex
         </a>
       </div>
@@ -340,7 +337,7 @@
       <img src="/images/sunny.jpg" alt="Sunny Lebeau Full Art" class="card-img-top">
       <div class="card-body bg-dark">
         <h4 class="card-title text-white text-center">
-          <em>Mommy Needs to Kick Some Ass</em>
+          <em>Mommy Needs to<br>Kick Some Ass</em>
         </h4>
         <p class="card-text text-center bg-dark text-light">
           <em>Sunny</em> makes a living as a runner using the resources of the world's best known security corporations.
@@ -348,7 +345,7 @@
         </p>
       </div>
       <div class="card-footer bg-dark mx-auto">
-        <a href="/" class="btn btn-light btn-md text-center">
+        <a href="/" class="btn btn-outline-light btn-md text-center pickSunny">
           Pick Sunny Lebeau
         </a>
       </div>
