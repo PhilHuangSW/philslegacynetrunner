@@ -3,19 +3,68 @@
   #2C3531 - grey
   #116466 - dark teal
   #D9B08C - brown beige
-  #FFCB9A - skintone
+  #FFCB9A - skin tone
   #D1E8E2 - white/greenish
 */
 
-body {
+.bodyHome {
   height: 100vh;
-  /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1619796404374-aff912b43cd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"); */
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../images/frontpage.jpg");
   background-color: #1b211e;
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-y;
-  overflow: auto;
-  font-family: 'Roboto', sans-serif;
+  background-repeat: no-repeat;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Orbitron', sans-serif;
+}
+
+.bodyFade {
+  height: 100vh;
+  background-image: none;
+  background-color: #1b211e;
+  font-family: 'Orbitron', sans-serif;
+  -webkit-transition: all 3s ease;
+  -moz-transition: all 3s ease;
+  -o-transition: all 3s ease;
+  transition: all 3s ease;
+}
+
+
+/* BUTTONS -- HIGHLIGHTED LIKE NEON LIGHTS */
+#jackIn:hover {
+  color: #dc3545;
+  background: #dc35467a;
+  box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
+}
+
+#runnerButton:hover {
+  color: #dc3545;
+  background: #dc35467a;
+  box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
+}
+
+#corpButton:hover {
+  color: #0dcaf0;
+  background: #0dcaf091;
+  box-shadow: 0 0 10px #0dcaf091, 0 0 40px #0dcaf091, 0 0 80px #0dcaf091;
+}
+
+
+#frankfurtLink {
+  color: #FFCB9A;
+}
+
+.navbar-toggler-icon {
+  background-image: url("https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/link.svg")!important;
+  background-size: 80%;
+}
+
+#linkSvg {
+  filter: invert(32%) sepia(26%) saturate(1265%) hue-rotate(133deg) brightness(90%) contrast(91%);
+}
+
+.navbar-toggler {
+  color: #D1E8E2!important;
 }
 
 .footer {
@@ -75,6 +124,12 @@ body {
   background-color: #35AC5E;
 }
 
+/* #runnerButton:hover {
+  color: #dc3545;
+  background: #dc35467a;
+  box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
+} */
+
 #shaperText {
   color: #065e1b;
 }
@@ -84,7 +139,8 @@ body {
 }
 
 .pickShaper:hover {
-  background-color: #198754!important;
+  /* background-color: #198754!important; */
+  box-shadow: 0 0 10px #19875483, 0 0 40px #19875483, 0 0 80px #19875483;
 }
 
 #criminal {
@@ -99,12 +155,13 @@ body {
   color: #0796b3;
 }
 
-#criminalText:hover {
-  /* color: #0796b3; */
-}
+/* #criminalText:hover {
+  color: #0796b3;
+}  */
 
 .pickCriminal:hover {
-  background-color: #0dcaf0!important;
+  /* background-color: #0dcaf0!important; */
+  box-shadow: 0 0 10px #0dcaf07c, 0 0 40px #0dcaf07c, 0 0 80px #0dcaf07c;
 }
 
 #anarch {
@@ -119,12 +176,13 @@ body {
   color: #b00f1f;
 }
 
-#anarchText:hover {
-  /* color: #b00f1f; */
-}
+/* #anarchText:hover {
+  color: #b00f1f;
+} */
 
 .pickAnarch:hover {
-  background-color: #dc3545!important;
+  /* background-color: #dc3545!important; */
+  box-shadow: 0 0 10px #dc354681, 0 0 40px #dc354681, 0 0 80px #dc354681;
 }
 
 #adam {
@@ -170,7 +228,8 @@ body {
 }
 
 .pickMini:hover {
-  background-color: #ffc107!important;
+  /* background-color: #ffc107!important; */
+  box-shadow: 0 0 10px #ffc10786, 0 0 40px #ffc10786, 0 0 80px #ffc10786;
 }
 
 #hb {

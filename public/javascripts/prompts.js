@@ -1,6 +1,6 @@
-
 // PROMPTS FOR PICKING DECKS
 $(document).ready(() => {
+  const body = $('.body');
   // ALL RUNNER FACTION
   const runnerFaction = $('.runnerFaction');
   const shaperFaction = $('.shaperFaction');
@@ -22,6 +22,7 @@ $(document).ready(() => {
   const pickMini = $('.pickMini');
 
   // QUESTIONS
+  const jackIn = $('#jackIn');
   const runnerOrCorp = $('.runnerOrCorp');
   const runnerQuestion = $('.runnerQuestion');
   const corpQuestion = $('.corpQuestion');
@@ -195,12 +196,17 @@ $(document).ready(() => {
     nbnFaction.removeClass('d-none');
   };
 
+  jackIn.click(() => {
+    titleInfo.addClass('d-none');
+    runnerOrCorp.removeClass('d-none');
+    body.addClass('bodyFade');
+  });
+
   // Are you runner or Corp?
   runnerQuestion.click(() => {
     runnerOrCorp.addClass('d-none');
     runnerFaction.removeClass('d-none');
     shaperFaction.removeClass('d-none');
-    titleInfo.addClass('d-none');
     pressShaperFaction();
   });
 
@@ -208,12 +214,13 @@ $(document).ready(() => {
     runnerOrCorp.addClass('d-none');
     corpFaction.removeClass('d-none');
     hbFaction.removeClass('d-none');
-    titleInfo.addClass('d-none');
     pressHBFaction();
   });
 
   $('.mainBack').click(() => {
     titleInfo.toggleClass('d-none');
+    body.removeClass('bodyFade');
+    body.addClass('bodyHome');
     runnerOrCorp.toggleClass('d-none');
     runnerFaction.addClass('d-none');
     corpFaction.addClass('d-none');
