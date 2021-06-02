@@ -1,6 +1,10 @@
 // PROMPTS FOR PICKING DECKS
 $(document).ready(() => {
   const body = $('.body');
+  const runnerButtonR = $('#runnerButtonR');
+  const corpButtonR = $('#corpButtonR');
+  const runnerButtonC = $('#runnerButtonC');
+  const corpButtonC = $('#corpButtonC');
   // ALL RUNNER FACTION
   const runnerFaction = $('.runnerFaction');
   const shaperFaction = $('.shaperFaction');
@@ -23,7 +27,6 @@ $(document).ready(() => {
 
   // QUESTIONS
   const jackIn = $('#jackIn');
-  const runnerOrCorp = $('.runnerOrCorp');
   const runnerQuestion = $('.runnerQuestion');
   const corpQuestion = $('.corpQuestion');
 
@@ -131,10 +134,10 @@ $(document).ready(() => {
     weylandInfo.addClass('d-none');
     nbnInfo.addClass('d-none');
     // Highlights HB Button
-    hbButton.addClass('pickHB').addClass('text-white');
-    jintekiButton.removeClass('pickJinteki').removeClass('text-white');
-    weylandButton.removeClass('pickWeyland').removeClass('text-white');
-    nbnButton.removeClass('pickNBN').removeClass('text-white');
+    hbButton.addClass('pickHB');
+    jintekiButton.removeClass('pickJinteki');
+    weylandButton.removeClass('pickWeyland');
+    nbnButton.removeClass('pickNBN');
     // Displays the HB Corporations
     hbFaction.removeClass('d-none');
     jintekiFaction.addClass('d-none');
@@ -149,10 +152,10 @@ $(document).ready(() => {
     weylandInfo.addClass('d-none');
     nbnInfo.addClass('d-none');
     // Highlights Jinteki Button
-    hbButton.removeClass('pickHB').removeClass('text-white');
-    jintekiButton.addClass('pickJinteki').addClass('text-white');
-    weylandButton.removeClass('pickWeyland').removeClass('text-white');
-    nbnButton.removeClass('pickNBN').removeClass('text-white');
+    hbButton.removeClass('pickHB');
+    jintekiButton.addClass('pickJinteki');
+    weylandButton.removeClass('pickWeyland');
+    nbnButton.removeClass('pickNBN');
     // Displays the Jinteki Corporations
     hbFaction.addClass('d-none');
     jintekiFaction.removeClass('d-none');
@@ -167,10 +170,10 @@ $(document).ready(() => {
     weylandInfo.removeClass('d-none');
     nbnInfo.addClass('d-none');
     // Highlights Weyland Button
-    hbButton.removeClass('pickHB').removeClass('text-white');
-    jintekiButton.removeClass('pickJinteki').removeClass('text-white');
-    weylandButton.addClass('pickWeyland').addClass('text-white');
-    nbnButton.removeClass('pickNBN').removeClass('text-white');
+    hbButton.removeClass('pickHB');
+    jintekiButton.removeClass('pickJinteki');
+    weylandButton.addClass('pickWeyland');
+    nbnButton.removeClass('pickNBN');
     // Displays the Weyland Corporations
     hbFaction.addClass('d-none');
     jintekiFaction.addClass('d-none');
@@ -185,10 +188,10 @@ $(document).ready(() => {
     weylandInfo.addClass('d-none');
     nbnInfo.removeClass('d-none');
     // Highlights NBN Button
-    hbButton.removeClass('pickHB').removeClass('text-white');
-    jintekiButton.removeClass('pickJinteki').removeClass('text-white');
-    weylandButton.removeClass('pickWeyland').removeClass('text-white');
-    nbnButton.addClass('pickNBN').addClass('text-white');
+    hbButton.removeClass('pickHB');
+    jintekiButton.removeClass('pickJinteki');
+    weylandButton.removeClass('pickWeyland');
+    nbnButton.addClass('pickNBN');
     // Displays the NBN Corporations
     hbFaction.addClass('d-none');
     jintekiFaction.addClass('d-none');
@@ -198,22 +201,45 @@ $(document).ready(() => {
 
   jackIn.click(() => {
     titleInfo.addClass('d-none');
-    runnerOrCorp.removeClass('d-none');
     body.addClass('bodyFade');
-  });
-
-  // Are you runner or Corp?
-  runnerQuestion.click(() => {
-    runnerOrCorp.addClass('d-none');
     runnerFaction.removeClass('d-none');
+    runnerButtonR.addClass('runnerSelect');
+    corpFaction.addClass('d-none');
+    corpButtonR.removeClass('corpSelect');
     shaperFaction.removeClass('d-none');
     pressShaperFaction();
   });
 
+  // Are you runner or Corp?
+  runnerQuestion.click(() => {
+    runnerFaction.removeClass('d-none');
+    runnerButtonR.addClass('runnerSelect');
+    corpFaction.addClass('d-none');
+    corpButtonR.removeClass('corpSelect');
+    shaperFaction.removeClass('d-none');
+    criminalFaction.addClass('d-none');
+    anarchFaction.addClass('d-none');
+    miniFaction.addClass('d-none');
+    hbFaction.addClass('d-none');
+    jintekiFaction.addClass('d-none');
+    weylandFaction.addClass('d-none');
+    nbnFaction.addClass('d-none');
+    pressShaperFaction();
+  });
+
   corpQuestion.click(() => {
-    runnerOrCorp.addClass('d-none');
+    runnerFaction.addClass('d-none');
+    runnerButtonC.removeClass('runnerSelect');
     corpFaction.removeClass('d-none');
+    corpButtonC.addClass('corpSelect');
+    shaperFaction.addClass('d-none');
+    criminalFaction.addClass('d-none');
+    anarchFaction.addClass('d-none');
+    miniFaction.addClass('d-none');
     hbFaction.removeClass('d-none');
+    jintekiFaction.addClass('d-none');
+    weylandFaction.addClass('d-none');
+    nbnFaction.addClass('d-none');
     pressHBFaction();
   });
 
@@ -221,7 +247,6 @@ $(document).ready(() => {
     titleInfo.toggleClass('d-none');
     body.removeClass('bodyFade');
     body.addClass('bodyHome');
-    runnerOrCorp.toggleClass('d-none');
     runnerFaction.addClass('d-none');
     corpFaction.addClass('d-none');
     shaperFaction.addClass('d-none');

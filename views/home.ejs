@@ -39,8 +39,15 @@
 </section>
 
 <section class="runnerFaction d-none pt-5">
-  <div class="d-grid mb-2 pt-4">
-    <button class="btn btn-outline-dark text-white btn-lg d-block mainBack">Back to Runner or Corp</button>
+  <div class="d-flex row mb-2 pt-4 justify-contents-center">
+    <div class="col-6">
+      <button type="button" class="btn btn-outline-danger btn-lg w-100 runnerQuestion runnerSelect"
+        id="runnerButtonR">Runner</button>
+    </div>
+
+    <div class="col-6">
+      <button type="button" class="btn btn-outline-info btn-lg w-100 corpQuestion" id="corpButtonR">Corporation</button>
+    </div>
   </div>
 
   <div class="card text-center bg-dark">
@@ -354,22 +361,18 @@
   <!-- MINI FACTION SECTION -->
 </section>
 
-<section class="corpFaction d-none">
-  <div class="d-grid mb-2">
-    <button class="btn btn-dark btn-lg d-block mainBack">Back to Runner or Corp</button>
-  </div>
-  <h3 class="text-center text-white mb-4">
-    Which corp faction would you like to play?
-  </h3>
+<section class="corpFaction d-none pt-5">
+  <div class="d-flex row mb-2 pt-4 justify-contents-center">
+    <div class="col-6">
+      <button type="button" class="btn btn-outline-danger btn-lg w-100 runnerQuestion"
+        id="runnerButtonC">Runner</button>
+    </div>
 
-  <blockquote class="blockquote text-center text-white">
-    To sum things up nicely,
-    <br> If the <span class="text-secondary">Runner</span> is trying to get into the corp's servers:
-    <br> <span id="hbText">HB</span> makes it cost too much time and money
-    <br> <span id="jintekiText">Jinteki</span> lay traps that make the runner second guess themselves
-    <br> <span id="weylandText">Weyland</span> punishes the runner for getting through
-    <br> <span id="nbnText">NBN</span> sets up an endless series of catch-22s that make the runner not even want to run.
-  </blockquote>
+    <div class="col-6">
+      <button type="button" class="btn btn-outline-info btn-lg w-100 corpQuestion corpSelect"
+        id="corpButtonC">Corporation</button>
+    </div>
+  </div>
 
   <div class="card text-center bg-dark">
     <div class="card-header bg-dark">
@@ -389,40 +392,40 @@
       </ul>
     </div>
     <div class="card-body hbInfo">
-      <p class="card-text hbText"><strong><em>Haas-Bioroid</em> is the value town corp. They can do a bit of everything
-          and they do it for a decent price. What they care about most is efficiency, clicks are king for HB. They have
-          a plethora of ways to gain clicks and bioroid ICE, while good value, can be broken if the runner spends
-          clicks. If the runner is more efficient than HB, HB loses.</strong>
+      <p class="card-text hbText"><em>Haas-Bioroid</em> is the value town corp. They can do a bit of everything
+        and they do it for a decent price. What they care about most is efficiency, clicks are king for HB. They have
+        a plethora of ways to gain clicks and bioroid ICE, while good value, can be broken if the runner spends
+        clicks. If the runner is more efficient than HB, HB loses.
       </p>
     </div>
     <div class="card-body jintekiInfo d-none">
-      <p class="card-text jintekiText"><strong><em>Jinteki</em> is all about manipulation. They're not very good at
-          keeping the runner out of their stuff so their main defense is asking the runner if they really want to.
-          Plenty of taxing ICE that's a real pain to deal with and traps to go at the end of them to make you regret
-          every choice that lead you to that point. If the runner guesses
-          right on the shell games or has a way to pay through whatever nonsense Jinteki is trying to pull off, they'll
-          get there.</strong>
+      <p class="card-text jintekiText"><em>Jinteki</em> is all about manipulation. They're not very good at
+        keeping the runner out of their stuff so their main defense is asking the runner if they really want to.
+        Plenty of taxing ICE that's a real pain to deal with and traps to go at the end of them to make you regret
+        every choice that lead you to that point. If the runner guesses
+        right on the shell games or has a way to pay through whatever nonsense Jinteki is trying to pull off, they'll
+        get there.
       </p>
     </div>
     <div class="card-body weylandInfo d-none">
-      <p class="card-text weylandText"><strong><em>Weyland</em> is a rich bastard. Getting extravagant piles of cash is
-          what Weyland is best at. Then they erect great hulking walls to keep the runner out. If things don't go their
-          way they have a tantrum and try to blow the runner up with a pile of meat damage. Things tend to go wrong for
-          Weyland when they don't have as much money as they'd like.</strong>
+      <p class="card-text weylandText"><em>Weyland</em> is a rich bastard. Getting extravagant piles of cash is
+        what Weyland is best at. Then they erect great hulking walls to keep the runner out. If things don't go their
+        way they have a tantrum and try to blow the runner up with a pile of meat damage. Things tend to go wrong for
+        Weyland when they don't have as much money as they'd like.
       </p>
     </div>
     <div class="card-body nbnInfo d-none">
       <p class="card-text nbnText">
-        <strong><em>NBN</em> loves information. They're great at landing tags and punishing you in a host of different
-          ways. They're also great at drawing and filtering cards. To top it off, NBN is amazing at scoring agendas
-          out of hand. NBN loses when the runner has a way to slow them down or just straight up overrun them.</strong>
+        <em>NBN</em> loves information. They're great at landing tags and punishing you in a host of different
+        ways. They're also great at drawing and filtering cards. To top it off, NBN is amazing at scoring agendas
+        out of hand. NBN loses when the runner has a way to slow them down or just straight up overrun them.
       </p>
     </div>
   </div>
   <!-- CORP FACTION SECTION -->
 </section>
 
-<section class="hbFaction d-none pb-5">
+<section class="hbFaction d-none mb-2">
   <div class="card-group">
     <div class="row bg-dark m-auto">
       <!-- FILLER TEST -->
@@ -446,7 +449,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto my-auto">
-            <a href="/" class="btn hbButton btn-md text-center mt-1">
+            <a href="/" class="btn hb btn-md text-center mt-1">
               Pick The Foundry
             </a>
           </div>
@@ -474,7 +477,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto">
-            <a href="/" class="btn hbButton btn-md text-center my-auto">
+            <a href="/" class="btn hb btn-md text-center my-auto">
               Pick Haas-Bioroid
             </a>
           </div>
@@ -491,7 +494,7 @@
   <!-- HB FACTION SECTION -->
 </section>
 
-<section class="jintekiFaction d-none pb-5">
+<section class="jintekiFaction d-none mb-2">
   <div class="card-group">
     <div class="row bg-dark m-auto">
       <!-- FILLER TEST -->
@@ -515,7 +518,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto mt-auto">
-            <a href="/" class="btn jintekiButton btn-md text-center">
+            <a href="/" class="btn jinteki btn-md text-center">
               Pick Nisei Division
             </a>
           </div>
@@ -545,7 +548,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto mt-auto">
-            <a href="/" class="btn jintekiButton btn-md text-center">
+            <a href="/" class="btn jinteki btn-md text-center">
               Pick Jinteki
             </a>
           </div>
@@ -562,7 +565,7 @@
   <!-- JINTEKI FACTION SECTION -->
 </section>
 
-<section class="weylandFaction d-none pb-5">
+<section class="weylandFaction d-none mb-2">
   <div class="card-group">
     <div class="row bg-dark m-auto">
       <!-- FILLER TEST -->
@@ -586,7 +589,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto">
-            <a href="/" class="btn weylandButton btn-md text-center mt-auto">
+            <a href="/" class="btn weyland btn-md text-center mt-auto">
               Pick Builder of Nations
             </a>
           </div>
@@ -614,7 +617,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto">
-            <a href="/" class="btn weylandButton btn-md text-center mt-auto">
+            <a href="/" class="btn weyland btn-md text-center mt-auto">
               Pick Building a Better World
             </a>
           </div>
@@ -631,7 +634,7 @@
   <!-- WEYLAND FACTION SECTION -->
 </section>
 
-<section class="nbnFaction d-none pb-5">
+<section class="nbnFaction d-none mb-2">
   <div class="card-group">
     <div class="row bg-dark m-auto">
       <!-- FILLER TEST -->
@@ -655,7 +658,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto">
-            <a href="/" class="btn nbnButton btn-md text-center">
+            <a href="/" class="btn nbn btn-md text-center">
               Pick Spark Agency
             </a>
           </div>
@@ -683,7 +686,7 @@
             </p>
           </div>
           <div class="card-footer bg-dark mx-auto">
-            <a href="/" class="btn nbnButton btn-md text-center">
+            <a href="/" class="btn nbn btn-md text-center">
               Pick SYNC
             </a>
           </div>

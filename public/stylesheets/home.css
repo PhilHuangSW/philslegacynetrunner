@@ -37,15 +37,35 @@
   box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
 }
 
-#runnerButton:hover {
+#runnerButtonR:hover {
   color: #dc3545;
   background: #dc35467a;
   box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
 }
 
-#corpButton:hover {
+#runnerButtonC:hover {
+  color: #dc3545;
+  background: #dc35467a;
+  box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
+}
+
+.runnerSelect {
+  box-shadow: 0 0 10px #dc35467a, 0 0 40px #dc35467a, 0 0 80px #dc35467a;
+}
+
+#corpButtonR:hover {
   color: #0dcaf0;
   background: #0dcaf091;
+  box-shadow: 0 0 10px #0dcaf091, 0 0 40px #0dcaf091, 0 0 80px #0dcaf091;
+}
+
+#corpButtonC:hover {
+  color: #0dcaf0;
+  background: #0dcaf091;
+  box-shadow: 0 0 10px #0dcaf091, 0 0 40px #0dcaf091, 0 0 80px #0dcaf091;
+}
+
+.corpSelect {
   box-shadow: 0 0 10px #0dcaf091, 0 0 40px #0dcaf091, 0 0 80px #0dcaf091;
 }
 
@@ -154,6 +174,7 @@
   box-shadow: 0 0 5px #0dcaf07c, 0 0 10px #0dcaf07c, 0 0 20px #0dcaf07c;
 }
 .pickCriminal:hover {
+  color: white;
   box-shadow: 0 0 10px #0dcaf07c, 0 0 40px #0dcaf07c, 0 0 80px #0dcaf07c;
 }
 
@@ -187,6 +208,7 @@
   box-shadow: 0 0 5px #c4bc487a, 0 0 10px #c4bc487a, 0 0 20px #c4bc487a;
 }
 .pickAdam:hover {
+  color: white;
   box-shadow: 0 0 10px #c4bc487a, 0 0 40px #c4bc487a, 0 0 80px #c4bc487a;
 }
 
@@ -231,7 +253,7 @@
   color: #c79808; 
 }
 .miniSelect {
-  box-shadow: 0 0 10px #ffc10786, 0 0 40px #ffc10786, 0 0 80px #ffc10786;
+  box-shadow: 0 0 5px #ffc10786, 0 0 10px #ffc10786, 0 0 20px #ffc10786;
 }
 .pickMini:hover {
   box-shadow: 0 0 10px #ffc10786, 0 0 40px #ffc10786, 0 0 80px #ffc10786;
@@ -243,118 +265,151 @@
 #hb {
   filter: invert(32%) sepia(14%) saturate(2153%) hue-rotate(210deg) brightness(88%) contrast(85%);
 }
-
-.hb:hover {
+.navHb:hover {
   background-color: #7665c7;
 }
-
+.hb {
+  color: #695ca9;
+  box-shadow: 0 0 5px #695ca97a, 0 0 10px #695ca97a, 0 0 20px #695ca97a;
+}
+.hb:hover {
+  color: white;
+  background-color: #7665c7;
+  box-shadow: 0 0 10px #695ca97a, 0 0 40px #695ca97a, 0 0 80px #695ca97a;
+}
 #hbText {
   color: #695ca9;
 }
-
 .hbText {
   color: #695ca9;
 }
-
 #hbText:hover {
-  color: #3d3563;
+  /* color: #3d3563; */
 }
-
 .pickHB {
-  color: #3d3563;
-  background-color: #695ca9!important;
+  /* color: #3d3563; */
+  color: #695ca9;
+  /* background-color: #695ca9!important; */
+  box-shadow: 0 0 5px #695ca97a, 0 0 10px #695ca97a, 0 0 20px #695ca97a;
 }
-
 .hbButton:hover {
-  background-color: #695ca9!important;
+  color: white;
+  /* background-color: #695ca9!important; */
+  box-shadow: 0 0 10px #695ca97a, 0 0 40px #695ca97a, 0 0 80px #695ca97a;
 }
 
+
+/* JINTEKI COLORS */
 #jinteki {
   filter: invert(8%) sepia(79%) saturate(5871%) hue-rotate(350deg) brightness(89%) contrast(100%);
 }
-
-.jinteki:hover {
+.navJinteki:hover {
   background-color: #b33e48;
 }
-
+.jinteki {
+  color: #f23f4e;
+  box-shadow: 0 0 5px #f23f4e86, 0 0 10px #f23f4e86, 0 0 20px #f23f4e86;
+}
+.jinteki:hover {
+  color: white;
+  background-color: #b33e48;
+  box-shadow: 0 0 10px #f23f4e86, 0 0 40px #f23f4e86, 0 0 80px #f23f4e86;
+}
 #jintekiText {
   color: #f23f4e;
 }
-
 .jintekiText {
   color: #f23f4e;
 }
-
 #jintekiText:hover {
-  color: #9a0814;
+  /* color: #9a0814; */
 }
-
 .pickJinteki {
-  color: #9a0814;
-  background-color: #f23f4e!important;
+  /* color: #9a0814; */
+  color: #f23f4e;
+  box-shadow: 0 0 5px #f23f4e86, 0 0 10px #f23f4e86, 0 0 20px #f23f4e86;
 }
-
 .jintekiButton:hover {
-  background-color: #f23f4e!important;
+  color: white;
+  /* background-color: #f23f4e!important; */
+  box-shadow: 0 0 10px #f23f4e86, 0 0 40px #f23f4e86, 0 0 80px #f23f4e86;
 }
 
+
+/* WEYLAND COLORS */
 #weyland {
   filter: invert(37%) sepia(22%) saturate(867%) hue-rotate(107deg) brightness(96%) contrast(83%);
 }
-
-.weyland:hover {
+.navWeyland:hover {
   background-color: #4c987c;
 }
-
+.weyland {
+  color: #568e79;
+  box-shadow: 0 0 5px #568e7a86, 0 0 10px #568e7a86, 0 0 20px #568e7a86;
+}
+.weyland:hover {
+  color: white;
+  background-color: #4c987c;
+  box-shadow: 0 0 10px #568e7a86, 0 0 40px #568e7a86, 0 0 80px #568e7a86;
+}
 #weylandText {
   color: #568e79;
 }
-
 .weylandText {
   color: #568e79;
 }
-
 #weylandText:hover {
-  color: #1f523f;
+  /* color: #1f523f; */
 }
-
 .pickWeyland {
-  color: #1f523f;
-  background-color: #568e79!important;
+  /* color: #1f523f; */
+  color: #568e79;
+  box-shadow: 0 0 5px #568e7a86, 0 0 10px #568e7a86, 0 0 20px #568e7a86;
 }
-
 .weylandButton:hover {
-  background-color: #568e79!important;
+  color: white;
+  /* background-color: #568e79!important; */
+  box-shadow: 0 0 10px #568e7a86, 0 0 40px #568e7a86, 0 0 80px #568e7a86;
 }
 
+
+/* NBN COLORS */
 #nbn {
   filter: invert(95%) sepia(38%) saturate(5800%) hue-rotate(318deg) brightness(104%) contrast(90%);
 }
-
-.nbn:hover {
+.navNbn:hover {
   background-color: #ffe595;
 }
-
+.nbn {
+  color: #f2ca50;
+  box-shadow: 0 0 5px #f2ca5080, 0 0 10px #f2ca5080, 0 0 20px #f2ca5080;
+}
+.nbn:hover {
+  color: #212529;
+  background-color: #ffe595;
+  box-shadow: 0 0 10px #f2ca5080, 0 0 40px #f2ca5080, 0 0 80px #f2ca5080;
+}
 #nbnText {
   color: #f2ca50;
 }
-
 .nbnText {
   color: #f2ca50;
 }
-
 #nbnText:hover {
-  color: #b08a17;
+  /* color: #b08a17; */
 }
-
 .pickNBN {
-  color: #b08a17;
-  background-color: #f2ca50!important;
+  /* color: #b08a17; */
+  color: #f2ca50;
+  box-shadow: 0 0 5px #f2ca5080, 0 0 10px #f2ca5080, 0 0 20px #f2ca5080;
+}
+.nbnButton:hover {
+  color: white;
+  /* background-color: #f2ca50!important; */
+  box-shadow: 0 0 10px #f2ca5080, 0 0 40px #f2ca5080, 0 0 80px #f2ca5080;
 }
 
-.nbnButton:hover {
-  background-color: #f2ca50!important;
-}
+
 
 .navbar-divider {
   border-bottom: 1px solid white;
