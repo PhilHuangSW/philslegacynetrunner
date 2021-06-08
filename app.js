@@ -27,52 +27,71 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.get('/shaper', async (req, res) => {
+app.get('/runner', async (req, res) => {
   try {
     const data = await pool.query("SELECT * FROM decks");
-    // console.log(data.rows[0]);
+    // data consists of an array of Objects
+    // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, deck_description } = data.rows[0];
     const decklist = [];
-    // console.log(data.rows[0].cards)
     for (let cardCode in data.rows[0].cards) {
-      // console.log(cardCode);
       const card = await pool.query("SELECT * FROM cards WHERE code = $1", [data.rows[0].cards[cardCode][0]]);
-      // console.log(card)
-      decklist.push([card.rows[0], data.rows[0].cards[cardCode][1]])
-      // console.log(data.rows[0].cards[cardCode][1]);
-      // console.log(decklist)
+      const url = 'https://netrunnerdb.com/card_image/large/' + card.rows[0].code + '.jpg'
+      decklist.push([card.rows[0], data.rows[0].cards[cardCode][1], url])
     }
-    // console.log(decklist[2][0].title);
-    res.render('shaper', { deck_code, deck_name, deck_description, decklist });
+    res.render('runner', { deck_code, deck_name, deck_description, decklist });
   } catch (err) {
     console.log(err.message);
+    res.render('home');
   }
 })
 
-app.get('/runner', async (req, res) => {
-  // const info = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/62733');
-  // const infoObject = await info.json()
-  // const deck = await infoObject.data[0].cards;
-  // const deckCodes = [];
-  // for (let card in deck) {
-  //   deckCodes.push(card)
-  // }
-  // // console.log(deckCodes);
-  // const deckList = [];
-  // console.log('-------deckCodes------');
-  // console.log(deckCodes);
-  // for (let i = 0; i < deckCodes.length; i++) {
-  //   console.log(parseInt(deckCodes[i]));
-  //   const cardFetch = await fetch(`https://netrunnerdb.com/api/2.0/public/card/${parseInt(deckCodes[i])}`)
-  //   const cardCode = await cardFetch.json()
-  //   console.log(cardCode);
-  //   deckList.push([cardCode.data[0].code, cardCode.data[0].stripped_title])
-  // }
-  // console.log(deckList);
-  // const info = await fetch('https://netrunnerdb.com/api/2.0/public/prebuilts');
-  // const infoObject = await info.json();
-  // console.log(infoObject);
-  res.render('runner');
+app.get('/corp', async (req, res) => {
+  try {
+    const data = await pool.query("SELECT * FROM decks");
+    // data consists of an array of Objects
+    // { deck_id, deck_code, deck_name, deck_description, cards[] }
+    const { deck_code, deck_name, cards } = data.rows[0];
+    const identity = [];
+    const event = [];
+    const hardware = [];
+    const resource = [];
+    const icebreaker = [];
+    const program = [];
+    const allImages = [];
+    for (let cardCode in cards) {
+      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      // console.log(card)
+      // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
+      const url = 'https://netrunnerdb.com/card_image/large/' + card.rows[0].code + '.jpg'
+      allImages.push(url);
+      switch (card.rows[0].type_code) {
+        case 'event':
+          event.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          break;
+        case 'hardware':
+          hardware.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          break;
+        case 'resource':
+          resource.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          break;
+        case 'program':
+          let ib = new RegExp('Icebreaker');
+          if (ib.test(card.rows[0].keywords)) {
+            icebreaker.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          } else {
+            program.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          }
+          break;
+        default:
+          identity.push(card.rows[0].title, cards[cardCode][1], cardCode)
+      }
+    }
+    res.render('corp', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name });
+  } catch (err) {
+    console.log(err.message);
+    res.render('home');
+  }
 })
 
 // {"imageUrlTemplate":"https://netrunnerdb.com/card_image/large/{code}.jpg",

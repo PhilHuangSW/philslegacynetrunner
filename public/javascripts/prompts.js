@@ -268,6 +268,8 @@ $(document).ready(() => {
   jintekiButton.click((pressJintekiFaction));
   weylandButton.click((pressWeylandFaction));
   nbnButton.click((pressNBNFaction));
+
+
 });
 
 
