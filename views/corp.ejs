@@ -23,12 +23,6 @@
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="/stylesheets/all.css">
 
-  <!-- CSS-TOOLTIP -->
-  <!-- <link rel="stylesheet" href="/stylesheets/css-tooltip.css"> -->
-
-  <!-- TOOLTIP -->
-  <!-- <link rel="stylesheet" href="/stylesheets/tooltip.css"> -->
-
 </head>
 
 
@@ -44,15 +38,15 @@
         <h3 class="text-white">Identity:</h3>
         <ul>
           <li class="text-white">
-            <span id="<%= identity[2] %>"><%= identity[0] %></span>
+            <a class=""><span id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
           </li>
         </ul>
 
         <h3 class="text-white">Events:</h3>
         <ul>
           <% for( let i = 0; i < event.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= event[i][1] %>x  '">
-            <a class=""><span id="<%= event[i][2] %>"><%= event[i][0] %></span></a>
+          <li class="text-white" style="list-style-type: '<%= event[i].amount %>x  '">
+            <a class=""><span id="<%= event[i].id %>"><%= event[i].title %></span></a>
           </li>
           <% } %>
         </ul>
@@ -60,8 +54,8 @@
         <h3 class="text-white">Hardware:</h3>
         <ul>
           <% for( let i = 0; i < hardware.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= hardware[i][1] %>x  '">
-            <a class=""><span id="<%= hardware[i][2] %>"><%= hardware[i][0] %></span></a>
+          <li class="text-white" style="list-style-type: '<%= hardware[i].amount %>x  '">
+            <a class=""><span id="<%= hardware[i].id %>"><%= hardware[i].title %></span></a>
           </li>
           <% } %>
         </ul>
@@ -69,8 +63,8 @@
         <h3 class="text-white">Resources:</h3>
         <ul>
           <% for( let i = 0; i < resource.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= resource[i][1] %>x  '">
-            <a class=""><span id="<%= resource[i][2] %>"><%= resource[i][0] %></span></a>
+          <li class="text-white" style="list-style-type: '<%= resource[i].amount %>x  '">
+            <a class=""><span id="<%= resource[i].id %>"><%= resource[i].title %></span></a>
           </li>
           <% } %>
         </ul>
@@ -78,8 +72,8 @@
         <h3 class="text-white">Icebreakers:</h3>
         <ul>
           <% for( let i = 0; i < icebreaker.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= icebreaker[i][1] %>x  '">
-            <a class=""><span id="<%= icebreaker[i][2] %>"><%= icebreaker[i][0] %></span></a>
+          <li class="text-white" style="list-style-type: '<%= icebreaker[i].amount %>x  '">
+            <a class=""><span id="<%= icebreaker[i].id %>"><%= icebreaker[i].title %></span></a>
           </li>
           <% } %>
         </ul>
@@ -88,8 +82,8 @@
         <ul>
           <% for( let i = 0; i < program.length; i++ ) { %>
           <a>
-            <li class="text-white" style="list-style-type: '<%= program[i][1] %>x  '">
-              <a class=""><span id="<%= program[i][2] %>"><%= program[i][0] %></span></a>
+            <li class="text-white" style="list-style-type: '<%= program[i].amount %>x  '">
+              <a class=""><span id="<%= program[i].id %>"><%= program[i].title %></span></a>
             </li>
           </a>
           <% } %>
@@ -98,7 +92,7 @@
       </div>
 
       <div class="col-6 col-lg-5 col-xl-4">
-        <img src="<%= allImages[identity[2]] %> " alt="" class="img-fluid" id="img<%= identity[2] %>">
+        <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid" id="img<%= identity[0].id %>">
         <% for( let i = 0; i < allImages.length; i++ ) { %>
         <img src="<%= allImages[i] %> " alt="" class="img-fluid d-none" id="img<%= i %>">
         <% } %>

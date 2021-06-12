@@ -67,24 +67,24 @@ app.get('/corp', async (req, res) => {
       allImages.push(url);
       switch (card.rows[0].type_code) {
         case 'event':
-          event.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          event.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
           break;
         case 'hardware':
-          hardware.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          hardware.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
           break;
         case 'resource':
-          resource.push([card.rows[0].title, cards[cardCode][1], cardCode])
+          resource.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
           break;
         case 'program':
           let ib = new RegExp('Icebreaker');
           if (ib.test(card.rows[0].keywords)) {
-            icebreaker.push([card.rows[0].title, cards[cardCode][1], cardCode])
+            icebreaker.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
           } else {
-            program.push([card.rows[0].title, cards[cardCode][1], cardCode])
+            program.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
           }
           break;
         default:
-          identity.push(card.rows[0].title, cards[cardCode][1], cardCode)
+          identity.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
       }
     }
     res.render('corp', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name });
