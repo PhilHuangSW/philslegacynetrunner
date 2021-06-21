@@ -34,14 +34,18 @@
     </h1>
 
     <div class="row overflow-auto">
-      <div class="col-6 col-lg-4 offset-lg-1 offset-xl-2">
+      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
+      <div class="d-flex">
         <h3 class="text-white">Identity:</h3>
         <ul>
           <li class="text-white">
             <a class=""><span id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
           </li>
         </ul>
+      </div>
 
+      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
+      <div class="d-flex">
         <h3 class="text-white">Events:</h3>
         <ul>
           <% for( let i = 0; i < event.length; i++ ) { %>
@@ -50,7 +54,10 @@
           </li>
           <% } %>
         </ul>
+      </div>
 
+      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
+      <div class="d-flex">
         <h3 class="text-white">Hardware:</h3>
         <ul>
           <% for( let i = 0; i < hardware.length; i++ ) { %>
@@ -59,7 +66,11 @@
           </li>
           <% } %>
         </ul>
+      </div>
 
+
+      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
+      <div class="d-flex">
         <h3 class="text-white">Resources:</h3>
         <ul>
           <% for( let i = 0; i < resource.length; i++ ) { %>
@@ -68,7 +79,10 @@
           </li>
           <% } %>
         </ul>
+      </div>
 
+      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
+      <div class="d-flex">
         <h3 class="text-white">Icebreakers:</h3>
         <ul>
           <% for( let i = 0; i < icebreaker.length; i++ ) { %>
@@ -77,7 +91,10 @@
           </li>
           <% } %>
         </ul>
+      </div>
 
+      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
+      <div class="d-flex">
         <h3 class="text-white">Programs:</h3>
         <ul>
           <% for( let i = 0; i < program.length; i++ ) { %>
@@ -88,9 +105,11 @@
           </a>
           <% } %>
         </ul>
-
       </div>
 
+    </div>
+    </div>
+    <div class="row">
       <div class="col-6 col-lg-5 col-xl-4">
         <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid" id="img<%= identity[0].id %>">
         <% for( let i = 0; i < allImages.length; i++ ) { %>
@@ -100,6 +119,13 @@
       </div>
     </div>
 
+    <div>
+      <div class="row">
+        <div class="col-6 text-white">
+          <%- deck_description %>
+        </div>
+      </div>
+    </div>
 
   </main>
 

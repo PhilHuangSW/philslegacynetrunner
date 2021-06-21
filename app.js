@@ -46,12 +46,24 @@ app.get('/runner', async (req, res) => {
   }
 })
 
-app.get('/corp', async (req, res) => {
+app.get('/corp/:id', async (req, res) => {
+  const { id } = req.params;
+  let deck_name_to_id = 0;
+  switch (id) {
+    case 'smoke':
+      deck_name_to_id = 1;
+      break;
+    case 'chaostheory':
+      deck_name_to_id = 2;
+      break;
+    default:
+      deck_name_to_id = 1;
+  }
   try {
-    const data = await pool.query("SELECT * FROM decks");
+    const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
-    const { deck_code, deck_name, cards } = data.rows[0];
+    const { deck_code, deck_name, cards, deck_description } = data.rows[0];
     const identity = [];
     const event = [];
     const hardware = [];
@@ -87,38 +99,12 @@ app.get('/corp', async (req, res) => {
           identity.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
       }
     }
-    res.render('corp', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name });
+    res.render('corp', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description });
   } catch (err) {
     console.log(err.message);
     res.render('home');
   }
 })
-
-// {"imageUrlTemplate":"https://netrunnerdb.com/card_image/large/{code}.jpg",
-// "data":[{
-// "code":"02043",
-// "cost":0,
-// "deck_limit":3,
-// "faction_code":"criminal",
-// "faction_cost":2,
-// "flavor":"\"Think of it as a virtual shock collar for punishing corporate pets.\" -Andromeda",
-// "illustrator":"Adam S. Doyle",
-// "keywords":"Sabotage",
-// "pack_code":"ce",
-// "position":43,
-// "quantity":3,
-// "side_code":"runner",
-// "stripped_text":"Play only if you made a successful run on HQ this turn. Derez 1 installed piece of ice.",
-// "stripped_title":"Emergency Shutdown",
-// "text":"Play only if you made a successful run on HQ this turn.\nDerez 1 installed piece of ice.",
-// "title":"Emergency Shutdown",
-// "type_code":"event",
-// "uniqueness":false
-// }],
-// "total":1,
-// "success":true,
-// "version_number":"2.0",
-// "last_updated":"2021-03-15T14:10:37+00:00"}
 
 app.listen(8080, () => {
   console.log(`Listening on port 8080!`);

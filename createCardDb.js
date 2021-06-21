@@ -63,7 +63,7 @@ const check = async () => {
 
 const createDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66030');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/62724');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -76,13 +76,14 @@ const createDeck = async () => {
         decklistJson.data[0].name,
         decklistJson.data[0].description,
         cards,
-      ])
-    console.log('done!');
+      ],
+      console.log('done!'))
+
   } catch (err) {
     console.log(err.message);
     console.log('I broke somehow in CreateDeck Function');
   }
 }
 
-// createDeck();
-card();
+createDeck();
+// card();
