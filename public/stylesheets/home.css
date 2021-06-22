@@ -29,6 +29,10 @@
   transition: all 3s ease; */
 }
 
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 /* BUTTONS -- HIGHLIGHTED LIKE NEON LIGHTS */
 #jackIn:hover {

@@ -2,3 +2,4 @@ node_modules
 package-lock.json
 temp.ejs
 .env
+deck_list_helper

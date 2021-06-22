@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= deck_name %></title>
+  <title><%= identity[0].title %></title>
 
   <!-- BOOTSTRAP v5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,45 +23,145 @@
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="/stylesheets/all.css">
 
-  <!-- CSS-TOOLTIP -->
-  <!-- <link rel="stylesheet" href="/stylesheets/css-tooltip.css"> -->
-
-  <!-- TOOLTIP -->
-  <!-- <link rel="stylesheet" href="/stylesheets/tooltip.css"> -->
-
 </head>
 
 
-<body class="vh-100 body bodyFade">
+<body class="body bodyFade overflow-auto">
   <%- include('./partials/navbar') %>
-  <main class="container pt-5 vh-100">
-    <h1 class="text-white text-center pt-4">
+  <main class="container pt-5" id="mainView">
+    <h1 class="text-white text-center pt-3">
       <%= deck_name %>
     </h1>
 
-    <div class="row">
-      <div class="col-6 col-lg-4 offset-lg-1 offset-xl-2">
-        <ul>
-          <% for( let index = 0; index < decklist.length; index++ ) { %>
+    <div class="row mb-3">
 
-          <li class="text-white">
-            <%= decklist[index][0].title %>
-            x <%= decklist[index][1] %>
-          </li>
 
-          <% } %>
-        </ul>
+      <div class="col-sm-6">
+        <!-- IDENTITY -->
+        <h3 class="text-white">Identity:</h3>
+        <div class="text-white">
+          <a class="<%= identity[0].id %>"><span id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
+        </div>
+
+
+        <!-- EVENTS -->
+        <h3 class="text-white">Events:</h3>
+        <% for( let i = 0; i < event.length; i++ ) { %>
+        <div class="text-white">
+          <%= event[i].amount %>x
+          <a class="<%= event[i].id %>"><span id="<%= event[i].id %>"><%= event[i].title %></span></a>
+        </div>
+        <% } %>
+
+
+        <!-- RESOURCES -->
+        <h3 class="text-white">Resources:</h3>
+        <% for( let i = 0; i < resource.length; i++ ) { %>
+        <div class="text-white">
+          <%= resource[i].amount %>x
+          <a class="<%= resource[i].id %>"><span id="<%= resource[i].id %>"><%= resource[i].title %></span></a>
+        </div>
+        <% } %>
       </div>
 
-      <div class="col-6 col-lg-5 col-xl-4">
-        <img src="<%= decklist[1][2] %> " alt="" class="img-fluid">
+
+      <div class="col-sm-6">
+        <!-- HARDWARE -->
+        <h3 class="text-white">Hardware:</h3>
+        <% for( let i = 0; i < hardware.length; i++ ) { %>
+        <div class="text-white">
+          <%= hardware[i].amount %>x
+          <a class="<%= hardware[i].id %>"><span id="<%= hardware[i].id %>"><%= hardware[i].title %></span></a>
+        </div>
+        <% } %>
+
+
+        <!-- ICEBREAKERS -->
+        <h3 class="text-white">Icebreakers:</h3>
+        <% for( let i = 0; i < icebreaker.length; i++ ) { %>
+        <div class="text-white">
+          <%= icebreaker[i].amount %>x
+          <a class="<%= icebreaker[i].id %>"><span id="<%= icebreaker[i].id %>"><%= icebreaker[i].title %></span></a>
+        </div>
+        <% } %>
+
+
+        <!-- PROGRAMS -->
+        <h3 class="text-white">Programs:</h3>
+        <% for( let i = 0; i < program.length; i++ ) { %>
+        <div class="text-white">
+          <%= program[i].amount %>x
+          <a class="<%= program[i].id %>"><span id="<%= program[i].id %>"><%= program[i].title %></span></a>
+        </div>
+        <% } %>
       </div>
+
+      <!-- 36 Closing Row Div -->
     </div>
 
 
+    <div class="row mb-3">
+      <div class="col-sm-6 d-none d-sm-block">
+        <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid img<%= identity[0].id %>"
+          id="img<%= identity[0].id %>">
+        <% for( let i = 0; i < allImages.length; i++ ) { %>
+        <% if (i === parseInt(identity[0].id)) { %>
+        <% continue; %>
+        <% } %>
+        <img src="<%= allImages[i] %> " alt="" class="img-fluid d-none img<%= i %>" id="img<%= i %>">
+        <% } %>
+      </div>
+
+      <div class="col-6 text-white">
+        <p>
+          <strong>Intro:</strong>&nbsp; Chaos Theory was one of my favorite runners when she was first introduced. It
+          was rare to find an ID with a minimum decklist of 40 cards at that time. Her passive ability to have an extra
+          MU will be used very well with her rig!
+        </p>
+
+        <p>
+          <strong>Strengths:</strong>&nbsp; Huge breaker suite and near endless economy
+        </p>
+
+        <p>
+          <strong>Weaknesses:</strong>&nbsp; Slow to setup, everything is expensive
+        </p>
+
+        <p>
+          <strong>Playstyle:</strong>&nbsp; To make use of her extra MU, we've brought in the best Icebreakers that
+          utilize extra Memory. <a class="3">Savant</a> and <a class="2">Adept</a> along with the incredible <a
+            class="14">Overmind</a> will allow you to break pretty much any ICE you encounter. Hosting all your programs
+          onto <a class="4">Dhegdheers</a> and <a class="8">Dinosaurus</a> will ensure you have the maximum
+          strength/counters for your Icebreakers.
+          <br>
+          The downfall to this deck is definitely in the setup. Everything is quite costly to build and the economy
+          package, while good, can take a little while to get going. If the corp catches on and can out-tempo you by
+          advancing agendas before you can get set up, it can sometimes be difficult to mount a comeback.
+          <br>
+          Take your first couple of turns setting up your economy. Appear weak and have the corp threaten to advance out
+          an agenda. All you need is a Self-modifying Code/<a class="14">Overmind</a> to easily break through and steal
+          agendas. Once you have tempo back on your side, continue to economy up.
+        </p>
+
+        <p>
+          <strong>Mulligan:</strong>&nbsp; Try to look for <a class="14">Overmind</a>, <a class="10">Magnum Opus</a>, or
+          Self-modifying Code with some economy as a starting hand. With the small deck size, having <a
+            class="6">Diesel</a> in the starting hand can also draw you into what you need.
+        </p>
+
+        <p>
+          <strong>Tips:</strong>&nbsp; Ideal rig would consist of <a class="10">Magnum
+            Opus</a> and <a class="2">Adept</a> or <a class="3">Savant</a> onto <a class="4">Dhegdheers</a> with the
+          other on <a class="8">Dinosaurus</a>, 3x <a class="1">LLDS Memory Diamond</a> and 3x <a class="16">Data
+            Folding</a> for a total of 9-12 strength breakers with 3
+          credits at start of turn, and endless econ using <a class="10">Magnum
+            Opus</a>.
+        </p>
+      </div>
+    </div>
+
   </main>
 
-  <%- include('./partials/footer') %>
 
 
 
@@ -79,15 +179,38 @@
 
   <script src="/javascripts/prompts.js"></script>
 
+  <!-- CONTROLS WHICH IMAGES APPEAR ON SCREEN -->
+  <script>
+    const allImgs = <%- JSON.stringify(allImages) %>;
+    for (let i = 0; i < allImgs.length; i++) {
+    $('.' + i).hover(() => {
+      for (let j = 0; j < allImgs.length; j++) {
+        // console.log(j)
+        $('.img' + j).addClass('d-none');
+      }
+      // console.log(i);
+      $('.img' + i).removeClass('d-none');
+    })
+  }
+  </script>
+
+  <script>
+    const x = window.matchMedia("(max-width: 900px), (max-height: 900px), (display-mode: fullscreen)");
+
+    function myFunc(x) {
+      if (x.matches) {
+        $('#mainView').removeClass('vh-100');
+      } else {
+        $('#mainView').addClass('vh-100');
+      }
+    };
+
+    myFunc(x);
+    x.addListener(myFunc);
+  </script>
+
   <!-- FONT AWESOME -->
   <script defer src="/javascripts/all.js"></script>
-
-  <!-- <script>
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-  </script> -->
 
 </body>
 

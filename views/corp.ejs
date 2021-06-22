@@ -26,110 +26,110 @@
 </head>
 
 
-<body class="vh-100 body bodyFade overflow-auto">
+<body class="body bodyFade vh-100 overflow-auto">
   <%- include('./partials/navbar') %>
-  <main class="container pt-5 vh-100" id="mainView">
+  <main class="container pt-5" id="mainView">
     <h1 class="text-white text-center pt-3">
       <%= deck_name %>
     </h1>
 
-    <div class="row overflow-auto">
-      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
-      <div class="d-flex">
+    <div class="row mb-3">
+
+
+      <div class="col-sm-6">
+        <!-- IDENTITY -->
         <h3 class="text-white">Identity:</h3>
-        <ul>
-          <li class="text-white">
-            <a class=""><span id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
-          </li>
-        </ul>
-      </div>
+        <div class="text-white">
+          <a class=""><span id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
+        </div>
 
-      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
-      <div class="d-flex">
+
+        <!-- EVENTS -->
         <h3 class="text-white">Events:</h3>
-        <ul>
-          <% for( let i = 0; i < event.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= event[i].amount %>x  '">
-            <a class=""><span id="<%= event[i].id %>"><%= event[i].title %></span></a>
-          </li>
-          <% } %>
-        </ul>
-      </div>
-
-      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
-      <div class="d-flex">
-        <h3 class="text-white">Hardware:</h3>
-        <ul>
-          <% for( let i = 0; i < hardware.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= hardware[i].amount %>x  '">
-            <a class=""><span id="<%= hardware[i].id %>"><%= hardware[i].title %></span></a>
-          </li>
-          <% } %>
-        </ul>
-      </div>
+        <% for( let i = 0; i < event.length; i++ ) { %>
+        <div class="text-white">
+          <%= event[i].amount %>x
+          <a class=""><span id="<%= event[i].id %>"><%= event[i].title %></span></a>
+        </div>
+        <% } %>
 
 
-      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
-      <div class="d-flex">
+        <!-- RESOURCES -->
         <h3 class="text-white">Resources:</h3>
-        <ul>
-          <% for( let i = 0; i < resource.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= resource[i].amount %>x  '">
-            <a class=""><span id="<%= resource[i].id %>"><%= resource[i].title %></span></a>
-          </li>
-          <% } %>
-        </ul>
+        <% for( let i = 0; i < resource.length; i++ ) { %>
+        <div class="text-white">
+          <%= resource[i].amount %>x
+          <a class=""><span id="<%= resource[i].id %>"><%= resource[i].title %></span></a>
+        </div>
+        <% } %>
       </div>
 
-      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
-      <div class="d-flex">
+
+      <div class="col-sm-6">
+        <!-- HARDWARE -->
+        <h3 class="text-white">Hardware:</h3>
+        <% for( let i = 0; i < hardware.length; i++ ) { %>
+        <div class="text-white">
+          <%= hardware[i].amount %>x
+          <a class=""><span id="<%= hardware[i].id %>"><%= hardware[i].title %></span></a>
+        </div>
+        <% } %>
+
+
+        <!-- ICEBREAKERS -->
         <h3 class="text-white">Icebreakers:</h3>
-        <ul>
-          <% for( let i = 0; i < icebreaker.length; i++ ) { %>
-          <li class="text-white" style="list-style-type: '<%= icebreaker[i].amount %>x  '">
-            <a class=""><span id="<%= icebreaker[i].id %>"><%= icebreaker[i].title %></span></a>
-          </li>
-          <% } %>
-        </ul>
-      </div>
+        <% for( let i = 0; i < icebreaker.length; i++ ) { %>
+        <div class="text-white">
+          <%= icebreaker[i].amount %>x
+          <a class=""><span id="<%= icebreaker[i].id %>"><%= icebreaker[i].title %></span></a>
+        </div>
+        <% } %>
 
-      <!-- <div class="col-6 col-md-4 col-sm-2"> -->
-      <div class="d-flex">
+
+        <!-- PROGRAMS -->
         <h3 class="text-white">Programs:</h3>
-        <ul>
-          <% for( let i = 0; i < program.length; i++ ) { %>
-          <a>
-            <li class="text-white" style="list-style-type: '<%= program[i].amount %>x  '">
-              <a class=""><span id="<%= program[i].id %>"><%= program[i].title %></span></a>
-            </li>
-          </a>
-          <% } %>
-        </ul>
+        <% for( let i = 0; i < program.length; i++ ) { %>
+        <div class="text-white">
+          <%= program[i].amount %>x
+          <a class=""><span id="<%= program[i].id %>"><%= program[i].title %></span></a>
+        </div>
+        <% } %>
       </div>
 
+      <!-- 36 Closing Row Div -->
     </div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-lg-5 col-xl-4">
+
+
+    <div class="row mb-3">
+      <div class="col-sm-6">
         <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid" id="img<%= identity[0].id %>">
         <% for( let i = 0; i < allImages.length; i++ ) { %>
         <img src="<%= allImages[i] %> " alt="" class="img-fluid d-none" id="img<%= i %>">
         <% } %>
+      </div>
 
+      <div class="col-6 text-white">
+        <p><strong>Playstyle:</strong> Host every program onto <a
+            href="https://netrunnerdb.com/en/card/13020">Dhegdheer</a> and <a
+            href="https://netrunnerdb.com/en/card/25049">Dinosaurus</a> so that you have maximum MU for your high
+          strength breakers, as well as maximum counters for <a
+            href="https://netrunnerdb.com/en/card/05053">Overmind</a>.</p>
+        <p><strong>Tips:</strong> Ideal rig would consist of <a href="https://netrunnerdb.com/en/card/01044">Magnum
+            Opus</a> and <a href="https://netrunnerdb.com/en/card/13017">Adept</a> or <a
+            href="https://netrunnerdb.com/en/card/13018">Savant</a> onto <a
+            href="https://netrunnerdb.com/en/card/13020">Dhegdheers</a> with the other on <a
+            href="https://netrunnerdb.com/en/card/25049">Dinosaurus</a>, 3x <a
+            href="https://netrunnerdb.com/en/card/13015">LLDS Memory Diamond</a> and 3x <a
+            href="https://netrunnerdb.com/en/card/07055">Data Folding</a> for a total of 9-12 strength breakers with 3
+          credits at start of turn, and endless econ using <a href="https://netrunnerdb.com/en/card/01044">Magnum
+            Opus</a>.</p>
       </div>
     </div>
 
-    <div>
-      <div class="row">
-        <div class="col-6 text-white">
-          <%- deck_description %>
-        </div>
-      </div>
-    </div>
-
+    <%- include('./partials/footer') %>
   </main>
 
-  <%- include('./partials/footer') %>
+
 
 
 

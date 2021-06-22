@@ -22,69 +22,71 @@
 
           <!-- SHAPERS -->
           <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item shaper" href="#"><img
+            <li><a class="dropdown-item shaper" href="/runner/chaostheory"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Shaper-smooth.svg"
                   alt="Shaper Faction Symbol" id="shaper"> &nbsp;&nbsp;Chaos Theory: Wünderkind
               </a>
             </li>
-            <li><a class="dropdown-item shaper" href="#"><img
+            <li><a class="dropdown-item shaper" href="/runner/smoke"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Shaper-smooth.svg"
                   alt="Shaper Faction Symbol" id="shaper"> &nbsp;&nbsp;Ele "Smoke" Scovak: Cynosure of the Net
               </a>
             </li>
-            <li><a class="dropdown-item shaper" href="#"><img
+            <li><a class="dropdown-item shaper" href="/runner/nasir"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Shaper-smooth.svg"
                   alt="Shaper Faction Symbol" id="shaper"> &nbsp;&nbsp;Nasir Meidan: Cyber Explorer
               </a>
             </li>
 
             <!-- CRIMINALS -->
-            <li><a class="dropdown-item criminal" href="#"><img
+            <li><a class="dropdown-item criminal" href="/runner/geist"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Criminal.svg"
                   alt="Criminal Faction Symbol" id="criminal"> &nbsp;&nbsp;Armand "Geist" Walker: Tech Lord
               </a>
             </li>
-            <li><a class="dropdown-item criminal" href="#"><img
+            <li><a class="dropdown-item criminal" href="/runner/gabriel"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Criminal.svg"
                   alt="Criminal Faction Symbol" id="criminal"> &nbsp;&nbsp;Gabriel Santiago: Consummate
                 Professional
               </a>
             </li>
-            <li><a class="dropdown-item criminal" href="#"><img
+            <li><a class="dropdown-item criminal" href="/runner/khan"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Criminal.svg"
                   alt="Criminal Faction Symbol" id="criminal"> &nbsp;&nbsp;Khan: Savvy Skiptracer
               </a>
             </li>
 
             <!-- ANARCHS -->
-            <li><a class="dropdown-item anarch" href="#"><img
+            <li><a class="dropdown-item anarch" href="/runner/null"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Anarch.svg"
                   alt="Anarch Faction Symbol" id="anarch"> &nbsp;&nbsp;Null: Whistleblower
               </a>
             </li>
-            <li><a class="dropdown-item anarch" href="#"><img
+            <li><a class="dropdown-item anarch" href="/runner/omar"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Anarch.svg"
                   alt="Anarch Faction Symbol" id="anarch"> &nbsp;&nbsp;Omar Keung: Conspiracy Theorist
               </a>
             </li>
-            <li><a class="dropdown-item anarch" href="#"><img
+            <li><a class="dropdown-item anarch" href="/runner/reina"><img
                   src="https://raw.githubusercontent.com/MWDelaney/Netrunner-Icon-Font/51bc5ed1bb4bc320e4dcd17940bef48a8f57cd25/Netrunner/svg/Anarch.svg"
                   alt="Anarch Faction Symbol" id="anarch"> &nbsp;&nbsp;Reina Roja: Freedom Fighter
               </a>
             </li>
 
             <!-- MINI-FACTIONS -->
-            <li><a class="dropdown-item adam" href="#"><img src="https://netrunnerdb.com/images/factions/16px/adam.png"
-                  class="py-2 px-1" alt="Adam Faction Symbol" id="adam">
+            <li><a class="dropdown-item adam" href="/runner/adam"><img
+                  src="https://netrunnerdb.com/images/factions/16px/adam.png" class="py-2 px-1"
+                  alt="Adam Faction Symbol" id="adam">
                 &nbsp;&nbsp;&nbsp; Adam: Compulsive Hacker
               </a>
             </li>
-            <li><a class="dropdown-item apex" href="#"><img src="https://netrunnerdb.com/images/factions/16px/apex.png"
-                  class="py-2 px-1" alt="Apex Faction Symbol" id="apex">
+            <li><a class="dropdown-item apex" href="/runner/apex"><img
+                  src="https://netrunnerdb.com/images/factions/16px/apex.png" class="py-2 px-1"
+                  alt="Apex Faction Symbol" id="apex">
                 &nbsp;&nbsp; Apex: Invasive Predator
               </a>
             </li>
-            <li><a class="dropdown-item sunny" href="#"><img
+            <li><a class="dropdown-item sunny" href="/runner/sunny"><img
                   src="https://netrunnerdb.com/images/factions/16px/sunny-lebeau.png" class="py-2 px-1"
                   alt="Sunny Lebeau Faction Symbol" id="sunny"> &nbsp;&nbsp;&nbsp; Sunny Lebeau: Security Specialist
               </a>
@@ -173,11 +175,13 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a href="/runner" class="nav-link navColor">Random Runner</a>
+          <% const randRunner = Math.floor(Math.random() * 3) + 1 %>
+          <a href="/runner/<%= randRunner %>" class="nav-link navColor">Random Runner</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a href="/corp" class="nav-link navColor">Random Corp</a>
+          <% const randCorp = Math.floor(Math.random() * 3) + 1 %>
+          <a href="/corp/<%= randCorp %>" class="nav-link navColor">Random Corp</a>
         </li>
 
       </ul>

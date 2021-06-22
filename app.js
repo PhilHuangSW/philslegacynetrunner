@@ -27,19 +27,71 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.get('/runner', async (req, res) => {
+app.get('/runner/:id', async (req, res) => {
+  const { id } = req.params;
+  let deck_name_to_id = 0;
+  switch (id) {
+    case 'smoke':
+    case '1':
+      deck_name_to_id = 1;
+      break;
+    case 'chaostheory':
+    case '2':
+      deck_name_to_id = 2;
+      break;
+    case 'gabriel':
+    case '3':
+      deck_name_to_id = 3;
+      break;
+    default:
+      deck_name_to_id = 1;
+  }
   try {
-    const data = await pool.query("SELECT * FROM decks");
+    const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
-    const { deck_code, deck_name, deck_description } = data.rows[0];
-    const decklist = [];
-    for (let cardCode in data.rows[0].cards) {
-      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [data.rows[0].cards[cardCode][0]]);
+    const { deck_code, deck_name, cards, deck_description } = data.rows[0];
+    const identity = [];
+    const event = [];
+    const hardware = [];
+    const resource = [];
+    const icebreaker = [];
+    const program = [];
+    const allImages = [];
+    for (let cardCode in cards) {
+      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      // console.log(card)
+      // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
       const url = 'https://netrunnerdb.com/card_image/large/' + card.rows[0].code + '.jpg'
-      decklist.push([card.rows[0], data.rows[0].cards[cardCode][1], url])
+      allImages.push(url);
+      switch (card.rows[0].type_code) {
+        case 'event':
+          event.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          break;
+        case 'hardware':
+          hardware.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          break;
+        case 'resource':
+          resource.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          break;
+        case 'program':
+          let ib = new RegExp('Icebreaker');
+          if (ib.test(card.rows[0].keywords)) {
+            icebreaker.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          } else {
+            program.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          }
+          break;
+        default:
+          identity.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+      }
     }
-    res.render('runner', { deck_code, deck_name, deck_description, decklist });
+    // console.log(event)
+    // console.log(resource)
+    // console.log(hardware)
+    // console.log(icebreaker)
+    // console.log(program)
+    res.render('runner', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description });
   } catch (err) {
     console.log(err.message);
     res.render('home');
@@ -51,10 +103,16 @@ app.get('/corp/:id', async (req, res) => {
   let deck_name_to_id = 0;
   switch (id) {
     case 'smoke':
+    case '1':
       deck_name_to_id = 1;
       break;
     case 'chaostheory':
+    case '2':
       deck_name_to_id = 2;
+      break;
+    case 'gabriel':
+    case '3':
+      deck_name_to_id = 3;
       break;
     default:
       deck_name_to_id = 1;
@@ -104,6 +162,10 @@ app.get('/corp/:id', async (req, res) => {
     console.log(err.message);
     res.render('home');
   }
+})
+
+app.get('*', (req, res) => {
+  res.redirect('/');
 })
 
 app.listen(8080, () => {
