@@ -23,6 +23,7 @@
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="/stylesheets/all.css">
 
+  <link rel="stylesheet" href="/stylesheets/runner.css">
 
 </head>
 
@@ -114,7 +115,7 @@
 
 
     <div class="row mb-3 pb-5">
-      <div class="col-sm-6 d-none d-sm-block">
+      <div class="col-sm-6 col-lg-4 d-none d-sm-block">
         <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid img<%= identity[0].id %>"
           id="img<%= identity[0].id %>">
         <% for( let i = 0; i < allImages.length; i++ ) { %>
@@ -125,9 +126,10 @@
         <% } %>
       </div>
 
-      <div class="col-6 text-white" id="deckDescription">
+      <div class="col-sm-6 col-lg-8 text-white" id="deckDescription">
 
       </div>
+
     </div>
 
   </main>
@@ -151,28 +153,23 @@
 
   <script src="/javascripts/prompts.js"></script>
 
-  <script>
-      $("#deckDescription").load("/deck_list_helper/<%= runner %>.html");
-  </script>
-
   <!-- CONTROLS WHICH IMAGES APPEAR ON SCREEN -->
   <script>
+    $("#deckDescription").load("/deck_list_helper/<%= runner %>.html");   
+
     const allImgs = <%- JSON.stringify(allImages) %>;
     for (let i = 0; i < allImgs.length; i++) {
-    $('.' + i).hover(() => {
-      for (let j = 0; j < allImgs.length; j++) {
-        // console.log(j)
-        $('.img' + j).addClass('d-none');
-      }
-      // console.log(i);
-      $('.img' + i).removeClass('d-none');
-    })
-  }
-  </script>
+      $('.' + i).hover(() => {
+        for (let j = 0; j < allImgs.length; j++) {
+          // console.log(j)
+          $('.img' + j).addClass('d-none');
+        }
+        // console.log(i);
+        $('.img' + i).removeClass('d-none');
+      })
+    };
 
-  <script>
     const x = window.matchMedia("(max-width: 900px), (max-height: 900px), (display-mode: fullscreen)");
-
     function myFunc(x) {
       if (x.matches) {
         $('#mainView').removeClass('vh-100');
@@ -180,15 +177,12 @@
         $('#mainView').addClass('vh-100');
       }
     };
-
     myFunc(x);
     x.addListener(myFunc);
   </script>
 
   <!-- FONT AWESOME -->
   <script defer src="/javascripts/all.js"></script>
-
-
 
   <!-- CARD PAGE MODAL -->
   <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel"
