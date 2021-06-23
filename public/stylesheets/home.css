@@ -33,6 +33,9 @@ p {
   font-family: 'Roboto', sans-serif;
 }
 
+.btn-close {
+  filter: brightness(0) invert(1)!important;
+}
 
 /* BUTTONS -- HIGHLIGHTED LIKE NEON LIGHTS */
 #jackIn:hover {
