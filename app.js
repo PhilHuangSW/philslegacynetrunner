@@ -32,21 +32,65 @@ app.get('/runner/:id', async (req, res) => {
   let deck_name_to_id = 0;
   let runner = '';
   switch (id) {
-    case 'smoke':
+    case 'chaostheory':
     case '1':
-      runner = 'smoke';
+      runner = 'chaostheory';
       deck_name_to_id = 1;
       break;
-    case 'chaostheory':
+    case 'smoke':
     case '2':
-      runner = 'chaostheory';
-      id = 'chaostheory'
+      runner = 'smoke';
+      deck_name_to_id = 2;
+      break;
+    case 'nasir':
+    case '3':
+      runner = 'nasir';
+      deck_name_to_id = 3;
+      break;
+    case 'geist':
+    case '4':
+      runner = 'geist';
       deck_name_to_id = 4;
       break;
     case 'gabriel':
-    case '3':
+    case '5':
       runner = 'gabriel';
-      deck_name_to_id = 3;
+      deck_name_to_id = 5;
+      break;
+    case 'khan':
+    case '6':
+      runner = 'khan';
+      deck_name_to_id = 6;
+      break;
+    case 'null':
+    case '7':
+      runner = 'null';
+      deck_name_to_id = 7;
+      break;
+    case 'omar':
+    case '8':
+      runner = 'omar';
+      deck_name_to_id = 8;
+      break;
+    case 'reina':
+    case '9':
+      runner = 'reina';
+      deck_name_to_id = 9;
+      break;
+    case 'adam':
+    case '10':
+      runner = 'adam';
+      deck_name_to_id = 10;
+      break;
+    case 'apex':
+    case '11':
+      runner = 'apex';
+      deck_name_to_id = 11;
+      break;
+    case 'sunny':
+    case '12':
+      runner = 'sunny';
+      deck_name_to_id = 12;
       break;
     default:
       deck_name_to_id = 1;
