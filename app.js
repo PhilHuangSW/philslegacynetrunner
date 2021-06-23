@@ -28,19 +28,24 @@ app.get('/', (req, res) => {
 })
 
 app.get('/runner/:id', async (req, res) => {
-  const { id } = req.params;
+  var { id } = req.params;
   let deck_name_to_id = 0;
+  let runner = '';
   switch (id) {
     case 'smoke':
     case '1':
+      runner = 'smoke';
       deck_name_to_id = 1;
       break;
     case 'chaostheory':
     case '2':
-      deck_name_to_id = 2;
+      runner = 'chaostheory';
+      id = 'chaostheory'
+      deck_name_to_id = 4;
       break;
     case 'gabriel':
     case '3':
+      runner = 'gabriel';
       deck_name_to_id = 3;
       break;
     default:
@@ -58,32 +63,97 @@ app.get('/runner/:id', async (req, res) => {
     const icebreaker = [];
     const program = [];
     const allImages = [];
+
     for (let cardCode in cards) {
       const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
-      // console.log(card)
+      const { base_link, code, cost, deck_limit, keywords, memory_cost, minimum_deck_size, strength, full_text, title, type_code, uniqueness, influence_limit } = card.rows[0]
       // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
-      const url = 'https://netrunnerdb.com/card_image/large/' + card.rows[0].code + '.jpg'
+      const url = 'https://netrunnerdb.com/card_image/large/' + code + '.jpg'
       allImages.push(url);
       switch (card.rows[0].type_code) {
         case 'event':
-          event.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          event.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'card_code': code,
+            'cost': cost,
+            'deck_limit': deck_limit,
+            'keywords': keywords,
+            'full_text': full_text,
+            'type_code': type_code
+          });
           break;
         case 'hardware':
-          hardware.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          hardware.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'strength': strength,
+            'full_text': full_text,
+            'keywords': keywords,
+            'type_code': type_code,
+            'memory_cost': memory_cost,
+            'cost': cost,
+            'card_code': code
+          });
           break;
         case 'resource':
-          resource.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          resource.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'card_code': code,
+            'cost': cost,
+            'deck_limit': deck_limit,
+            'keywords': keywords,
+            'full_text': full_text,
+            'type_code': type_code
+          });
           break;
         case 'program':
           let ib = new RegExp('Icebreaker');
           if (ib.test(card.rows[0].keywords)) {
-            icebreaker.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+            icebreaker.push({
+              'title': title,
+              'amount': cards[cardCode][1],
+              'id': cardCode,
+              'strength': strength,
+              'full_text': full_text,
+              'keywords': keywords,
+              'type_code': type_code,
+              'memory_cost': memory_cost,
+              'cost': cost,
+              'card_code': code
+            });
+            console.log(icebreaker);
           } else {
-            program.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+            program.push({
+              'title': title,
+              'amount': cards[cardCode][1],
+              'id': cardCode,
+              'full_text': full_text,
+              'keywords': keywords,
+              'type_code': type_code,
+              'memory_cost': memory_cost,
+              'cost': cost,
+              'card_code': code
+            });
           }
           break;
         default:
-          identity.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          identity.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'base_link': base_link,
+            'card_code': code,
+            'full_text': full_text,
+            'minimum_deck_size': minimum_deck_size,
+            'keywords': keywords,
+            'type_code': type_code,
+            'influence_limit': influence_limit
+          });
       }
     }
     // console.log(event)
@@ -91,7 +161,7 @@ app.get('/runner/:id', async (req, res) => {
     // console.log(hardware)
     // console.log(icebreaker)
     // console.log(program)
-    res.render('runner', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description });
+    res.render('runner', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description, runner });
   } catch (err) {
     console.log(err.message);
     res.render('home');
