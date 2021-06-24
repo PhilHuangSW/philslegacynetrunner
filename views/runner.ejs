@@ -25,6 +25,23 @@
 
   <link rel="stylesheet" href="/stylesheets/runner.css">
 
+  <!-- DETERMINES WHICH CARD IS SHOWN DEPENDING ON LAST HOVER OVER -->
+  <script>
+    window.onload = function() {
+      const allImgs = <%- JSON.stringify(allImages) %>;
+      for (let i = 0; i < allImgs.length; i++) {
+        $('.' + i).hover(() => {
+          for (let j = 0; j < allImgs.length; j++) {
+            // console.log(j)
+            $('.img' + j).addClass('d-none');
+          }
+          // console.log(i);
+          $('.img' + i).removeClass('d-none');
+        })
+      };
+    }
+  </script>
+
 </head>
 
 
@@ -36,7 +53,6 @@
     </h1>
 
     <div class="row mb-3">
-
 
       <div class="col-sm-6">
         <!-- IDENTITY -->
@@ -110,10 +126,11 @@
         <% } %>
       </div>
 
-      <!-- 36 Closing Row Div -->
+      <!-- 55 Closing Row Div -->
     </div>
 
 
+    <!-- LOADS ALL IMAGES HERE, A SCRIPT RUNS AFTERWARD TO DETERMINE WHICH CARD IS SHOWN -->
     <div class="row mb-3 pb-5">
       <div class="col-sm-6 col-lg-4 d-none d-sm-block">
         <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid img<%= identity[0].id %>"
@@ -153,21 +170,9 @@
 
   <script src="/javascripts/prompts.js"></script>
 
-  <!-- CONTROLS WHICH IMAGES APPEAR ON SCREEN -->
+  <!-- LOADS EACH RUNNER'S GUIDE -->
   <script>
-    $("#deckDescription").load("/deck_list_helper/<%= runner %>.html");   
-
-    const allImgs = <%- JSON.stringify(allImages) %>;
-    for (let i = 0; i < allImgs.length; i++) {
-      $('.' + i).hover(() => {
-        for (let j = 0; j < allImgs.length; j++) {
-          // console.log(j)
-          $('.img' + j).addClass('d-none');
-        }
-        // console.log(i);
-        $('.img' + i).removeClass('d-none');
-      })
-    };
+    $("#deckDescription").load("/deck_list_helper/<%= runner %>.html");
 
     const x = window.matchMedia("(max-width: 900px), (max-height: 900px), (display-mode: fullscreen)");
     function myFunc(x) {
@@ -187,7 +192,7 @@
   <!-- CARD PAGE MODAL -->
   <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark text-white">
         <div class="modal-header">
           <h3 class="modal-title"></h3>
@@ -197,12 +202,12 @@
 
         <div class="modal-body">
           <div class="row">
-            <div class="col-sm-6">
-              <img class="img-fluid" src="https://netrunnerdb.com/card_image/large/04109.jpg" alt="Lucky Find"
-                id="modalImg">
+            <div class="col-sm-6 col-lg-5">
+              <img class="img-fluid text-center" src="https://netrunnerdb.com/card_image/large/04109.jpg"
+                alt="Card Missing Placeholder" id="modalImg">
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-lg-7">
               <div class="card-info">
                 <strong><span class="card-type"></span></strong>
                 <span class="card-keywords"></span> •
@@ -225,6 +230,7 @@
   </div>
 
   <script>
+    const allImgs = <%- JSON.stringify(allImages) %>;
     const identity = <%- JSON.stringify(identity) %>;
     const event = <%- JSON.stringify(event) %>;
     const hardware = <%- JSON.stringify(hardware) %>;
@@ -232,6 +238,12 @@
     const icebreaker = <%- JSON.stringify(icebreaker) %>;
     const resource = <%- JSON.stringify(resource) %>;
     const cardModal = document.getElementById('cardModal');
+    console.log(identity)
+    console.log(event)
+    console.log(hardware)
+    console.log(program)
+    console.log(icebreaker)
+    console.log(resource)
     cardModal.addEventListener('show.bs.modal', function (e) {
       // Button that triggered the modal
       const button = e.relatedTarget;

@@ -170,7 +170,6 @@ app.get('/runner/:id', async (req, res) => {
               'cost': cost,
               'card_code': code
             });
-            console.log(icebreaker);
           } else {
             program.push({
               'title': title,
