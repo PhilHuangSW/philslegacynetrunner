@@ -56,7 +56,7 @@
 
       <div class="col-sm-6">
         <!-- IDENTITY -->
-        <h3 class="text-white">Identity:</h3>
+        <h3 class="text-white pt-2">Identity:</h3>
         <div class="text-white">
           <a class="<%= identity[0].id %>" data-bs-toggle="modal" data-bs-target="#cardModal"
             data-bs-whatever="<%= identity[0].id %>id0"><span
@@ -65,7 +65,8 @@
 
 
         <!-- EVENTS -->
-        <h3 class="text-white">Events:</h3>
+        <% if (event.length != 0) { %>
+        <h3 class="text-white pt-2">Events:</h3>
         <% for( let i = 0; i < event.length; i++ ) { %>
         <div class="text-white">
           <%= event[i].amount %>x
@@ -74,10 +75,12 @@
               id="<%= event[i].id %>"><%= event[i].title %></span></a>
         </div>
         <% } %>
+        <% } %>
 
 
         <!-- RESOURCES -->
-        <h3 class="text-white">Resources:</h3>
+        <% if (resource.length != 0) { %>
+        <h3 class="text-white pt-2">Resources:</h3>
         <% for( let i = 0; i < resource.length; i++ ) { %>
         <div class="text-white">
           <%= resource[i].amount %>x
@@ -86,12 +89,14 @@
               id="<%= resource[i].id %>"><%= resource[i].title %></span></a>
         </div>
         <% } %>
+        <% } %>
       </div>
 
 
       <div class="col-sm-6">
         <!-- HARDWARE -->
-        <h3 class="text-white">Hardware:</h3>
+        <% if (hardware.length != 0) { %>
+        <h3 class="text-white pt-2">Hardware:</h3>
         <% for( let i = 0; i < hardware.length; i++ ) { %>
         <div class="text-white">
           <%= hardware[i].amount %>x
@@ -100,10 +105,12 @@
               id="<%= hardware[i].id %>"><%= hardware[i].title %></span></a>
         </div>
         <% } %>
+        <% } %>
 
 
         <!-- ICEBREAKERS -->
-        <h3 class="text-white">Icebreakers:</h3>
+        <% if (icebreaker.length != 0) { %>
+        <h3 class="text-white pt-2">Icebreakers:</h3>
         <% for( let i = 0; i < icebreaker.length; i++ ) { %>
         <div class="text-white">
           <%= icebreaker[i].amount %>x
@@ -112,10 +119,12 @@
               id="<%= icebreaker[i].id %>"><%= icebreaker[i].title %></span></a>
         </div>
         <% } %>
+        <% } %>
 
 
         <!-- PROGRAMS -->
-        <h3 class="text-white">Programs:</h3>
+        <% if (program.length != 0) { %>
+        <h3 class="text-white pt-2">Programs:</h3>
         <% for( let i = 0; i < program.length; i++ ) { %>
         <div class="text-white">
           <%= program[i].amount %>x
@@ -123,6 +132,7 @@
             data-bs-whatever="<%= program[i].id %>p<%= i %>"><span
               id="<%= program[i].id %>"><%= program[i].title %></span></a>
         </div>
+        <% } %>
         <% } %>
       </div>
 
