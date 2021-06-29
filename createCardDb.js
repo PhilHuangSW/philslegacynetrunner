@@ -87,7 +87,7 @@ const createDeck = async () => {
 
 const updateDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66439');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66465');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
