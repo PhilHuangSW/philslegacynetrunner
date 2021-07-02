@@ -87,14 +87,14 @@ const createDeck = async () => {
 
 const updateDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66499');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66500');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
       // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
       cards.push([ob, decklistJson.data[0].cards[ob]])
     }
-    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '11' RETURNING *",
+    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '12' RETURNING *",
       [
         decklistJson.data[0].id,
         cards,
