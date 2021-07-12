@@ -1,4 +1,5 @@
 const { Client } = require('pg');
+const fetch = require('node-fetch');
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
