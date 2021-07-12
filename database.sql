@@ -8,7 +8,7 @@ CREATE TABLE cards(
   code text NOT NULL,
   cost integer,
   deck_limit integer,
-  faction_code faction,
+  faction_code text,
   faction_cost integer,
   flavor text,
   illustrator text,
@@ -19,7 +19,7 @@ CREATE TABLE cards(
   pack_code text,
   position integer,
   quantity integer,
-  side_code side,
+  side_code text,
   strength integer,
   stripped_text text,
   stripped_title text,
@@ -36,4 +36,4 @@ CREATE TABLE decks(
   deck_name text,
   deck_description text,
   cards text[]
-)
+);

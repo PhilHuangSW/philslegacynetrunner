@@ -1,5 +1,13 @@
 const pool = require('./db');
 const fetch = require('node-fetch');
+const pgtools = require('pgtools');
+const config = {
+  user: 'phil',
+  host: 'localhost',
+  password: 'phil',
+  port: 5432
+};
+
 
 const card = async () => {
   try {
@@ -48,7 +56,7 @@ const card = async () => {
     console.log('Done!');
   } catch (err) {
     console.log(err.message);
-    console.log("Oh no! I crashed somehow...");
+    console.log("Oh no! I crashed while building the card database somehow...");
   }
 }
 
@@ -107,6 +115,6 @@ const updateDeck = async () => {
   }
 }
 
-updateDeck();
+// updateDeck();
 // createDeck();
-// card();
+card();
