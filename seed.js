@@ -59,4 +59,30 @@ const card = async () => {
   client.end();
 }
 
-card();
+// Chaos Theory -- 66368
+const createChaosTheory = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66368');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        decklistJson.data[0].name,
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+  client.end();
+}
+
+createChaosTheory();
