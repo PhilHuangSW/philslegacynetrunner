@@ -371,5 +371,3 @@ createReina();
 createAdam();
 createApex();
 createSunny();
-
-client.end();
