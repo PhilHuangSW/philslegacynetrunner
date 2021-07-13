@@ -5,7 +5,8 @@ const fetch = require('node-fetch');
 const postgres = require('postgres');
 const morgan = require('morgan');
 // const pg = require('pg');
-const pool = require('./db');
+// const pool = require('./db');
+const { Client } = require('pg');
 const cors = require('cors');
 
 const app = express();
@@ -21,6 +22,14 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
 
+// DATABASE CONNECTION
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+client.connect();
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -96,7 +105,7 @@ app.get('/runner/:id', async (req, res) => {
       deck_name_to_id = 1;
   }
   try {
-    const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, cards, deck_description } = data.rows[0];
@@ -109,7 +118,7 @@ app.get('/runner/:id', async (req, res) => {
     const allImages = [];
 
     for (let cardCode in cards) {
-      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
       const { base_link, code, cost, deck_limit, keywords, memory_cost, minimum_deck_size, strength, full_text, title, type_code, uniqueness, influence_limit } = card.rows[0]
       // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
       const url = 'https://netrunnerdb.com/card_image/large/' + code + '.jpg'
@@ -231,7 +240,7 @@ app.get('/corp/:id', async (req, res) => {
       deck_name_to_id = 1;
   }
   try {
-    const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, cards, deck_description } = data.rows[0];
@@ -243,7 +252,7 @@ app.get('/corp/:id', async (req, res) => {
     const program = [];
     const allImages = [];
     for (let cardCode in cards) {
-      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
       // console.log(card)
       // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
       const url = 'https://netrunnerdb.com/card_image/large/' + card.rows[0].code + '.jpg'
