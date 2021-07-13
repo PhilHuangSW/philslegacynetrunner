@@ -72,7 +72,7 @@ const createChaosTheory = async () => {
     const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
       [
         decklistJson.data[0].id,
-        decklistJson.data[0].name,
+        'Have You Met Dinosaurus?',
         decklistJson.data[0].description,
         cards,
       ],
@@ -82,7 +82,294 @@ const createChaosTheory = async () => {
     console.log(err.message);
     console.log('I broke somehow in CreateDeck Function');
   }
-  client.end();
 }
 
-createChaosTheory();
+// Smoke -- 66369
+const createSmoke = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66369');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'Smoke And Mirrors',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Nasir -- 66370
+const createNasir = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66370');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'Personal Workshop',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Geist -- 66438
+const createGeist = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66438');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        "You're Trash Kid",
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Gabe -- 66465
+const createGabe = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66465');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'I Know A Guy',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Khan -- 66373
+const createKhan = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66373');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'B-B-Bird Bird Bird',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Null -- 66374
+const createNull = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66374');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        "Some Men Just Want To Watch The World Burn",
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Omar -- 66375
+const createOmar = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66375');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        "I'm Not Old, I'm Experienced",
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Reina -- 66498
+const createReina = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66498');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        "Queen's Gambit",
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Adam -- 66497
+const createAdam = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66497');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'Searching For Meaning',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Apex -- 66499
+const createApex = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66499');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'Age Of Apex',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// Sunny -- 66500
+const createSunny = async () => {
+  try {
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66500');
+    const decklistJson = await decklist.json();
+    const cards = [];
+    for (let ob in decklistJson.data[0].cards) {
+      // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
+      cards.push([ob, decklistJson.data[0].cards[ob]])
+    }
+    const deck = await client.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
+      [
+        decklistJson.data[0].id,
+        'Mommy Needs To Kick Some Ass',
+        decklistJson.data[0].description,
+        cards,
+      ],
+      console.log('done!'))
+
+  } catch (err) {
+    console.log(err.message);
+    console.log('I broke somehow in CreateDeck Function');
+  }
+}
+
+// createChaosTheory();
+createSmoke();
+createNasir();
+createGeist();
+createGabe();
+createKhan();
+createNull();
+createOmar();
+createReina();
+createAdam();
+createApex();
+createSunny();
+
+client.end();
