@@ -359,15 +359,20 @@ const createSunny = async () => {
   }
 }
 
-// createChaosTheory();
-createSmoke();
-createNasir();
-createGeist();
-createGabe();
-createKhan();
-createNull();
-createOmar();
-createReina();
-createAdam();
-createApex();
-createSunny();
+const createAll = async () => {
+  await createChaosTheory();
+  await createSmoke();
+  await createNasir();
+  await createGeist();
+  await createGabe();
+  await createKhan();
+  await createNull();
+  await createOmar();
+  await createReina();
+  await createAdam();
+  await createApex();
+  await createSunny();
+  client.end();
+}
+
+createAll();
