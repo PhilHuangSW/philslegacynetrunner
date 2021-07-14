@@ -58,7 +58,7 @@
         <!-- IDENTITY -->
         <h3 class="text-white pt-2">Identity:</h3>
         <div class="text-white">
-          <a href="#" class="<%= identity[0].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+          <a class="<%= identity[0].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
             data-bs-whatever="<%= identity[0].id %>id0"><span
               id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
         </div>
@@ -200,7 +200,8 @@
   <script defer src="/javascripts/all.js"></script>
 
   <!-- CARD PAGE MODAL -->
-  <div class="modal" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel" aria-hidden="true">
+  <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark text-white">
         <div class="modal-header">
