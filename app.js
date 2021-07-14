@@ -431,15 +431,18 @@ app.get('/corp/:id', async (req, res) => {
           });
       }
     }
-    // console.log(event)
-    // console.log(resource)
-    // console.log(hardware)
-    // console.log(icebreaker)
-    // console.log(program)
+    console.log(agenda)
+    console.log(asset)
+    console.log(operation)
+    console.log(upgrade)
+    console.log(barrier)
+    console.log(codegate)
+    console.log(sentry)
+    console.log(other)
     res.render('corp', { identity, agenda, asset, operation, upgrade, barrier, codegate, sentry, other, allImages, deck_name, deck_description, corp });
   } catch (err) {
     console.log(err.message);
-    res.render('home');
+    res.redirect('/');
   }
 })
 
