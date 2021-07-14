@@ -7,6 +7,10 @@
   #D1E8E2 - white/greenish
 */
 
+.iosModal {
+  cursor: pointer;
+}
+
 .bodyHome {
   height: 100vh;
   background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../images/frontpage.jpg");
