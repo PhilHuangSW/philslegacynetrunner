@@ -148,7 +148,8 @@ app.get('/runner/:id', async (req, res) => {
             'type_code': type_code,
             'memory_cost': memory_cost,
             'cost': cost,
-            'card_code': code
+            'card_code': code,
+            'uniqueness': uniqueness
           });
           break;
         case 'resource':
@@ -161,7 +162,8 @@ app.get('/runner/:id', async (req, res) => {
             'deck_limit': deck_limit,
             'keywords': keywords,
             'full_text': full_text,
-            'type_code': type_code
+            'type_code': type_code,
+            'uniqueness': uniqueness
           });
           break;
         case 'program':
@@ -177,7 +179,8 @@ app.get('/runner/:id', async (req, res) => {
               'type_code': type_code,
               'memory_cost': memory_cost,
               'cost': cost,
-              'card_code': code
+              'card_code': code,
+              'uniqueness': uniqueness
             });
           } else {
             program.push({
@@ -189,7 +192,8 @@ app.get('/runner/:id', async (req, res) => {
               'type_code': type_code,
               'memory_cost': memory_cost,
               'cost': cost,
-              'card_code': code
+              'card_code': code,
+              'uniqueness': uniqueness
             });
           }
           break;
@@ -221,23 +225,53 @@ app.get('/runner/:id', async (req, res) => {
 })
 
 app.get('/corp/:id', async (req, res) => {
-  const { id } = req.params;
+  var { id } = req.params;
   let deck_name_to_id = 0;
+  let corp = '';
   switch (id) {
-    case 'smoke':
+    case 'architects':
     case '1':
-      deck_name_to_id = 1;
+      corp = 'architects';
+      deck_name_to_id = 13;
       break;
-    case 'chaostheory':
+    case 'foundry':
     case '2':
-      deck_name_to_id = 2;
+      corp = 'foundry';
+      deck_name_to_id = 14;
       break;
-    case 'gabriel':
+    case 'pe':
     case '3':
-      deck_name_to_id = 3;
+      corp = 'pe';
+      deck_name_to_id = 15;
+      break;
+    case 'nisei':
+    case '4':
+      corp = 'nisei';
+      deck_name_to_id = 16;
+      break;
+    case 'builder':
+    case '5':
+      corp = 'builder';
+      deck_name_to_id = 17;
+      break;
+    case 'babw':
+    case '6':
+      corp = 'babw';
+      deck_name_to_id = 18;
+      break;
+    case 'sync':
+    case '7':
+      corp = 'sync';
+      deck_name_to_id = 19;
+      break;
+    case 'spark':
+    case '8':
+      corp = 'spark';
+      deck_name_to_id = 20;
       break;
     default:
-      deck_name_to_id = 1;
+      corp = 'architects';
+      deck_name_to_id = 13;
   }
   try {
     const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
@@ -245,41 +279,164 @@ app.get('/corp/:id', async (req, res) => {
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, cards, deck_description } = data.rows[0];
     const identity = [];
-    const event = [];
-    const hardware = [];
-    const resource = [];
-    const icebreaker = [];
-    const program = [];
-    const allImages = [];
+    const agenda = [];
+    const asset = [];
+    const operation = [];
+    const upgrade = [];
+    const barrier = [];
+    const codegate = [];
+    const sentry = [];
+    const other = [];
+
     for (let cardCode in cards) {
       const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
-      // console.log(card)
+      const { advancement_cost, agenda_points, code, cost, deck_limit, influence_limit, keywords, minimum_deck_size, strength, full_text, title, trash_cost, type_code, uniqueness, } = card.rows[0]
       // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
-      const url = 'https://netrunnerdb.com/card_image/large/' + card.rows[0].code + '.jpg'
+      const url = 'https://netrunnerdb.com/card_image/large/' + code + '.jpg'
       allImages.push(url);
       switch (card.rows[0].type_code) {
-        case 'event':
-          event.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+        case 'agenda':
+          agenda.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'card_code': code,
+            'advancement_cost': advancement_cost,
+            'agenda_points': agenda_points,
+            'deck_limit': deck_limit,
+            'keywords': keywords,
+            'full_text': full_text,
+            'type_code': type_code,
+            'uniqueness': uniqueness
+          });
           break;
-        case 'hardware':
-          hardware.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+        case 'asset':
+          asset.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'trash_cost', trash_cost,
+            'full_text': full_text,
+            'keywords': keywords,
+            'type_code': type_code,
+            'cost': cost,
+            'card_code': code,
+            'deck_limit': deck_limit,
+            'uniqueness': uniqueness
+          });
           break;
-        case 'resource':
-          resource.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+        case 'operation':
+          operation.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'card_code': code,
+            'cost': cost,
+            'deck_limit': deck_limit,
+            'keywords': keywords,
+            'full_text': full_text,
+            'type_code': type_code,
+            'uniqueness': uniqueness,
+            'trash_cost': trash_cost
+          });
           break;
-        case 'program':
-          let ib = new RegExp('Icebreaker');
-          if (ib.test(card.rows[0].keywords)) {
-            icebreaker.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+        case 'upgrade':
+          upgrade.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'card_code': code,
+            'cost': cost,
+            'deck_limit': deck_limit,
+            'keywords': keywords,
+            'full_text': full_text,
+            'type_code': type_code,
+            'uniqueness': uniqueness,
+            'trash_cost': trash_cost
+          });
+          break;
+        case 'ice':
+          let barrier = new RegExp('Barrier');
+          let codegate = new RegExp('Code Gate');
+          let sentry = new RegExp('Sentry');
+          if (barrier.test(card.rows[0].keywords)) {
+            barrier.push({
+              'title': title,
+              'amount': cards[cardCode][1],
+              'id': cardCode,
+              'strength': strength,
+              'full_text': full_text,
+              'keywords': keywords,
+              'type_code': type_code,
+              'uniqueness': uniqueness,
+              'cost': cost,
+              'card_code': code,
+              'trash_cost': trash_cost
+            });
+          } else if (codegate.test(card.rows[0].keywords)) {
+            codegate.push({
+              'title': title,
+              'amount': cards[cardCode][1],
+              'id': cardCode,
+              'strength': strength,
+              'full_text': full_text,
+              'keywords': keywords,
+              'type_code': type_code,
+              'uniqueness': uniqueness,
+              'cost': cost,
+              'card_code': code,
+              'trash_cost': trash_cost
+            });
+          } else if (sentry.test(card.rows[0].keywords)) {
+            sentry.push({
+              'title': title,
+              'amount': cards[cardCode][1],
+              'id': cardCode,
+              'strength': strength,
+              'full_text': full_text,
+              'keywords': keywords,
+              'type_code': type_code,
+              'uniqueness': uniqueness,
+              'cost': cost,
+              'card_code': code,
+              'trash_cost': trash_cost
+            });
           } else {
-            program.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+            other.push({
+              'title': title,
+              'amount': cards[cardCode][1],
+              'id': cardCode,
+              'strength': strength,
+              'full_text': full_text,
+              'keywords': keywords,
+              'type_code': type_code,
+              'uniqueness': uniqueness,
+              'cost': cost,
+              'card_code': code,
+              'trash_cost': trash_cost
+            });
           }
           break;
         default:
-          identity.push({ 'title': card.rows[0].title, 'amount': cards[cardCode][1], 'id': cardCode });
+          identity.push({
+            'title': title,
+            'amount': cards[cardCode][1],
+            'id': cardCode,
+            'card_code': code,
+            'full_text': full_text,
+            'minimum_deck_size': minimum_deck_size,
+            'keywords': keywords,
+            'type_code': type_code,
+            'influence_limit': influence_limit
+          });
       }
     }
-    res.render('corp', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description });
+    // console.log(event)
+    // console.log(resource)
+    // console.log(hardware)
+    // console.log(icebreaker)
+    // console.log(program)
+    res.render('corp', { identity, agenda, asset, operation, upgrade, barrier, codegate, sentry, other, allImages, deck_name, deck_description, corp });
   } catch (err) {
     console.log(err.message);
     res.render('home');

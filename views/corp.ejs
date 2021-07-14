@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= identity[0] %></title>
+  <title><%= identity[0].title %></title>
 
   <!-- BOOTSTRAP v5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,10 +23,29 @@
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="/stylesheets/all.css">
 
+  <link rel="stylesheet" href="/stylesheets/runner.css">
+
+  <!-- DETERMINES WHICH CARD IS SHOWN DEPENDING ON LAST HOVER OVER -->
+  <script>
+    window.onload = function() {
+      const allImgs = <%- JSON.stringify(allImages) %>;
+      for (let i = 0; i < allImgs.length; i++) {
+        $('.' + i).hover(() => {
+          for (let j = 0; j < allImgs.length; j++) {
+            // console.log(j)
+            $('.img' + j).addClass('d-none');
+          }
+          // console.log(i);
+          $('.img' + i).removeClass('d-none');
+        })
+      };
+    }
+  </script>
+
 </head>
 
 
-<body class="body bodyFade vh-100 overflow-auto">
+<body class="body bodyFade overflow-auto">
   <%- include('./partials/navbar') %>
   <main class="container pt-5" id="mainView">
     <h1 class="text-white text-center pt-3">
@@ -35,103 +54,167 @@
 
     <div class="row mb-3">
 
-
       <div class="col-sm-6">
         <!-- IDENTITY -->
-        <h3 class="text-white">Identity:</h3>
+        <h3 class="text-white pt-2">Identity:</h3>
         <div class="text-white">
-          <a class=""><span id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
+          <a class="<%= identity[0].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= identity[0].id %>id0"><span
+              id="<%= identity[0].id %>"><%= identity[0].title %></span></a>
         </div>
 
 
-        <!-- EVENTS -->
-        <h3 class="text-white">Events:</h3>
-        <% for( let i = 0; i < event.length; i++ ) { %>
+        <!-- AGENDAS -->
+        <% if (agenda.length != 0) { %>
+        <h3 class="text-white pt-2">Agendas:</h3>
+        <% for( let i = 0; i < agenda.length; i++ ) { %>
         <div class="text-white">
-          <%= event[i].amount %>x
-          <a class=""><span id="<%= event[i].id %>"><%= event[i].title %></span></a>
+          <%= agenda[i].amount %>x
+          <a class="<%= agenda[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= agenda[i].id %>e<%= i %>"><span
+              id="<%= agenda[i].id %>"><%= agenda[i].title %></span></a>
         </div>
+        <% } %>
         <% } %>
 
 
-        <!-- RESOURCES -->
-        <h3 class="text-white">Resources:</h3>
-        <% for( let i = 0; i < resource.length; i++ ) { %>
+        <!-- ASSETS -->
+        <% if (asset.length != 0) { %>
+        <h3 class="text-white pt-2">Assets:</h3>
+        <% for( let i = 0; i < asset.length; i++ ) { %>
         <div class="text-white">
-          <%= resource[i].amount %>x
-          <a class=""><span id="<%= resource[i].id %>"><%= resource[i].title %></span></a>
+          <%= asset[i].amount %>x
+          <a class="<%= asset[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= asset[i].id %>r<%= i %>"><span
+              id="<%= asset[i].id %>"><%= asset[i].title %></span></a>
         </div>
+        <% } %>
         <% } %>
       </div>
+
+
+      <!-- OPERATIONS -->
+      <% if (operation.length != 0) { %>
+      <h3 class="text-white pt-2">Operations:</h3>
+      <% for( let i = 0; i < operation.length; i++ ) { %>
+      <div class="text-white">
+        <%= operation[i].amount %>x
+        <a class="<%= operation[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+          data-bs-whatever="<%= operation[i].id %>h<%= i %>"><span
+            id="<%= operation[i].id %>"><%= operation[i].title %></span></a>
+      </div>
+      <% } %>
+      <% } %>
+
 
 
       <div class="col-sm-6">
-        <!-- HARDWARE -->
-        <h3 class="text-white">Hardware:</h3>
-        <% for( let i = 0; i < hardware.length; i++ ) { %>
+        <!-- UPGRADES -->
+        <% if (upgrade.length != 0) { %>
+        <h3 class="text-white pt-2">Upgrades:</h3>
+        <% for( let i = 0; i < upgrade.length; i++ ) { %>
         <div class="text-white">
-          <%= hardware[i].amount %>x
-          <a class=""><span id="<%= hardware[i].id %>"><%= hardware[i].title %></span></a>
+          <%= upgrade[i].amount %>x
+          <a class="<%= upgrade[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= upgrade[i].id %>i<%= i %>"><span
+              id="<%= upgrade[i].id %>"><%= upgrade[i].title %></span></a>
         </div>
+        <% } %>
         <% } %>
 
 
-        <!-- ICEBREAKERS -->
-        <h3 class="text-white">Icebreakers:</h3>
-        <% for( let i = 0; i < icebreaker.length; i++ ) { %>
+        <!-- BARRIER -->
+        <% if (barrier.length != 0) { %>
+        <h3 class="text-white pt-2">Barrier:</h3>
+        <% for( let i = 0; i < barrier.length; i++ ) { %>
         <div class="text-white">
-          <%= icebreaker[i].amount %>x
-          <a class=""><span id="<%= icebreaker[i].id %>"><%= icebreaker[i].title %></span></a>
+          <%= barrier[i].amount %>x
+          <a class="<%= barrier[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= barrier[i].id %>p<%= i %>"><span
+              id="<%= barrier[i].id %>"><%= barrier[i].title %></span></a>
         </div>
+        <% } %>
         <% } %>
 
 
-        <!-- PROGRAMS -->
-        <h3 class="text-white">Programs:</h3>
-        <% for( let i = 0; i < program.length; i++ ) { %>
+        <!-- CODE GATE -->
+        <% if (codegate.length != 0) { %>
+        <h3 class="text-white pt-2">Code Gate:</h3>
+        <% for( let i = 0; i < codegate.length; i++ ) { %>
         <div class="text-white">
-          <%= program[i].amount %>x
-          <a class=""><span id="<%= program[i].id %>"><%= program[i].title %></span></a>
+          <%= codegate[i].amount %>x
+          <a class="<%= codegate[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= codegate[i].id %>p<%= i %>"><span
+              id="<%= codegate[i].id %>"><%= codegate[i].title %></span></a>
         </div>
         <% } %>
+        <% } %>
+
+
+        <!-- SENTRY -->
+        <% if (sentry.length != 0) { %>
+        <h3 class="text-white pt-2">Sentry:</h3>
+        <% for( let i = 0; i < sentry.length; i++ ) { %>
+        <div class="text-white">
+          <%= sentry[i].amount %>x
+          <a class="<%= sentry[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= sentry[i].id %>p<%= i %>"><span
+              id="<%= sentry[i].id %>"><%= sentry[i].title %></span></a>
+        </div>
+        <% } %>
+        <% } %>
+
+
+        <!-- OTHER -->
+        <% if (other.length != 0) { %>
+        <h3 class="text-white pt-2">Other:</h3>
+        <% for( let i = 0; i < other.length; i++ ) { %>
+        <div class="text-white">
+          <%= other[i].amount %>x
+          <a class="<%= other[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= other[i].id %>p<%= i %>"><span
+              id="<%= other[i].id %>"><%= other[i].title %></span></a>
+        </div>
+        <% } %>
+        <% } %>
+
+
       </div>
 
-      <!-- 36 Closing Row Div -->
+      <!-- 55 Closing Row Div -->
     </div>
 
 
-    <div class="row mb-3">
-      <div class="col-sm-6">
-        <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid" id="img<%= identity[0].id %>">
+    <!-- LOADS ALL IMAGES HERE, A SCRIPT RUNS AFTERWARD TO DETERMINE WHICH CARD IS SHOWN -->
+    <div class="row mb-3 pb-5">
+      <div class="col-sm-6 col-lg-4 d-none d-sm-block">
+        <img src="<%= allImages[identity[0].id] %> " alt="" class="img-fluid img<%= identity[0].id %>"
+          id="img<%= identity[0].id %>">
         <% for( let i = 0; i < allImages.length; i++ ) { %>
-        <img src="<%= allImages[i] %> " alt="" class="img-fluid d-none" id="img<%= i %>">
+        <% if (i === parseInt(identity[0].id)) { %>
+        <% continue; %>
+        <% } %>
+        <img src="<%= allImages[i] %> " alt="" class="img-fluid d-none img<%= i %>" id="img<%= i %>">
         <% } %>
       </div>
 
-      <div class="col-6 text-white">
-        <p><strong>Playstyle:</strong> Host every program onto <a
-            href="https://netrunnerdb.com/en/card/13020">Dhegdheer</a> and <a
-            href="https://netrunnerdb.com/en/card/25049">Dinosaurus</a> so that you have maximum MU for your high
-          strength breakers, as well as maximum counters for <a
-            href="https://netrunnerdb.com/en/card/05053">Overmind</a>.</p>
-        <p><strong>Tips:</strong> Ideal rig would consist of <a href="https://netrunnerdb.com/en/card/01044">Magnum
-            Opus</a> and <a href="https://netrunnerdb.com/en/card/13017">Adept</a> or <a
-            href="https://netrunnerdb.com/en/card/13018">Savant</a> onto <a
-            href="https://netrunnerdb.com/en/card/13020">Dhegdheers</a> with the other on <a
-            href="https://netrunnerdb.com/en/card/25049">Dinosaurus</a>, 3x <a
-            href="https://netrunnerdb.com/en/card/13015">LLDS Memory Diamond</a> and 3x <a
-            href="https://netrunnerdb.com/en/card/07055">Data Folding</a> for a total of 9-12 strength breakers with 3
-          credits at start of turn, and endless econ using <a href="https://netrunnerdb.com/en/card/01044">Magnum
-            Opus</a>.</p>
+      <div class="col-sm-6 col-lg-8 text-white" id="deckDescription">
+
       </div>
+
     </div>
 
-    <%- include('./partials/footer') %>
   </main>
 
 
 
 
+
+
+  <!-- BOOTSTRAP v5 -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
 
   <!-- JQUERY -->
   <script
@@ -140,31 +223,13 @@
     crossorigin="anonymous">
   </script>
 
-  <!-- BOOTSTRAP v5 -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-  </script>
-
   <script src="/javascripts/prompts.js"></script>
 
-  <!-- CONTROLS WHICH IMAGES APPEAR ON SCREEN -->
+  <!-- LOADS EACH RUNNER'S GUIDE -->
   <script>
-    const allImgs = <%- JSON.stringify(allImages) %>;
-    for (let i = 0; i < allImgs.length; i++) {
-      $('#' + i).hover(() => {
-        for (let j = 0; j < allImgs.length; j++) {
-          // console.log(j)
-          $('#img' + j).addClass('d-none');
-        }
-        // console.log(i);
-        $('#img' + i).removeClass('d-none');
-      })
-    }
-  </script>
+    $("#deckDescription").load("/deck_list_helper/<%= runner %>.html");
 
-  <script>
-    const x = window.matchMedia("(max-width: 900px)");
-
+    const x = window.matchMedia("(max-width: 900px), (max-height: 900px), (display-mode: fullscreen)");
     function myFunc(x) {
       if (x.matches) {
         $('#mainView').removeClass('vh-100');
@@ -172,13 +237,219 @@
         $('#mainView').addClass('vh-100');
       }
     };
-
     myFunc(x);
     x.addListener(myFunc);
   </script>
 
   <!-- FONT AWESOME -->
   <script defer src="/javascripts/all.js"></script>
+
+  <!-- CARD PAGE MODAL -->
+  <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="cardModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h3 class="modal-title"></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            aria-hidden="true"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6 col-lg-5">
+              <img class="img-fluid text-center" src="https://netrunnerdb.com/card_image/large/04109.jpg"
+                alt="Card Missing Placeholder" id="modalImg">
+            </div>
+
+            <div class="col-sm-6 col-lg-7">
+              <div class="card-info">
+                <strong><span class="card-type"></span></strong>
+                <span class="card-keywords"></span> •
+                <span class="card-prop"></span>
+              </div>
+
+              <p class="card-text border-top" style="white-space: pre-line">
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a class="btn btn-default card-modal-link text-white" target="_blank">NRDB Page</a>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const allImgs = <%- JSON.stringify(allImages) %>;
+    const identity = <%- JSON.stringify(identity) %>;
+    const agenda = <%- JSON.stringify(agenda) %>;
+    const asset = <%- JSON.stringify(asset) %>;
+    const operation = <%- JSON.stringify(operation) %>;
+    const upgrade = <%- JSON.stringify(upgrade) %>;
+    const barrier = <%- JSON.stringify(barrier) %>;
+    const codegate = <%- JSON.stringify(codegate) %>;
+    const sentry = <%- JSON.stringify(sentry) %>;
+    const other = <%- JSON.stringify(other) %>;
+    const cardModal = document.getElementById('cardModal');
+    console.log(identity)
+    console.log(agenda)
+    console.log(asset)
+    console.log(operation)
+    console.log(upgrade)
+    console.log(barrier)
+    console.log(codegate)
+    console.log(sentry)
+    console.log(other)
+    cardModal.addEventListener('show.bs.modal', function (e) {
+      // Button that triggered the modal
+      const button = e.relatedTarget;
+      // Extract info from data-bs-* attributes
+      const card_id = button.getAttribute('data-bs-whatever').match(/(\d+)(?=\w)/)[0];
+      // console.log(card_id);
+      const card_type = button.getAttribute('data-bs-whatever').match(/[a-z]+/)[0];
+      // console.log(card_type);
+      const card_array_index = button.getAttribute('data-bs-whatever').match(/(?<=\D)(\d+)/)[0];
+      // console.log(card_array_index);
+      // If necessary, you could initiate an AJAX request here
+      // and then do the updating in a callback.
+      //
+      // Update the modal's content.
+      var modalTitle = cardModal.querySelector('.modal-title');
+      var modalBodyInput = cardModal.querySelector('.modal-body card-info');
+      var modalImage = cardModal.querySelector('#modalImg');
+      var cardType = cardModal.querySelector('.card-type');
+      var cardKeywords = cardModal.querySelector('.card-keywords');
+      var cardProp = cardModal.querySelector('.card-prop');
+      var cardText = cardModal.querySelector('.card-text');
+      var cardModalLink = cardModal.querySelector('.card-modal-link');
+
+      // console.log(event)
+      // console.log(hardware)
+      // console.log(program)
+      // console.log(icebreaker)
+      // console.log(resource)
+
+      switch (card_type) {
+        case 'ag':
+          var { title, type_code, keywords, advancement_cost, agenda_points, full_text, card_code } = agenda[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          cardProp.textContent = advancement_cost + '/' + agenda_points;
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'a':
+          var { title, type_code, keywords, cost, full_text, card_code, trash_cost } = asset[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'o':
+          var { title, type_code, keywords, cost, trash_cost, full_text, card_code } = operation[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          if (trash_cost) {
+            cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          } else {
+            cardProp.textContent = cost + 'Credits';
+          }
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'u':
+          var { title, type_code, keywords, cost, trash_cost, full_text, card_code } = upgrade[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'ib':
+          var { title, type_code, keywords, cost, full_text, card_code, trash_cost } = barrier[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          if (trash_cost) {
+            cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          } else {
+            cardProp.textContent = cost + 'Credits';
+          }
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'ic':
+          var { title, type_code, keywords, cost, full_text, card_code, trash_cost } = codegate[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          if (trash_cost) {
+            cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          } else {
+            cardProp.textContent = cost + 'Credits';
+          }
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'is':
+          var { title, type_code, keywords, cost, full_text, card_code, trash_cost } = sentry[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          if (trash_cost) {
+            cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          } else {
+            cardProp.textContent = cost + 'Credits';
+          }
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        case 'io':
+          var { title, type_code, keywords, cost, full_text, card_code, trash_cost } = other[card_array_index];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          if (trash_cost) {
+            cardProp.textContent = cost + 'Credits - ' + trash_cost + 'Credits to Trash';
+          } else {
+            cardProp.textContent = cost + 'Credits';
+          }
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+        default:
+          var { title, type_code, keywords, full_text, card_code, minimum_deck_size, influence_limit } = identity[0];
+          modalTitle.textContent = title;
+          modalImage.src = allImgs[card_id];
+          cardType.textContent = type_code.toUpperCase() + ': ';
+          cardKeywords.textContent = keywords;
+          cardProp.textContent = minimum_deck_size + '/' + influence_limit;
+          cardText.innerHTML = full_text;
+          cardModalLink.href = 'https://netrunnerdb.com/en/card/' + card_code;
+          break;
+      }
+      // modalTitle.textContent = identity[0].title
+      // modalBodyInput.value = recipient
+    });
+  </script>
 
 </body>
 
