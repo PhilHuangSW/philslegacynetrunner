@@ -315,7 +315,7 @@ app.get('/corp/:id', async (req, res) => {
             'title': title,
             'amount': cards[cardCode][1],
             'id': cardCode,
-            'trash_cost', trash_cost,
+            'trash_cost': trash_cost,
             'full_text': full_text,
             'keywords': keywords,
             'type_code': type_code,
