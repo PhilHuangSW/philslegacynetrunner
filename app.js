@@ -4,9 +4,15 @@ const ejsMate = require('ejs-mate');
 const fetch = require('node-fetch');
 const postgres = require('postgres');
 const morgan = require('morgan');
+//------------------------------------------------------------------
+// USE FOR DEVELOPING
 // const pg = require('pg');
 // const pool = require('./db');
+
+// USE FOR PRODUCTION
 const { Client } = require('pg');
+//------------------------------------------------------------------
+
 const cors = require('cors');
 
 const app = express();
@@ -22,7 +28,9 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
 
+//------------------------------------------------------------------
 // DATABASE CONNECTION
+// USE FOR PRODUCTION
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -30,6 +38,7 @@ const client = new Client({
   }
 });
 client.connect();
+//------------------------------------------------------------------
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -105,7 +114,17 @@ app.get('/runner/:id', async (req, res) => {
       deck_name_to_id = 1;
   }
   try {
+    //---------------------------------------------------------------------------------------------
+    // USE FOR LOCALHOST DEVELOPING
+    // const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+
+    // USE FOR PRODUCTION
     const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    //---------------------------------------------------------------------------------------------
+
+
+
+
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, cards, deck_description } = data.rows[0];
@@ -118,7 +137,16 @@ app.get('/runner/:id', async (req, res) => {
     const allImages = [];
 
     for (let cardCode in cards) {
+
+      //---------------------------------------------------------------------------------------------
+      // USE FOR LOCALHOST DEVELOPING
+      // const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+
+      // USE FOR PRODUCTION
       const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      //---------------------------------------------------------------------------------------------
+
+
       const { base_link, code, cost, deck_limit, keywords, memory_cost, minimum_deck_size, strength, full_text, title, type_code, uniqueness, influence_limit } = card.rows[0]
       // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
       const url = 'https://netrunnerdb.com/card_image/large/' + code + '.jpg'
@@ -220,7 +248,7 @@ app.get('/runner/:id', async (req, res) => {
     res.render('runner', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description, runner });
   } catch (err) {
     console.log(err.message);
-    res.render('home');
+    res.redirect('/');
   }
 })
 
@@ -274,10 +302,20 @@ app.get('/corp/:id', async (req, res) => {
       deck_name_to_id = 13;
   }
   try {
+    //---------------------------------------------------------------------------------------------
+    // USE FOR LOCALHOST DEVELOPING
+    // const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+
+    // USE FOR PRODUCTION
     const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    //---------------------------------------------------------------------------------------------
+
+
+
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, cards, deck_description } = data.rows[0];
+    console.log(deck_code, deck_name, cards)
     const identity = [];
     const agenda = [];
     const asset = [];
@@ -287,9 +325,18 @@ app.get('/corp/:id', async (req, res) => {
     const codegate = [];
     const sentry = [];
     const other = [];
+    const allImages = [];
 
     for (let cardCode in cards) {
+      //---------------------------------------------------------------------------------------------
+      // USE FOR LOCALHOST DEVELOPING
+      // const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+
+      // USE FOR PRODUCTION
       const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      //---------------------------------------------------------------------------------------------
+
+
       const { advancement_cost, agenda_points, code, cost, deck_limit, influence_limit, keywords, minimum_deck_size, strength, full_text, title, trash_cost, type_code, uniqueness, } = card.rows[0]
       // card.rows[0] consists of everything--card_id, code, faction_code, type_code, etc.
       const url = 'https://netrunnerdb.com/card_image/large/' + code + '.jpg'
@@ -356,10 +403,10 @@ app.get('/corp/:id', async (req, res) => {
           });
           break;
         case 'ice':
-          let barrier = new RegExp('Barrier');
-          let codegate = new RegExp('Code Gate');
-          let sentry = new RegExp('Sentry');
-          if (barrier.test(card.rows[0].keywords)) {
+          let ib = new RegExp('Barrier');
+          let ic = new RegExp('Code Gate');
+          let is = new RegExp('Sentry');
+          if (ib.test(card.rows[0].keywords)) {
             barrier.push({
               'title': title,
               'amount': cards[cardCode][1],
@@ -373,7 +420,7 @@ app.get('/corp/:id', async (req, res) => {
               'card_code': code,
               'trash_cost': trash_cost
             });
-          } else if (codegate.test(card.rows[0].keywords)) {
+          } else if (ic.test(card.rows[0].keywords)) {
             codegate.push({
               'title': title,
               'amount': cards[cardCode][1],
@@ -387,7 +434,7 @@ app.get('/corp/:id', async (req, res) => {
               'card_code': code,
               'trash_cost': trash_cost
             });
-          } else if (sentry.test(card.rows[0].keywords)) {
+          } else if (is.test(card.rows[0].keywords)) {
             sentry.push({
               'title': title,
               'amount': cards[cardCode][1],

@@ -71,7 +71,7 @@ const check = async () => {
 
 const createDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66379');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66647');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -81,7 +81,7 @@ const createDeck = async () => {
     const deck = await pool.query("INSERT INTO decks(deck_code, deck_name, deck_description, cards) VALUES($1, $2, $3, $4) RETURNING *",
       [
         decklistJson.data[0].id,
-        decklistJson.data[0].name,
+        'Campaign: Bioroid',
         decklistJson.data[0].description,
         cards,
       ],
@@ -95,14 +95,14 @@ const createDeck = async () => {
 
 const updateDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66500');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66647');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
       // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
       cards.push([ob, decklistJson.data[0].cards[ob]])
     }
-    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '12' RETURNING *",
+    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '13' RETURNING *",
       [
         decklistJson.data[0].id,
         cards,
@@ -115,6 +115,6 @@ const updateDeck = async () => {
   }
 }
 
-// updateDeck();
+updateDeck();
 // createDeck();
-card();
+// card();

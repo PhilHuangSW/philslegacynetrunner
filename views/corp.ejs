@@ -90,22 +90,22 @@
         </div>
         <% } %>
         <% } %>
+
+
+
+        <!-- OPERATIONS -->
+        <% if (operation.length != 0) { %>
+        <h3 class="text-white pt-2">Operations:</h3>
+        <% for( let i = 0; i < operation.length; i++ ) { %>
+        <div class="text-white">
+          <%= operation[i].amount %>x
+          <a class="<%= operation[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
+            data-bs-whatever="<%= operation[i].id %>h<%= i %>"><span
+              id="<%= operation[i].id %>"><%= operation[i].title %></span></a>
+        </div>
+        <% } %>
+        <% } %>
       </div>
-
-
-      <!-- OPERATIONS -->
-      <% if (operation.length != 0) { %>
-      <h3 class="text-white pt-2">Operations:</h3>
-      <% for( let i = 0; i < operation.length; i++ ) { %>
-      <div class="text-white">
-        <%= operation[i].amount %>x
-        <a class="<%= operation[i].id %> iosModal" data-bs-toggle="modal" data-bs-target="#cardModal"
-          data-bs-whatever="<%= operation[i].id %>h<%= i %>"><span
-            id="<%= operation[i].id %>"><%= operation[i].title %></span></a>
-      </div>
-      <% } %>
-      <% } %>
-
 
 
       <div class="col-sm-6">
