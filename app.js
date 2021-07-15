@@ -315,7 +315,7 @@ app.get('/corp/:id', async (req, res) => {
     // data consists of an array of Objects
     // { deck_id, deck_code, deck_name, deck_description, cards[] }
     const { deck_code, deck_name, cards, deck_description } = data.rows[0];
-    console.log(deck_code, deck_name, cards)
+    // console.log(deck_code, deck_name, cards)
     const identity = [];
     const agenda = [];
     const asset = [];
