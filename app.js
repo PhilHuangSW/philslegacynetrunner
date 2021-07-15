@@ -257,9 +257,9 @@ app.get('/corp/:id', async (req, res) => {
   let deck_name_to_id = 0;
   let corp = '';
   switch (id) {
-    case 'architects':
+    case 'haasbioroid':
     case '1':
-      corp = 'architects';
+      corp = 'haasbioroid';
       deck_name_to_id = 13;
       break;
     case 'foundry':
@@ -267,9 +267,9 @@ app.get('/corp/:id', async (req, res) => {
       corp = 'foundry';
       deck_name_to_id = 14;
       break;
-    case 'pe':
+    case 'jinteki':
     case '3':
-      corp = 'pe';
+      corp = 'jinteki';
       deck_name_to_id = 15;
       break;
     case 'nisei':
@@ -277,28 +277,28 @@ app.get('/corp/:id', async (req, res) => {
       corp = 'nisei';
       deck_name_to_id = 16;
       break;
-    case 'builder':
+    case 'bluesun':
     case '5':
-      corp = 'builder';
+      corp = 'bluesun';
       deck_name_to_id = 17;
       break;
-    case 'babw':
+    case 'weyland':
     case '6':
-      corp = 'babw';
+      corp = 'weyland';
       deck_name_to_id = 18;
       break;
-    case 'sync':
+    case 'spark':
     case '7':
-      corp = 'sync';
+      corp = 'spark';
       deck_name_to_id = 19;
       break;
-    case 'spark':
+    case 'sync':
     case '8':
-      corp = 'spark';
+      corp = 'sync';
       deck_name_to_id = 20;
       break;
     default:
-      corp = 'architects';
+      corp = 'haasbioroid';
       deck_name_to_id = 13;
   }
   try {
