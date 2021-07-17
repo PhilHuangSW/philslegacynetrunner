@@ -83,7 +83,6 @@ const createChaosTheory = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Smoke -- 66369
 const createSmoke = async () => {
   try {
@@ -108,7 +107,6 @@ const createSmoke = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Nasir -- 66370
 const createNasir = async () => {
   try {
@@ -133,7 +131,6 @@ const createNasir = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Geist -- 66438
 const createGeist = async () => {
   try {
@@ -158,7 +155,6 @@ const createGeist = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Gabe -- 66465
 const createGabe = async () => {
   try {
@@ -183,7 +179,6 @@ const createGabe = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Khan -- 66373
 const createKhan = async () => {
   try {
@@ -208,7 +203,6 @@ const createKhan = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Null -- 66374
 const createNull = async () => {
   try {
@@ -233,7 +227,6 @@ const createNull = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Omar -- 66375
 const createOmar = async () => {
   try {
@@ -258,7 +251,6 @@ const createOmar = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Reina -- 66498
 const createReina = async () => {
   try {
@@ -283,7 +275,6 @@ const createReina = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Adam -- 66497
 const createAdam = async () => {
   try {
@@ -308,7 +299,6 @@ const createAdam = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Apex -- 66499
 const createApex = async () => {
   try {
@@ -333,7 +323,6 @@ const createApex = async () => {
     console.log('I broke somehow in CreateDeck Function');
   }
 }
-
 // Sunny -- 66500
 const createSunny = async () => {
   try {
@@ -359,24 +348,9 @@ const createSunny = async () => {
   }
 }
 
-const createAllRunners = async () => {
-  await createChaosTheory();
-  await createSmoke();
-  await createNasir();
-  await createGeist();
-  await createGabe();
-  await createKhan();
-  await createNull();
-  await createOmar();
-  await createReina();
-  await createAdam();
-  await createApex();
-  await createSunny();
-  client.end();
-}
 
 // Haas-Bioroid: Architects of Tomorrow -- 66647
-const createArchitects = async () => {
+const createHaasBioroid = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66647');
     const decklistJson = await decklist.json();
@@ -396,10 +370,9 @@ const createArchitects = async () => {
 
   } catch (err) {
     console.log(err.message);
-    console.log('I broke somehow in Architects creation Function');
+    console.log('I broke somehow in HaasBioroid creation Function');
   }
 }
-
 // The Foundry -- 66674
 const createFoundry = async () => {
   try {
@@ -424,11 +397,10 @@ const createFoundry = async () => {
     console.log('I broke somehow in Foundry creation Function');
   }
 }
-
-// Jinteki -- 66675
+// Jinteki -- 66682
 const createJinteki = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66675');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66682');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -497,8 +469,8 @@ const createBlueSun = async () => {
     console.log('I broke somehow in BlueSun creation Function');
   }
 }
-// Builder -- 66678
-const createBuilder = async () => {
+// Weyland -- 66678
+const createWeyland = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66678');
     const decklistJson = await decklist.json();
@@ -518,7 +490,7 @@ const createBuilder = async () => {
 
   } catch (err) {
     console.log(err.message);
-    console.log('I broke somehow in Builder creation Function');
+    console.log('I broke somehow in Weyland creation Function');
   }
 }
 // Spark -- 66679
@@ -576,8 +548,50 @@ const createAllCorps = async () => {
   await createJinteki();
   await createNisei();
   await createBlueSun();
-  await createBuilder();
+  await createWeyland();
   await createSpark();
   await createSync();
   client.end();
 }
+
+const createAllRunners = async () => {
+  await createChaosTheory();
+  await createSmoke();
+  await createNasir();
+  await createGeist();
+  await createGabe();
+  await createKhan();
+  await createNull();
+  await createOmar();
+  await createReina();
+  await createAdam();
+  await createApex();
+  await createSunny();
+  client.end();
+}
+
+const createAll = async () => {
+  await createChaosTheory();
+  await createSmoke();
+  await createNasir();
+  await createGeist();
+  await createGabe();
+  await createKhan();
+  await createNull();
+  await createOmar();
+  await createReina();
+  await createAdam();
+  await createApex();
+  await createSunny();
+
+  await createHaasBioroid();
+  await createFoundry();
+  await createJinteki();
+  await createNisei();
+  await createBlueSun();
+  await createWeyland();
+  await createSpark();
+  await createSync();
+  client.end();
+}
+// createAllCorps();

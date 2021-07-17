@@ -95,14 +95,14 @@ const createDeck = async () => {
 
 const updateDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66647');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66682');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
       // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
       cards.push([ob, decklistJson.data[0].cards[ob]])
     }
-    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '13' RETURNING *",
+    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '15' RETURNING *",
       [
         decklistJson.data[0].id,
         cards,
@@ -452,10 +452,10 @@ const createFoundry = async () => {
     console.log('I broke somehow in Foundry creation Function');
   }
 }
-// Jinteki -- 66675
+// Jinteki -- 66682
 const createJinteki = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66675');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66682');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -524,8 +524,8 @@ const createBlueSun = async () => {
     console.log('I broke somehow in BlueSun creation Function');
   }
 }
-// Builder -- 66678
-const createBuilder = async () => {
+// Weyland -- 66678
+const createWeyland = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66678');
     const decklistJson = await decklist.json();
@@ -603,7 +603,7 @@ const createAllCorps = async () => {
   await createJinteki();
   await createNisei();
   await createBlueSun();
-  await createBuilder();
+  await createWeyland();
   await createSpark();
   await createSync();
 }
@@ -647,4 +647,5 @@ const createAll = async () => {
 }
 
 // createAllCorps();
-createAll();
+// createAll();
+updateDeck();

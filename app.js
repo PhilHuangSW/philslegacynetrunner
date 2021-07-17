@@ -478,14 +478,71 @@ app.get('/corp/:id', async (req, res) => {
           });
       }
     }
-    console.log(agenda)
-    console.log(asset)
-    console.log(operation)
-    console.log(upgrade)
-    console.log(barrier)
-    console.log(codegate)
-    console.log(sentry)
-    console.log(other)
+    // console.log(agenda)
+    // console.log(asset)
+    // console.log(operation)
+    // console.log(upgrade)
+    // console.log(barrier)
+    // console.log(codegate)
+    // console.log(sentry)
+    // console.log(other)
+    // console.log('---------------------------------------------------')
+    // var count = 0;
+    // console.log('IDENTITY: ')
+    // for (let index of identity) {
+    //   // console.log(index);
+    //   console.log(index.id + 'id' + count + ' -- ' + index.title);
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nAGENDAS: ')
+    // for (let index of agenda) {
+    //   console.log(index.id + 'ag' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nASSETS: ')
+    // for (let index of asset) {
+    //   console.log(index.id + 'a' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nOPERATIONS: ')
+    // for (let index of operation) {
+    //   console.log(index.id + 'o' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nUPGRADES: ')
+    // for (let index of upgrade) {
+    //   console.log(index.id + 'u' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nBARRIER: ')
+    // for (let index of barrier) {
+    //   console.log(index.id + 'ib' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nCODEGATE: ')
+    // for (let index of codegate) {
+    //   console.log(index.id + 'ic' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nSENTRY: ')
+    // for (let index of sentry) {
+    //   console.log(index.id + 'is' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+    // count = 0;
+    // console.log('\nOTHER: ')
+    // for (let index of other) {
+    //   console.log(index.id + 'io' + count + ' -- ' + index.title)
+    //   count += 1
+    // }
+
     res.render('corp', { identity, agenda, asset, operation, upgrade, barrier, codegate, sentry, other, allImages, deck_name, deck_description, corp });
   } catch (err) {
     console.log(err.message);
