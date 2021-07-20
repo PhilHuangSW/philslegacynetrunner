@@ -554,6 +554,8 @@ const createAllCorps = async () => {
   client.end();
 }
 
+createAllCorps();
+
 const createAllRunners = async () => {
   await createChaosTheory();
   await createSmoke();
