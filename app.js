@@ -6,11 +6,11 @@ const postgres = require('postgres');
 const morgan = require('morgan');
 //------------------------------------------------------------------
 // USE FOR DEVELOPING
-const pg = require('pg');
-const pool = require('./db');
+// const pg = require('pg');
+// const pool = require('./db');
 
 // USE FOR PRODUCTION
-// const { Client } = require('pg');
+const { Client } = require('pg');
 //------------------------------------------------------------------
 
 const cors = require('cors');
@@ -31,13 +31,13 @@ app.use(cors());
 //------------------------------------------------------------------
 // DATABASE CONNECTION
 // USE FOR PRODUCTION
-// const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
-// client.connect();
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+client.connect();
 //------------------------------------------------------------------
 
 // ROUTES
@@ -116,10 +116,10 @@ app.get('/runner/:id', async (req, res) => {
   try {
     //---------------------------------------------------------------------------------------------
     // USE FOR LOCALHOST DEVELOPING
-    const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    // const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
 
     // USE FOR PRODUCTION
-    // const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
     //---------------------------------------------------------------------------------------------
 
 
@@ -141,10 +141,10 @@ app.get('/runner/:id', async (req, res) => {
 
       //---------------------------------------------------------------------------------------------
       // USE FOR LOCALHOST DEVELOPING
-      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      // const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
 
       // USE FOR PRODUCTION
-      // const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
       //---------------------------------------------------------------------------------------------
 
 
@@ -339,10 +339,10 @@ app.get('/corp/:id', async (req, res) => {
   try {
     //---------------------------------------------------------------------------------------------
     // USE FOR LOCALHOST DEVELOPING
-    const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    // const data = await pool.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
 
     // USE FOR PRODUCTION
-    // const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
+    const data = await client.query(`SELECT * FROM decks WHERE deck_id = ${deck_name_to_id}`);
     //---------------------------------------------------------------------------------------------
 
 
@@ -366,10 +366,10 @@ app.get('/corp/:id', async (req, res) => {
     for (let cardCode in cards) {
       //---------------------------------------------------------------------------------------------
       // USE FOR LOCALHOST DEVELOPING
-      const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      // const card = await pool.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
 
       // USE FOR PRODUCTION
-      // const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
+      const card = await client.query("SELECT * FROM cards WHERE code = $1", [cards[cardCode][0]]);
       //---------------------------------------------------------------------------------------------
 
 
