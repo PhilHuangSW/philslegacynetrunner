@@ -66,7 +66,7 @@
 
         <!-- EVENTS -->
         <% if (event.length != 0) { %>
-        <h3 class="text-white pt-2">Events:</h3>
+        <h3 class="text-white pt-2">Events: [<%= totalCardDistribution.event %>]</h3>
         <% for( let i = 0; i < event.length; i++ ) { %>
         <div class="text-white">
           <%= event[i].amount %>x
@@ -80,7 +80,7 @@
 
         <!-- RESOURCES -->
         <% if (resource.length != 0) { %>
-        <h3 class="text-white pt-2">Resources:</h3>
+        <h3 class="text-white pt-2">Resources: [<%= totalCardDistribution.resource %>]</h3>
         <% for( let i = 0; i < resource.length; i++ ) { %>
         <div class="text-white">
           <%= resource[i].amount %>x
@@ -96,7 +96,7 @@
       <div class="col-sm-6">
         <!-- HARDWARE -->
         <% if (hardware.length != 0) { %>
-        <h3 class="text-white pt-2">Hardware:</h3>
+        <h3 class="text-white pt-2">Hardware: [<%= totalCardDistribution.hardware %>]</h3>
         <% for( let i = 0; i < hardware.length; i++ ) { %>
         <div class="text-white">
           <%= hardware[i].amount %>x
@@ -110,7 +110,7 @@
 
         <!-- ICEBREAKERS -->
         <% if (icebreaker.length != 0) { %>
-        <h3 class="text-white pt-2">Icebreakers:</h3>
+        <h3 class="text-white pt-2">Icebreakers: [<%= totalCardDistribution.icebreaker %>]</h3>
         <% for( let i = 0; i < icebreaker.length; i++ ) { %>
         <div class="text-white">
           <%= icebreaker[i].amount %>x
@@ -124,7 +124,7 @@
 
         <!-- PROGRAMS -->
         <% if (program.length != 0) { %>
-        <h3 class="text-white pt-2">Programs:</h3>
+        <h3 class="text-white pt-2">Programs: [<%= totalCardDistribution.program %>]</h3>
         <% for( let i = 0; i < program.length; i++ ) { %>
         <div class="text-white">
           <%= program[i].amount %>x

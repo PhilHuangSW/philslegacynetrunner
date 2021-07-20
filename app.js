@@ -135,6 +135,7 @@ app.get('/runner/:id', async (req, res) => {
     const icebreaker = [];
     const program = [];
     const allImages = [];
+    const totalCardDistribution = {};
 
     for (let cardCode in cards) {
 
@@ -245,7 +246,41 @@ app.get('/runner/:id', async (req, res) => {
     // console.log(hardware)
     // console.log(icebreaker)
     // console.log(program)
-    res.render('runner', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description, runner });
+
+    var amount = 0;
+    for (let index in event) {
+      amount += parseInt(event[index].amount);
+    }
+    totalCardDistribution["event"] = amount;
+    amount = 0;
+
+    for (let index in hardware) {
+      amount += parseInt(hardware[index].amount);
+    }
+    totalCardDistribution["hardware"] = amount;
+    amount = 0;
+
+    for (let index in resource) {
+      amount += parseInt(resource[index].amount);
+    }
+    totalCardDistribution["resource"] = amount;
+    amount = 0;
+
+    for (let index in program) {
+      amount += parseInt(program[index].amount);
+    }
+    totalCardDistribution["program"] = amount;
+    amount = 0;
+
+    for (let index in icebreaker) {
+      amount += parseInt(icebreaker[index].amount);
+    }
+    totalCardDistribution["icebreaker"] = amount;
+
+    // console.log(totalCardDistribution)
+
+
+    res.render('runner', { identity, event, hardware, resource, icebreaker, program, allImages, deck_name, deck_description, runner, totalCardDistribution });
   } catch (err) {
     console.log(err.message);
     res.redirect('/');
@@ -326,6 +361,7 @@ app.get('/corp/:id', async (req, res) => {
     const sentry = [];
     const other = [];
     const allImages = [];
+    const totalCardDistribution = {};
 
     for (let cardCode in cards) {
       //---------------------------------------------------------------------------------------------
@@ -543,7 +579,60 @@ app.get('/corp/:id', async (req, res) => {
     //   count += 1
     // }
 
-    res.render('corp', { identity, agenda, asset, operation, upgrade, barrier, codegate, sentry, other, allImages, deck_name, deck_description, corp });
+
+    var amount = 0;
+    for (let index in agenda) {
+      amount += parseInt(agenda[index].amount);
+    }
+    totalCardDistribution["agenda"] = amount;
+    amount = 0;
+
+    for (let index in asset) {
+      amount += parseInt(asset[index].amount);
+    }
+    totalCardDistribution["asset"] = amount;
+    amount = 0;
+
+    for (let index in operation) {
+      amount += parseInt(operation[index].amount);
+    }
+    totalCardDistribution["operation"] = amount;
+    amount = 0;
+
+    for (let index in upgrade) {
+      amount += parseInt(upgrade[index].amount);
+    }
+    totalCardDistribution["upgrade"] = amount;
+    amount = 0;
+
+    for (let index in barrier) {
+      amount += parseInt(barrier[index].amount);
+    }
+    totalCardDistribution["barrier"] = amount;
+    amount = 0;
+
+    for (let index in codegate) {
+      amount += parseInt(codegate[index].amount);
+    }
+    totalCardDistribution["codegate"] = amount;
+    amount = 0;
+
+    for (let index in sentry) {
+      amount += parseInt(sentry[index].amount);
+    }
+    totalCardDistribution["sentry"] = amount;
+    amount = 0;
+
+    if (other.length !== 0) {
+      for (let index in other) {
+        amount += parseInt(other[index].amount);
+      }
+      totalCardDistribution["other"] = amount;
+    }
+
+    // console.log(totalCardDistribution)
+
+    res.render('corp', { identity, agenda, asset, operation, upgrade, barrier, codegate, sentry, other, allImages, deck_name, deck_description, corp, totalCardDistribution });
   } catch (err) {
     console.log(err.message);
     res.redirect('/');

@@ -95,14 +95,14 @@ const createDeck = async () => {
 
 const updateDeck = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66682');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66708');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
       // console.log(`${ob} -- ${decklistJson.data[0].cards[ob]}`);
       cards.push([ob, decklistJson.data[0].cards[ob]])
     }
-    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '15' RETURNING *",
+    const deck = await pool.query("UPDATE decks SET deck_code = $1, cards = $2 WHERE deck_id = '16' RETURNING *",
       [
         decklistJson.data[0].id,
         cards,
@@ -115,7 +115,7 @@ const updateDeck = async () => {
   }
 }
 
-// Chaos Theory -- 66368
+// 1 - Chaos Theory -- 66368
 const createChaosTheory = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66368');
@@ -139,7 +139,7 @@ const createChaosTheory = async () => {
     console.log('I broke somehow in Chaos Theory creation Function');
   }
 }
-// Smoke -- 66369
+// 2 - Smoke -- 66369
 const createSmoke = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66369');
@@ -163,7 +163,7 @@ const createSmoke = async () => {
     console.log('I broke somehow in Smoke creation Function');
   }
 }
-// Nasir -- 66370
+// 3 - Nasir -- 66370
 const createNasir = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66370');
@@ -187,7 +187,7 @@ const createNasir = async () => {
     console.log('I broke somehow in Nasir creation Function');
   }
 }
-// Geist -- 66438
+// 4 - Geist -- 66438
 const createGeist = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66438');
@@ -211,7 +211,7 @@ const createGeist = async () => {
     console.log('I broke somehow in Geist creation Function');
   }
 }
-// Gabe -- 66465
+// 5 - Gabe -- 66465
 const createGabe = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66465');
@@ -235,7 +235,7 @@ const createGabe = async () => {
     console.log('I broke somehow in Gabe creation Function');
   }
 }
-// Khan -- 66373
+// 6 - Khan -- 66373
 const createKhan = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66373');
@@ -259,7 +259,7 @@ const createKhan = async () => {
     console.log('I broke somehow in Khan creation Function');
   }
 }
-// Null -- 66374
+// 7 - Null -- 66374
 const createNull = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66374');
@@ -283,7 +283,7 @@ const createNull = async () => {
     console.log('I broke somehow in Null creation Function');
   }
 }
-// Omar -- 66375
+// 8 - Omar -- 66375
 const createOmar = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66375');
@@ -307,7 +307,7 @@ const createOmar = async () => {
     console.log('I broke somehow in Omar creation Function');
   }
 }
-// Reina -- 66498
+// 9 - Reina -- 66498
 const createReina = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66498');
@@ -331,7 +331,7 @@ const createReina = async () => {
     console.log('I broke somehow in Reina creation Function');
   }
 }
-// Adam -- 66497
+// 10 - Adam -- 66497
 const createAdam = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66497');
@@ -355,7 +355,7 @@ const createAdam = async () => {
     console.log('I broke somehow in Adam creation Function');
   }
 }
-// Apex -- 66499
+// 11 - Apex -- 66499
 const createApex = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66499');
@@ -379,7 +379,7 @@ const createApex = async () => {
     console.log('I broke somehow in Apex creation Function');
   }
 }
-// Sunny -- 66500
+// 12 - Sunny -- 66500
 const createSunny = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66500');
@@ -404,7 +404,7 @@ const createSunny = async () => {
   }
 }
 
-// Haas-Bioroid: Architects of Tomorrow -- 66647
+// 13 - Haas-Bioroid: Architects of Tomorrow -- 66647
 const createArchitects = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66647');
@@ -428,7 +428,7 @@ const createArchitects = async () => {
     console.log('I broke somehow in Architects creation Function');
   }
 }
-// The Foundry -- 66674
+// 14 - The Foundry -- 66674
 const createFoundry = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66674');
@@ -452,7 +452,7 @@ const createFoundry = async () => {
     console.log('I broke somehow in Foundry creation Function');
   }
 }
-// Jinteki -- 66682
+// 15 - Jinteki -- 66682
 const createJinteki = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66682');
@@ -476,10 +476,10 @@ const createJinteki = async () => {
     console.log('I broke somehow in Jinteki creation Function');
   }
 }
-// Nisei -- 66676
+// 16 - Nisei -- 66708
 const createNisei = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66676');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66708');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -500,7 +500,7 @@ const createNisei = async () => {
     console.log('I broke somehow in Nisei creation Function');
   }
 }
-// Blue Sun -- 66677
+// 17 - Blue Sun -- 66677
 const createBlueSun = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66677');
@@ -524,7 +524,7 @@ const createBlueSun = async () => {
     console.log('I broke somehow in BlueSun creation Function');
   }
 }
-// Weyland -- 66678
+// 18 - Weyland -- 66678
 const createWeyland = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66678');
@@ -548,10 +548,10 @@ const createWeyland = async () => {
     console.log('I broke somehow in Builder creation Function');
   }
 }
-// Spark -- 66679
+// 19 - Spark -- 66709
 const createSpark = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66679');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66709');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -572,7 +572,7 @@ const createSpark = async () => {
     console.log('I broke somehow in Spark creation Function');
   }
 }
-// Sync -- 66680
+// 20 - Sync -- 66680
 const createSync = async () => {
   try {
     const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66680');

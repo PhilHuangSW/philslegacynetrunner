@@ -421,10 +421,10 @@ const createJinteki = async () => {
     console.log('I broke somehow in Jinteki creation Function');
   }
 }
-// Nisei -- 66676
+// Nisei -- 66708
 const createNisei = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66676');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66708');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
@@ -493,10 +493,10 @@ const createWeyland = async () => {
     console.log('I broke somehow in Weyland creation Function');
   }
 }
-// Spark -- 66679
+// Spark -- 66709
 const createSpark = async () => {
   try {
-    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66679');
+    const decklist = await fetch('https://netrunnerdb.com/api/2.0/public/decklist/66709');
     const decklistJson = await decklist.json();
     const cards = [];
     for (let ob in decklistJson.data[0].cards) {
