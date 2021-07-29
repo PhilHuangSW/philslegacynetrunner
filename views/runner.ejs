@@ -258,7 +258,9 @@
       // Button that triggered the modal
       const button = e.relatedTarget;
       // Extract info from data-bs-* attributes
+      var cardCodeRegex = button.getAttribute('data-bs-whatever');
       const card_id = button.getAttribute('data-bs-whatever').match(/(\d+)(?=\w)/)[0];
+      
       // console.log(card_id);
       const card_type = button.getAttribute('data-bs-whatever').match(/[a-z]+/)[0];
       // console.log(card_type);
