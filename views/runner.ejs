@@ -248,21 +248,23 @@
     const icebreaker = <%- JSON.stringify(icebreaker) %>;
     const resource = <%- JSON.stringify(resource) %>;
     const cardModal = document.getElementById('cardModal');
-    console.log(identity)
-    console.log(event)
-    console.log(hardware)
-    console.log(program)
-    console.log(icebreaker)
-    console.log(resource)
+    // console.log(identity)
+    // console.log(event)
+    // console.log(hardware)
+    // console.log(program)
+    // console.log(icebreaker)
+    // console.log(resource)
     cardModal.addEventListener('show.bs.modal', function (e) {
       // Button that triggered the modal
       const button = e.relatedTarget;
       // Extract info from data-bs-* attributes
-      const card_id = button.getAttribute('data-bs-whatever').match(/(\d+)(?=\w)/)[0];
+      let cardCodeRegex = button.getAttribute('data-bs-whatever');
+      const card_id = cardCodeRegex.match(/(\d+)(?=\w)/)[0];
+      let newCardCodeRegex = cardCodeRegex.slice(card_id.length);
       // console.log(card_id);
-      const card_type = button.getAttribute('data-bs-whatever').match(/[a-z]+/)[0];
+      const card_type = newCardCodeRegex.match(/[a-z]+/)[0];
       // console.log(card_type);
-      const card_array_index = button.getAttribute('data-bs-whatever').match(/(?<=\D)(\d+)/)[0];
+      const card_array_index = newCardCodeRegex.slice(card_type.length);
       // console.log(card_array_index);
       // If necessary, you could initiate an AJAX request here
       // and then do the updating in a callback.
