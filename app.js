@@ -46,7 +46,8 @@ const scriptSrcUrls = [
   "https://netrunnerdb.com/",
   "https://boardgamegeek.com/",
   "https://raw.githubusercontent.com/",
-  "http://netrunnerlegacy.com"
+  "http://netrunnerlegacy.com",
+  "http://www.netrunnerlegacy.com/"
 ]
 
 const styleSrcUrls = [
@@ -57,7 +58,8 @@ const styleSrcUrls = [
   "https://netrunnerdb.com/",
   "https://boardgamegeek.com/",
   "https://raw.githubusercontent.com/",
-  "http://netrunnerlegacy.com"
+  "http://netrunnerlegacy.com",
+  "http://www.netrunnerlegacy.com/"
 ]
 
 const fontSrcUrls = [
@@ -81,7 +83,8 @@ app.use(
         "https://netrunnerdb.com/",
         "https://boardgamegeek.com/",
         "https://raw.githubusercontent.com/",
-        "http://netrunnerlegacy.com"
+        "http://netrunnerlegacy.com",
+        "http://www.netrunnerlegacy.com/"
       ],
       fontSrc: ["'self'", ...fontSrcUrls]
     }
