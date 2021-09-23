@@ -5,6 +5,8 @@ const fetch = require('node-fetch');
 const postgres = require('postgres');
 const morgan = require('morgan');
 const helmet = require("helmet");
+// const https = require('https');
+// const fs = require('fs');
 //------------------------------------------------------------------
 // USE FOR DEVELOPING
 // const pg = require('pg');
@@ -18,6 +20,12 @@ const cors = require('cors');
 
 const app = express();
 const sql = postgres();
+
+// const options = {
+//   key: fs.readFileSync(process.env.sslkey),
+//   cert: fs.readFileSync(process.env.sslcert),
+//   ca: fs.readFileSync(process.env.sslca)
+// };
 
 // MIDDLEWARE
 app.engine('ejs', ejsMate);
@@ -37,7 +45,8 @@ const scriptSrcUrls = [
   "https://code.jquery.com/",
   "https://netrunnerdb.com/",
   "https://boardgamegeek.com/",
-  "https://raw.githubusercontent.com/"
+  "https://raw.githubusercontent.com/",
+  "http://netrunnerlegacy.com"
 ]
 
 const styleSrcUrls = [
@@ -47,7 +56,8 @@ const styleSrcUrls = [
   "https://code.jquery.com/",
   "https://netrunnerdb.com/",
   "https://boardgamegeek.com/",
-  "https://raw.githubusercontent.com/"
+  "https://raw.githubusercontent.com/",
+  "http://netrunnerlegacy.com"
 ]
 
 const fontSrcUrls = [
@@ -70,7 +80,8 @@ app.use(
         "data:",
         "https://netrunnerdb.com/",
         "https://boardgamegeek.com/",
-        "https://raw.githubusercontent.com/"
+        "https://raw.githubusercontent.com/",
+        "http://netrunnerlegacy.com"
       ],
       fontSrc: ["'self'", ...fontSrcUrls]
     }

@@ -2,3 +2,7 @@ node_modules
 temp.ejs
 .env
 decklist
+netrunnerlegacy.com.zip
+private.key
+certificate.crt
+ca_bundle.crt
