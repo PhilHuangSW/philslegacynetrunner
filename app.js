@@ -4,6 +4,7 @@ const ejsMate = require('ejs-mate');
 const fetch = require('node-fetch');
 const postgres = require('postgres');
 const morgan = require('morgan');
+const helmet = require("helmet");
 //------------------------------------------------------------------
 // USE FOR DEVELOPING
 // const pg = require('pg');
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
+app.use(helmet());
 
 //------------------------------------------------------------------
 // DATABASE CONNECTION
