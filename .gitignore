@@ -3,6 +3,7 @@ temp.ejs
 .env
 decklist
 netrunnerlegacy.com.zip
-private.key
-certificate.crt
+https
 ca_bundle.crt
+certificate.crt
+private.key
