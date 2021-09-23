@@ -30,6 +30,53 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(helmet());
 
+const scriptSrcUrls = [
+  "https://cdn.jsdelivr.net/",
+  "https://fonts.gstatic.com",
+  "https://fonts.googleapis.com/",
+  "https://code.jquery.com/",
+  "https://netrunnerdb.com/",
+  "https://boardgamegeek.com/",
+  "https://raw.githubusercontent.com/"
+]
+
+const styleSrcUrls = [
+  "https://cdn.jsdelivr.net/",
+  "https://fonts.gstatic.com",
+  "https://fonts.googleapis.com/",
+  "https://code.jquery.com/",
+  "https://netrunnerdb.com/",
+  "https://boardgamegeek.com/",
+  "https://raw.githubusercontent.com/"
+]
+
+const fontSrcUrls = [
+  "https://fonts.gstatic.com",
+  "https://fonts.googleapis.com/"
+]
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: [],
+      connectSrc: ["'self'"],
+      scriptSrc: ["'unsafe-inline'", ...scriptSrcUrls],
+      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+      workerSrc: ["'self'", "blob:"],
+      objectSrc: [],
+      imgSrc: [
+        "'self'",
+        "blob:",
+        "data:",
+        "https://netrunnerdb.com/",
+        "https://boardgamegeek.com/",
+        "https://raw.githubusercontent.com/"
+      ],
+      fontSrc: ["'self'", ...fontSrcUrls]
+    }
+  })
+);
+
 //------------------------------------------------------------------
 // DATABASE CONNECTION
 // USE FOR PRODUCTION
