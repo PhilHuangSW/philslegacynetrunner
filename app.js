@@ -47,7 +47,8 @@ const scriptSrcUrls = [
   "https://boardgamegeek.com/",
   "https://raw.githubusercontent.com/",
   "http://netrunnerlegacy.com",
-  "http://www.netrunnerlegacy.com/"
+  "http://www.netrunnerlegacy.com/",
+  "https://netrunnerlegacy.herokuapp.com/"
 ]
 
 const styleSrcUrls = [
@@ -59,7 +60,8 @@ const styleSrcUrls = [
   "https://boardgamegeek.com/",
   "https://raw.githubusercontent.com/",
   "http://netrunnerlegacy.com",
-  "http://www.netrunnerlegacy.com/"
+  "http://www.netrunnerlegacy.com/",
+  "https://netrunnerlegacy.herokuapp.com/"
 ]
 
 const fontSrcUrls = [
@@ -84,7 +86,8 @@ app.use(
         "https://boardgamegeek.com/",
         "https://raw.githubusercontent.com/",
         "http://netrunnerlegacy.com",
-        "http://www.netrunnerlegacy.com/"
+        "http://www.netrunnerlegacy.com/",
+        "https://netrunnerlegacy.herokuapp.com/"
       ],
       fontSrc: ["'self'", ...fontSrcUrls]
     }
