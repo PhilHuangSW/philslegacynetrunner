@@ -1,3 +1,4 @@
+![Banner](https://github.com/PhilHuangSW/philslegacynetrunner/header.png)
 # Phil's Netrunner Legacy Decks (https://netrunnerlegacy.herokuapp.com)
 
 ## Background
@@ -14,11 +15,13 @@ As one does when a game you've played for so long ends, you do things that you c
 
 Website is created with: 
 
-- Node.js
-- Express
-- PostgreSQL
-- Bootstrap5
-- JavaScript, HTML, CSS, EJS
+<a href="https://nodejs.org/en/download/" alt="node version">
+  <img src="https://img.shields.io/badge/Node.js-v14.15.0-green.svg" /></a>
+
+<a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" alt="npm version">
+  <img src="https://img.shields.io/badge/npm-v6.14.8-red.svg" /></a>
+  
+  
 
 ## Versions
 
