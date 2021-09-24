@@ -1,5 +1,14 @@
-![Banner](https://github.com/PhilHuangSW/philslegacynetrunner/banner.PNG)
-# Phil's Netrunner Legacy Decks (https://netrunnerlegacy.herokuapp.com)
+<a href="https://netrunnerlegacy.herokuapp.com" alt="Phil's Netunner Legacy Decks banner link to website">
+  <img src="https://github.com/PhilHuangSW/philslegacynetrunner/blob/master/banner.PNG" /></a>
+  
+<h1 align="center">Phil's Netrunner Legacy Decks (https://netrunnerlegacy.herokuapp.com)</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/version-v1.2-blue" />
+  <img src="https://img.shields.io/github/last-commit/PhilHuangSW/philslegacynetrunner" />
+  <img src="https://img.shields.io/github/issues-raw/PhilHuangSW/philslegacynetrunner" />
+  <img src="https://img.shields.io/github/issues-pr/PhilHuangSW/philslegacynetrunner" />
+</p>
 
 ## Background
 
@@ -21,11 +30,23 @@ Website is created with:
 <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" alt="npm version">
   <img src="https://img.shields.io/badge/npm-v6.14.8-red.svg" /></a>
   
+<a href="https://www.npmjs.com/package/express" alt="express version">
+  <img src="https://img.shields.io/badge/express-v4.17.1-yellowgreen.svg" /></a>
   
+<a href="https://www.postgresql.org/download/" alt="postgresql version">
+  <img src="https://img.shields.io/badge/PostgreSQL-v1.0.2-blue.svg" /></a>
+  
+<a href="https://ejs.co/" alt="ejs version">
+  <img src="https://img.shields.io/badge/EJS-v3.1.6-orange.svg" /></a><br>
 
-## Versions
+<a href="" alt="JavaScript">
+  <img src="https://img.shields.io/badge/JavaScript-yellow.svg" /></a>
+  
+<a href="" alt="HTML">
+<img src="https://img.shields.io/badge/HTML-red.svg" /></a>
 
-Current Version: 1.2
+<a href="" alt="CSS">
+<img src="https://img.shields.io/badge/CSS-blue.svg" /></a>
 
 ## Future Improvements
 
