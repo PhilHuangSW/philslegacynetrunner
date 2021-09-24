@@ -1,4 +1,4 @@
-# Phil's Netrunner Legacy Decks (PNLD) (https://netrunnerlegacy.herokuapp.com)
+# Phil's Netrunner Legacy Decks (https://netrunnerlegacy.herokuapp.com)
 
 ## Background
 
