@@ -1,4 +1,4 @@
-![Banner](https://github.com/PhilHuangSW/philslegacynetrunner/header.png)
+![Banner](https://github.com/PhilHuangSW/philslegacynetrunner/banner.PNG)
 # Phil's Netrunner Legacy Decks (https://netrunnerlegacy.herokuapp.com)
 
 ## Background
