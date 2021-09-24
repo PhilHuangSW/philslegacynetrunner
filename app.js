@@ -22,15 +22,9 @@ const app = express();
 const sql = postgres();
 
 // const options = {
-<<<<<<< HEAD
 //   key: fs.readFileSync(process.env.sslkey),
 //   cert: fs.readFileSync(process.env.sslcert),
 //   ca: fs.readFileSync(process.env.sslca)
-=======
-//   key: fs.readFileSync(path.resolve(__dirname, 'https/private.key')),
-//   cert: fs.readFileSync(path.resolve(__dirname, 'https/certificate.crt')),
-//   ca: fs.readFileSync(path.resolve(__dirname, 'https/ca_bundle.crt'))
->>>>>>> 41ab64f (removed ssl certificates and used herokus built in ssl)
 // };
 
 // MIDDLEWARE
